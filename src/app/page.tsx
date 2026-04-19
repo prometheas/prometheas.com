@@ -13,7 +13,7 @@ export default function Home() {
             width={1920}
             height={1200}
             priority
-            className="w-full h-auto block"
+            className="w-full h-auto block dark:opacity-[0.42]"
           />
         </div>
 
