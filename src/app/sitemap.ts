@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const postPages = getAllPosts().map((post) => ({
-    url: `${baseUrl}/post/${post.slug}`,
+    url: `${baseUrl}/posts/${post.year}/${post.month}/${post.slug}`,
     lastModified: new Date(post.date),
     priority: 0.6,
   }));

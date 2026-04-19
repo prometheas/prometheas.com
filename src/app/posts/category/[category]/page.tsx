@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { postsByCategory, allCategories, paginate } from "@/lib/posts";
+import { postsByCategory, allCategories } from "@/lib/posts";
 import { PostList } from "../../_components/PostList";
 
 export function generateStaticParams() {
@@ -27,12 +27,10 @@ export default async function CategoryPosts({
   const posts = postsByCategory(decodeURIComponent(category));
   if (posts.length === 0) notFound();
 
-  const result = paginate(posts, 1);
-
   return (
     <PostList
       title={`Category: ${posts[0].categories.find((c) => c.toLowerCase() === decodeURIComponent(category)) || category}`}
-      posts={result.posts}
+      posts={posts}
       currentPage={1}
       totalPages={1}
       baseUrl={`/posts/category/${category}`}

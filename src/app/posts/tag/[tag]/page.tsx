@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { postsByTag, allTags, paginate } from "@/lib/posts";
+import { postsByTag, allTags } from "@/lib/posts";
 import { PostList } from "../../_components/PostList";
 
 export function generateStaticParams() {
@@ -27,12 +27,10 @@ export default async function TagPosts({
   const posts = postsByTag(decodeURIComponent(tag));
   if (posts.length === 0) notFound();
 
-  const result = paginate(posts, 1);
-
   return (
     <PostList
       title={`Tag: #${posts[0].tags.find((t) => t.toLowerCase() === decodeURIComponent(tag)) || tag}`}
-      posts={result.posts}
+      posts={posts}
       currentPage={1}
       totalPages={1}
       baseUrl={`/posts/tag/${tag}`}

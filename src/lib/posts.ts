@@ -10,6 +10,8 @@ export interface PostMeta {
   filename: string;
   title: string;
   date: string;
+  year: string;
+  month: string;
   categories: string[];
   tags: string[];
   draft: boolean;
@@ -61,11 +63,20 @@ function getAllPostMeta(): PostMeta[] {
     const slug =
       data.slug || filename.replace(/\.mdx$/, "").replace(/^\d{4}-\d{2}-/, "");
 
+    const dateObj = data.date ? new Date(data.date) : null;
+    const dateStr = dateObj ? dateObj.toISOString().split("T")[0] : "";
+    const year = dateObj ? String(dateObj.getUTCFullYear()) : "";
+    const month = dateObj
+      ? String(dateObj.getUTCMonth() + 1).padStart(2, "0")
+      : "";
+
     return {
       slug,
       filename: filename.replace(/\.mdx$/, ""),
       title: data.title || slug,
-      date: data.date ? new Date(data.date).toISOString() : "",
+      date: dateStr,
+      year,
+      month,
       categories: Array.isArray(data.categories) ? data.categories : [],
       tags: Array.isArray(data.tags)
         ? data.tags
@@ -99,6 +110,16 @@ export function getAllPosts(): PostMeta[] {
 
 export function getPostBySlug(slug: string): PostMeta | undefined {
   return cached().find((p) => p.slug === slug);
+}
+
+export function getPostByYearMonthSlug(
+  year: string,
+  month: string,
+  slug: string,
+): PostMeta | undefined {
+  return cached().find(
+    (p) => p.year === year && p.month === month && p.slug === slug,
+  );
 }
 
 export function getPostSlugs(): string[] {

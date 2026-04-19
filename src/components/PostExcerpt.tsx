@@ -26,7 +26,7 @@ export function PostExcerpt({ post }: { post: PostMeta }) {
         )}
       </div>
       <Link
-        href={`/post/${post.slug}/`}
+        href={`/posts/${post.year}/${post.month}/${post.slug}`}
         className="text-lg font-medium text-slate-900 no-underline hover:text-red transition-colors"
       >
         {post.title}
