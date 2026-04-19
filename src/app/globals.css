@@ -1,64 +1,156 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
+  /* Zinc palette (full Tailwind zinc) */
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  /* Red palette (hue 9, pinned at 600/700) */
+  --color-red-50: #fdf3f1;
+  --color-red-100: #fce3de;
+  --color-red-200: #f9cbc2;
+  --color-red-300: #f2a496;
+  --color-red-400: #ea7661;
+  --color-red-500: #df4e34;
+  --color-red-600: #C23B22;
+  --color-red-700: #A83019;
+  --color-red-800: #812818;
+  --color-red-900: #672418;
+  --color-red-950: #3e1109;
+
+  /* Legacy aliases for existing classes */
   --color-red: #C23B22;
   --color-red-hover: #A83019;
-  --color-slate-900: #0f172a;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748b;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
-  --color-slate-100: #f1f5f9;
-  --color-slate-50: #f8fafc;
+
   --font-sans: "Helvetica Neue", var(--font-inter), -apple-system, sans-serif;
+}
+
+/* Semantic tokens — light mode defaults */
+:root {
+  --bg-base: var(--color-zinc-50);
+  --bg-surface: #ffffff;
+  --bg-muted: var(--color-zinc-100);
+  --text-primary: var(--color-zinc-900);
+  --text-secondary: var(--color-zinc-500);
+  --text-muted: var(--color-zinc-500);
+  --border: var(--color-zinc-200);
+  --border-subtle: var(--color-zinc-100);
+  --accent: var(--color-red-600);
+  --accent-hover: var(--color-red-700);
+  color-scheme: light;
+}
+
+/* Semantic tokens — dark mode overrides */
+.dark {
+  --bg-base: var(--color-zinc-900);
+  --bg-surface: var(--color-zinc-800);
+  --bg-muted: var(--color-zinc-900);
+  --text-primary: var(--color-zinc-100);
+  --text-secondary: var(--color-zinc-400);
+  --text-muted: var(--color-zinc-400);
+  --border: var(--color-zinc-700);
+  --border-subtle: var(--color-zinc-700);
+  --accent: var(--color-red-400);
+  --accent-hover: var(--color-red-500);
+  color-scheme: dark;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline-color: var(--accent);
+}
+
+/* Prose overrides for semantic dark mode */
+.prose {
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-counters: var(--text-muted);
+  --tw-prose-bullets: var(--text-muted);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--text-secondary);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-code: var(--text-primary);
+  --tw-prose-pre-code: var(--text-primary);
+  --tw-prose-pre-bg: var(--bg-muted);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border-subtle);
+}
+
+/* Syntax highlighting: switch shiki theme via CSS vars */
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
 
 /* Blog post content */
 .post-content {
-  /* Paragraph spacing: 1em between paragraphs */
   & p {
     margin-top: 1em;
     margin-bottom: 1em;
   }
 
-  /* Links */
   & a {
-    color: var(--color-red);
+    color: var(--accent);
     text-decoration: none;
   }
   & a:hover {
     opacity: 0.7;
   }
-
-  /* Blockquotes */
-  & blockquote {
-    border-left-color: var(--color-red);
-    color: var(--color-slate-600);
+  .dark & a:hover {
+    opacity: 1;
+    color: var(--accent-hover);
   }
 
-  /* Code blocks */
+  & blockquote {
+    border-left-color: var(--accent);
+    color: var(--text-secondary);
+  }
+
   & code {
     font-size: 0.875em;
   }
   & pre {
-    background: var(--color-slate-50);
-    border: 1px solid var(--color-slate-200);
+    background: var(--bg-muted);
+    border: 1px solid var(--border);
   }
 
-  /* Footnotes section */
   & .footnotes {
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--color-slate-200);
+    border-top: 1px solid var(--border);
   }
   & .footnotes h2 {
-    /* Override sr-only to make the heading visible */
     position: static !important;
     width: auto !important;
     height: auto !important;
@@ -69,7 +161,7 @@ body {
     white-space: normal !important;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-slate-900);
+    color: var(--text-primary);
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
@@ -79,7 +171,7 @@ body {
   }
   & .footnotes li {
     font-size: 0.875rem;
-    color: var(--color-slate-600);
+    color: var(--text-secondary);
     line-height: 1.6;
   }
   & .footnotes li p {
