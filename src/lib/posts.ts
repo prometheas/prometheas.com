@@ -80,7 +80,11 @@ function getAllPostMeta(): PostMeta[] {
 
   return posts
     .filter((p) => !p.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => {
+      const aTime = a.date ? new Date(a.date).getTime() : 0;
+      const bTime = b.date ? new Date(b.date).getTime() : 0;
+      return bTime - aTime;
+    });
 }
 
 let _cache: PostMeta[] | null = null;
@@ -134,9 +138,10 @@ export function postsByTag(tag: string): PostMeta[] {
 }
 
 export function allYears(): number[] {
-  return [...new Set(cached().map((p) => new Date(p.date).getFullYear()))].sort(
-    (a, b) => b - a
-  );
+  const years = cached()
+    .map((p) => new Date(p.date).getFullYear())
+    .filter((y) => !isNaN(y));
+  return [...new Set(years)].sort((a, b) => b - a);
 }
 
 export function allCategories(): string[] {

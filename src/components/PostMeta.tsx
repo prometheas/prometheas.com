@@ -9,7 +9,7 @@ export function PostMeta({
   categories: string[];
   tags: string[];
 }) {
-  const formatted = new Date(date).toLocaleDateString("en-US", {
+  const formatted = new Date(date + "T12:00").toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",

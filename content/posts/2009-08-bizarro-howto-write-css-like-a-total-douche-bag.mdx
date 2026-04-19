@@ -35,16 +35,18 @@ For them, I offer here three fabulous pointers for writing CSS like a total douc
 
 4\. **Avoid [descendant selectors](http://www.w3.org/TR/CSS2/selector.html#descendant-selectors) like the plague**. The only thing that these will ever afford you is the opportunity to minimize the number of IDs and class names. Where will your opportunity for laughs come when elements can be targeted by JavaScript enhancements using a syntax like this:
 
-        [#!javascript]
-        $('#sidebar .panel .description a.more').click( ... );
+```javascript
+$('#sidebar .panel .description a.more').click( ... );
+```
 
   instead of:
 
-        [#!javascript]
-        $('#sidebar_videos_panel a.more').click( ... );
-        $('#sidebar_widgets_panel a.more').click( ... );
-        $('#sidebar_uploads_panel a.more').click( ... );
-        $('#sidebar_archives_panel a.more').click( ... );
+```javascript
+$('#sidebar_videos_panel a.more').click( ... );
+$('#sidebar_widgets_panel a.more').click( ... );
+$('#sidebar_uploads_panel a.more').click( ... );
+$('#sidebar_archives_panel a.more').click( ... );
+```
 
   The first example allows some other developer to continue to leverage the selector code to enhance the "more" link, should another `.panel` element with a qualifying like in its `.body` element, rather than having to explicitly add another line.
 

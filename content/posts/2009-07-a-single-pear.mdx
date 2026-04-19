@@ -28,6 +28,7 @@ The truth is, I'd forgotten about the `/usr/local` pear install, until I'd notic
     Warning: require_once(/opt/local/lib/php/symfony/autoload/sfCoreAutoload.class.php): failed to open stream: No such file or directory in /Users/yanni/Sites/Hosts/breadbreaker.dev/config/ProjectConfiguration.class.php on line 3
 
     Fatal error: require_once(): Failed opening required '/opt/local/lib/php/symfony/autoload/sfCoreAutoload.class.php' (include_path='.:/opt/local/lib/php') in /Users/yanni/Sites/Hosts/breadbreaker.dev/config/ProjectConfiguration.class.php on line 3
+```
 
 The file paths for the `require` statement in the `ProjectConfiguration.class.php` file were generated on my home computer, which was configured to use the MacPorts pear, which installs Symfony at `/opt/local/lib/php`.
 
@@ -36,12 +37,14 @@ So I thought to check which pear installation I was using:
 ```shell
     $ which pear
     /opt/local/bin/pear
+```
 
 Huh. That's... actually (correctly) the MacPorts one. Next, I thought to check where my Symfony package was installed:
 
 ```shell
     $ which symfony
     /usr/local/bin/symfony
+```
 
 "Ah!" I thought with relief at the promise of closure, "It's using a version of Symfony I'd installed before I'd installed MacPorts' pear." Then I thought I'd confirm that I still had the old version of pear laying around:
 
@@ -51,6 +54,7 @@ Huh. That's... actually (correctly) the MacPorts one. Next, I thought to check w
     /usr/local/share/pear
     /usr/local/share/pear/pear.old/symfony/plugins/sfPropelPlugin/lib/vendor/propel-generator/pear
     /usr/local/share/pear/symfony/plugins/sfPropelPlugin/lib/vendor/propel-generator/pear
+```
 
 I'd found it. I only wanted to keep a single version of pear libraries on my system (under MacPorts), so I proceeded to uninstall the Symfony package from `/usr/local` and install it explicitly into MacPorts' own `/opt/local`.
 
@@ -63,12 +67,14 @@ I'd found it. I only wanted to keep a single version of pear libraries on my sys
     Starting to download symfony-1.2.8.tgz (2,695,461 bytes)
     ..........................done: 2,695,461 bytes
     install ok: channel://pear.symfony-project.com/symfony-1.2.8
+```
 
 I then proceeded to confirm that Symfony was now installed somewhere within the `/opt/local` directory branch:
 
 ```shell
     $ which symfony
     /usr/local/bin/symfony
+```
 
 It wasn't. I then tried to rename the pear files in `/usr/local` so that they wouldn't be found, but that didn't work either. I Googled far and wide, and found my lead in the Pear Documentation website's [article about shared hosting](http://pear.php.net/manual/en/installation.shared.php).
 

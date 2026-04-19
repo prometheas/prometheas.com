@@ -73,6 +73,7 @@ A sample configuration might look like this:
           author:
             list: /authors.xml
             item: /authors/:id.xml
+```
 
 The RESTful service in our example is located at `https://exampleservice.com/api` and offers two resource entities: `book` and `author`. These configuration values will be used to populate the properties of a `sfRESTOriginService` instance that represents the service.
 
@@ -106,6 +107,7 @@ Note that this configuration is defined under the key `service_1`. Here's what s
     $svc->put( '@book?id=34', array(
       'data' => $book->serializeXml()
     ));
+```
 
 As the sample suggests, each service will be represented by a single instance.
 

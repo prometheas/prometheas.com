@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
 
 export function PostExcerpt({ post }: { post: PostMeta }) {
-  const date = new Date(post.date);
+  const date = new Date(post.date + "T12:00");
   const formatted = date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

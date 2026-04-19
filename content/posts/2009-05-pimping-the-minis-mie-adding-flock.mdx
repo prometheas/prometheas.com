@@ -37,21 +37,25 @@ Fire up a terminal, `cd` to your Desktop (or whichever directory your Firefox is
 
 ```shell
     $ sudo tar -C /opt -xjvf flock-*.linux-i686.tar.bz2
+```
 
 Test if flock works from the command line:
 
 ```shell
     $ /opt/flock/flock-browser
+```
 
 If Flock launched properly, it's installed properly. Next, we want to get the command to launch flock accessible from your `PATH` by adding a symlink to it in `/usr/local/bin`:
 
 ```shell
     $ sudo ln -s /opt/flock/flock-browser /usr/local/bin/flock
+```
 
 Test if the symlink works:
 
 ```shell
     $ flock
+```
 
 If Flock launched, then our command line installation steps are complete.
 
@@ -69,12 +73,14 @@ To create this backup, type the following into your terminal:
 
 ```shell
     $ sudo cp -r /etc/xdg/menus /etc/xdg/menus.original
+```
 
 If we ever want to restore to our defaults, we need simply type:
 
 ```shell
     $ sudo mv /etc/xdg/menus /etc/xdg/menus.hosed
     $ sudo cp -r /etc/xdg/menus.original /etc/xdg/menus
+```
 
 This reversion will keep whatever changes you made to the config files you accidentally hosed, in case you want to try to copy your hacks back, one by one.
 
@@ -95,6 +101,7 @@ Create the file `/usr/local/share/applications/flock.desktop` and set its conten
     TerminalOptions=
     Type=Application
     Categories=Application;Network;
+```
 
 Note that we're creating our Application Entry file in `/usr/local/share` rather than `/usr/share`. This is because this is the recommended practice for items added manually by the user in Unix-like operating systems.
 
@@ -119,6 +126,7 @@ Open `/etc/xdg/menus/applications.menu` file, and make the following change:
 
       </Layout>
     </Menu>
+```
 
 Save your file, then go to the application launcher. You should now see the following:
 

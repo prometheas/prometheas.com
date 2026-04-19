@@ -29,6 +29,7 @@ This "lazy hydration" of Propel's looks like this:
       $author->hydrate( $rs );
       echo "{$author->getLastName()}, {$author->getFirstName()}";
     }
+```
 
 The code above does the following:
 
@@ -53,6 +54,7 @@ Assuming you're _not_ worried the query's results might chew up all system's RAM
     {
       echo "{$author->getLastName()}, {$author->getFirstName()}";
     }
+```
 
 For starters, this is a more concise block of code.
 
@@ -82,6 +84,7 @@ Let's start simply:
     {
       echo "{$author->getLastName()}, {$author->getFirstName()}";
     }
+```
 
 The constructor requires two arguments: the name of the Propel model class, and a Criteria object. Internally, the object queries the database to retrieve a `ResultSet`. Using this object in a `foreach()` loop iterates through the database results using the same lazy hydration technique we looked at earlier.
 
@@ -110,6 +113,7 @@ Let's take a look at a slightly more complex scenario, which uses a Propel 1.2 `
     {
       $con->rollback();
     }
+```
 
 But how does this all happen? Let's look at an abbreviated version of this class:
 
@@ -177,6 +181,7 @@ But how does this all happen? Let's look at an abbreviated version of this class
       }
 
     }
+```
 
 The real work happens in the constructor and `createAndHydrate()` method. The latter is called by the `Iterator` interface implementations of the `next()` and `current()` methods (included in the code excerpt above).
 
@@ -207,6 +212,7 @@ And finally, let's surrender fully to the laziness within — let's look at supe
 
       // ... other peer methods ...
     }
+```
 
 Now, we can iterator over all `author` records like so:
 
@@ -215,5 +221,6 @@ Now, we can iterator over all `author` records like so:
     {
       echo "{$author->getLastName()}, {$author->getFirstName()}";
     }
+```
 
 Whoever said you couldn't have your cake _and_ eat it obviously wasn't terribly determined to be as lazy as possible.
