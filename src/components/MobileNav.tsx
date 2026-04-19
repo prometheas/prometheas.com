@@ -90,11 +90,11 @@ export function MobileNav() {
         <div className="flex flex-col items-center gap-8 mb-12">
           {navLinks.map((link, i) => {
             const className = `text-2xl font-light tracking-[0.2em] uppercase text-white no-underline transition-all duration-300 ${
-              open
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-5"
+              open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
             }`;
-            const style = { transitionDelay: open ? `${150 + i * 70}ms` : "0ms" };
+            const style = {
+              transitionDelay: open ? `${150 + i * 70}ms` : "0ms",
+            };
 
             return "external" in link ? (
               <a
@@ -124,9 +124,7 @@ export function MobileNav() {
 
         <div
           className={`flex items-center gap-6 transition-all duration-300 ${
-            open
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2.5"
+            open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2.5"
           }`}
           style={{ transitionDelay: open ? "350ms" : "0ms" }}
         >
@@ -139,7 +137,11 @@ export function MobileNav() {
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-[22px] h-[22px]">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-[22px] h-[22px]"
+              >
                 {s.icon}
               </svg>
             </a>

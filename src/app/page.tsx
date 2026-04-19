@@ -42,11 +42,17 @@ export default function Home() {
             </p>
             <p className="mt-4">
               So far, I&apos;ve ported over my{" "}
-              <Link href="/portfolio/software" className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity">
+              <Link
+                href="/portfolio/software"
+                className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              >
                 software projects
               </Link>{" "}
               showcase and a small sampling of my{" "}
-              <Link href="/portfolio/photography" className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity">
+              <Link
+                href="/portfolio/photography"
+                className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              >
                 photography
               </Link>{" "}
               work (hobby only).
@@ -87,7 +93,10 @@ export default function Home() {
               You&apos;ll find direct links to my LinkedIn, Github, and other
               social profiles in the header and footer of this site. And the
               best way to get in touch is through{" "}
-              <Link href="/contact" className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity">
+              <Link
+                href="/contact"
+                className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              >
                 this Contact form
               </Link>
               .

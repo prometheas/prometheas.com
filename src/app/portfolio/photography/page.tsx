@@ -4,12 +4,42 @@ import { PhotoGallery } from "./PhotoGallery";
 export const metadata: Metadata = { title: "Photography" };
 
 const photos = [
-  { src: "/images/photography/photo-1.jpg", alt: "Photography 1", width: 960, height: 720 },
-  { src: "/images/photography/photo-2.jpg", alt: "Photography 2", width: 960, height: 720 },
-  { src: "/images/photography/photo-3.jpg", alt: "Photography 3", width: 960, height: 720 },
-  { src: "/images/photography/photo-4.jpg", alt: "Photography 4", width: 960, height: 720 },
-  { src: "/images/photography/photo-5.jpg", alt: "Photography 5", width: 960, height: 720 },
-  { src: "/images/photography/photo-6.jpg", alt: "Photography 6", width: 640, height: 640 },
+  {
+    src: "/images/photography/photo-1.jpg",
+    alt: "Photography 1",
+    width: 960,
+    height: 720,
+  },
+  {
+    src: "/images/photography/photo-2.jpg",
+    alt: "Photography 2",
+    width: 960,
+    height: 720,
+  },
+  {
+    src: "/images/photography/photo-3.jpg",
+    alt: "Photography 3",
+    width: 960,
+    height: 720,
+  },
+  {
+    src: "/images/photography/photo-4.jpg",
+    alt: "Photography 4",
+    width: 960,
+    height: 720,
+  },
+  {
+    src: "/images/photography/photo-5.jpg",
+    alt: "Photography 5",
+    width: 960,
+    height: 720,
+  },
+  {
+    src: "/images/photography/photo-6.jpg",
+    alt: "Photography 6",
+    width: 640,
+    height: 640,
+  },
 ];
 
 export default function PhotographyPage() {

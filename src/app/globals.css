@@ -23,15 +23,15 @@
   --color-red-300: #f2a496;
   --color-red-400: #ea7661;
   --color-red-500: #df4e34;
-  --color-red-600: #C23B22;
-  --color-red-700: #A83019;
+  --color-red-600: #c23b22;
+  --color-red-700: #a83019;
   --color-red-800: #812818;
   --color-red-900: #672418;
   --color-red-950: #3e1109;
 
   /* Legacy aliases for existing classes */
-  --color-red: #C23B22;
-  --color-red-hover: #A83019;
+  --color-red: #c23b22;
+  --color-red-hover: #a83019;
 
   --font-sans: "Helvetica Neue", var(--font-inter), -apple-system, sans-serif;
 }

@@ -10,11 +10,14 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [
-      remarkFrontmatter,
-      remarkGfm,
+    remarkPlugins: [remarkFrontmatter, remarkGfm],
+    rehypePlugins: [
+      [
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        rehypePrettyCode as any,
+        { theme: { light: "github-light", dark: "github-dark" } },
+      ],
     ],
-    rehypePlugins: [[rehypePrettyCode as any, { theme: { light: "github-light", dark: "github-dark" } }]],
   },
 });
 

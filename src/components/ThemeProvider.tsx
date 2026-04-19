@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 
 type Theme = "system" | "light" | "dark";
 type ResolvedTheme = "light" | "dark";
@@ -15,14 +22,17 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 function getSystemTheme(): ResolvedTheme {
   if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function getStoredTheme(): Theme {
   if (typeof window === "undefined") return "system";
   try {
     const stored = localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark" || stored === "system") return stored;
+    if (stored === "light" || stored === "dark" || stored === "system")
+      return stored;
   } catch {
     // localStorage unavailable (private browsing, restricted storage)
   }
@@ -53,7 +63,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     (newTheme: Theme) => {
       themeRef.current = newTheme;
       setThemeState(newTheme);
-      try { localStorage.setItem("theme", newTheme); } catch {}
+      try {
+        localStorage.setItem("theme", newTheme);
+      } catch {}
       const resolved = resolve(newTheme);
       setResolvedTheme(resolved);
       applyTheme(resolved);
@@ -65,6 +77,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored = getStoredTheme();
     themeRef.current = stored;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe initialization from localStorage
     setThemeState(stored);
     const resolved = resolve(stored);
     setResolvedTheme(resolved);
@@ -91,7 +104,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (e.key === "theme") {
         const raw = e.newValue;
         const newTheme: Theme =
-          raw === "light" || raw === "dark" || raw === "system" ? raw : "system";
+          raw === "light" || raw === "dark" || raw === "system"
+            ? raw
+            : "system";
         themeRef.current = newTheme;
         setThemeState(newTheme);
         const resolved = resolve(newTheme);

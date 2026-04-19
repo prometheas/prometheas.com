@@ -22,7 +22,11 @@ export function Header() {
         href="/"
         className="group text-[1.1rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-primary)] no-underline hover:text-[var(--accent)] transition-colors"
       >
-        Prometheas<span className="text-[var(--accent)] group-hover:text-[var(--text-primary)] font-bold transition-colors">.</span>com
+        Prometheas
+        <span className="text-[var(--accent)] group-hover:text-[var(--text-primary)] font-bold transition-colors">
+          .
+        </span>
+        com
       </Link>
 
       <nav className="hidden md:flex gap-2 lg:gap-5 items-center">

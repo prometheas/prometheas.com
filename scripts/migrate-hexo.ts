@@ -34,21 +34,15 @@ function transformContent(content: string): string {
       const captionAttr = caption ? ` caption="${caption}"` : "";
       const altAttr = alt ? ` alt="${alt}"` : "";
       return `<Figure src="${newSrc}"${altAttr}${captionAttr} />`;
-    }
+    },
   );
 
   // Rewrite standalone image paths
-  out = out.replace(
-    /!\[([^\]]*)\]\(\/images\//g,
-    "![$1](/images/blog/"
-  );
+  out = out.replace(/!\[([^\]]*)\]\(\/images\//g, "![$1](/images/blog/");
 
   // Convert Hexo code block syntax [#!lang] to standard fenced code blocks
   // Matches indented code blocks that start with [#!lang] or [#!lang N]
-  out = out.replace(
-    /^( {4})\[#!(\w+)(?:\s+\d+)?\]\n/gm,
-    "```$2\n"
-  );
+  out = out.replace(/^( {4})\[#!(\w+)(?:\s+\d+)?\]\n/gm, "```$2\n");
 
   // Remove <!--more--> markers
   out = out.replace(/<!--more-->/g, "");

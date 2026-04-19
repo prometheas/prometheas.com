@@ -19,7 +19,12 @@ export default function SoftwarePage() {
           href="https://github.com/prometheas/generator-multistack-tdd-kata"
         >
           This is a{" "}
-          <a href="http://yeoman.io" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://yeoman.io"
+            className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yeoman
           </a>{" "}
           generator that quickly creates an empty TDD kata project. The
@@ -36,7 +41,12 @@ export default function SoftwarePage() {
           href="https://chrome.google.com/webstore/detail/jira-to-omnifocus/engmpfhepafobaopljohdkogmbbhcaeo"
         >
           for Chrome (
-          <a href="https://github.com/prometheas/jira-2-omnifocus" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/prometheas/jira-2-omnifocus"
+            className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Github repo
           </a>
           ). This extension adds a big, lovely <em>Send to OmniFocus</em> button
@@ -51,24 +61,39 @@ export default function SoftwarePage() {
       <ProjectSection title="Deprecated and Obsolete">
         <p className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light mb-6">
           These are my older and, frankly, obsolete projects. They show a much
-          less experienced man&apos;s skills, but I keep them around because they
-          offer historical record that I&apos;ve been writing software as a
-          hobby and releasing OSS for years. As rough their edges and long in the
-          tooth, I&apos;m still rather proud of what they represent.
+          less experienced man&apos;s skills, but I keep them around because
+          they offer historical record that I&apos;ve been writing software as a
+          hobby and releasing OSS for years. As rough their edges and long in
+          the tooth, I&apos;m still rather proud of what they represent.
         </p>
         <ul className="list-disc pl-6 space-y-3 text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light">
           <li>
-            <a href="http://www.symfony-project.org/plugins/sfPropelLazyHydrationIteratorPlugin" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+            <a
+              href="http://www.symfony-project.org/plugins/sfPropelLazyHydrationIteratorPlugin"
+              className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               sfPropelLazyHydrationIteratorPlugin
             </a>
           </li>
           <li>
-            <a href="http://www.symfony-project.org/plugins/sfRESTClientPlugin" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+            <a
+              href="http://www.symfony-project.org/plugins/sfRESTClientPlugin"
+              className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               sfRESTClientPlugin
             </a>
           </li>
           <li>
-            <a href="https://sourceforge.net/projects/rosettastone/" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://sourceforge.net/projects/rosettastone/"
+              className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Rosetta Stone Library
             </a>
             . A Swing (yep, Java) library that offered the ability to map
@@ -77,7 +102,12 @@ export default function SoftwarePage() {
             mid-aughts, so this has become entirely useless.
           </li>
           <li>
-            <a href="https://sourceforge.net/projects/awusbxtra/?source=directory" className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://sourceforge.net/projects/awusbxtra/?source=directory"
+              className="text-[var(--accent)] hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               AWUSB Xtra
             </a>
             . An Xtra for Macromedia Director (yea, it&apos;s <em>that</em>{" "}
@@ -119,7 +149,12 @@ function Project({
 }) {
   return (
     <p className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light">
-      <a href={href} className="text-[var(--accent)] font-medium hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity" target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className="text-[var(--accent)] font-medium hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {name}
       </a>
       . {children}

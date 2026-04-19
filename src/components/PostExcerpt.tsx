@@ -12,7 +12,9 @@ export function PostExcerpt({ post }: { post: PostMeta }) {
   return (
     <article className="py-6 border-b border-[var(--border-subtle)] last:border-b-0">
       <div className="flex items-center gap-3 mb-2">
-        <time className="text-xs text-[var(--text-muted)] tracking-wide">{formatted}</time>
+        <time className="text-xs text-[var(--text-muted)] tracking-wide">
+          {formatted}
+        </time>
         {post.categories[0] && (
           <>
             <span className="text-[var(--text-muted)]">&middot;</span>

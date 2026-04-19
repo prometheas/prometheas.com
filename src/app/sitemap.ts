@@ -8,8 +8,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified: new Date(), priority: 1.0 },
     { url: `${baseUrl}/about`, lastModified: new Date(), priority: 0.75 },
     { url: `${baseUrl}/portfolio`, lastModified: new Date(), priority: 0.75 },
-    { url: `${baseUrl}/portfolio/software`, lastModified: new Date(), priority: 0.75 },
-    { url: `${baseUrl}/portfolio/photography`, lastModified: new Date(), priority: 0.75 },
+    {
+      url: `${baseUrl}/portfolio/software`,
+      lastModified: new Date(),
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/portfolio/photography`,
+      lastModified: new Date(),
+      priority: 0.75,
+    },
     { url: `${baseUrl}/contact`, lastModified: new Date(), priority: 0.75 },
     { url: `${baseUrl}/posts`, lastModified: new Date(), priority: 0.8 },
   ];
@@ -38,5 +46,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [...staticPages, ...postPages, ...yearPages, ...categoryPages, ...tagPages];
+  return [
+    ...staticPages,
+    ...postPages,
+    ...yearPages,
+    ...categoryPages,
+    ...tagPages,
+  ];
 }

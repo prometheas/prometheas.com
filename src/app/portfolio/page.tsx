@@ -23,7 +23,8 @@ export default function PortfolioPage() {
             Software Projects
           </h2>
           <p className="text-sm text-[var(--text-muted)] font-light leading-relaxed">
-            Developer tools, browser extensions, and open source contributions spanning two decades.
+            Developer tools, browser extensions, and open source contributions
+            spanning two decades.
           </p>
         </Link>
 

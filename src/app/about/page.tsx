@@ -23,7 +23,9 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <h2 className="text-2xl font-medium text-[var(--text-primary)] mb-6">Bio</h2>
+      <h2 className="text-2xl font-medium text-[var(--text-primary)] mb-6">
+        Bio
+      </h2>
 
       <div className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light space-y-5">
         <p>

@@ -37,12 +37,19 @@ function extractExcerpt(content: string): string {
   // Split into paragraphs (skip empty lines)
   const paragraphs = cleaned.split(/\n\n+/).filter((p) => {
     const trimmed = p.trim();
-    return trimmed.length > 0 && !trimmed.startsWith("#") && !trimmed.startsWith("---");
+    return (
+      trimmed.length > 0 &&
+      !trimmed.startsWith("#") &&
+      !trimmed.startsWith("---")
+    );
   });
 
   if (paragraphs.length === 0) return "";
 
-  const firstPara = paragraphs[0].replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*_`#]/g, "").trim();
+  const firstPara = paragraphs[0]
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*_`#]/g, "")
+    .trim();
 
   // First paragraph or first 3 sentences, whichever is shorter
   const sentences = firstPara.match(/[^.!?]+[.!?]+/g) || [firstPara];
@@ -149,7 +156,7 @@ export function postsByYear(year: number): PostMeta[] {
 export function postsByCategory(category: string): PostMeta[] {
   const lower = category.toLowerCase();
   return cached().filter((p) =>
-    p.categories.some((c) => c.toLowerCase() === lower)
+    p.categories.some((c) => c.toLowerCase() === lower),
   );
 }
 
