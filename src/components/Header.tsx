@@ -13,14 +13,12 @@ export function Header() {
       </Link>
 
       <nav className="hidden md:flex gap-9 items-center">
-        <a
-          href="http://uncarved.prometheas.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/posts/"
           className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-slate-700 no-underline hover:text-red transition-colors"
         >
           Blog
-        </a>
+        </Link>
         <Link
           href="/portfolio"
           className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-slate-700 no-underline hover:text-red transition-colors"

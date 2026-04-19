@@ -28,7 +28,7 @@ const socials = [
 ];
 
 const navLinks = [
-  { href: "http://uncarved.prometheas.com/", label: "Blog", external: true },
+  { href: "/posts/", label: "Blog" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
