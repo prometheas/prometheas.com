@@ -1,0 +1,58 @@
+---
+title: Declaring Canonical URLs in HTTP Headers
+slug: canonical-urls-in-http-headers
+draft: false
+categories:
+  - General Thoughts
+tags:
+  - canonical url
+  - http
+  - RESTful
+date: '2009-04-18'
+id: 209
+---
+
+Google [recently posted](http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html) about its new support for recognizing _canonical URLs_ for page content.
+
+A canonical URL is simply the "official" URL for accessing the item in question. Google explains it thus:
+
+> If your site has identical or vastly similar content that's accessible through multiple URLs, [specifying a canonical URL] provides you with more control over the URL returned in search results. It also helps to make sure that properties such as link popularity are consolidated to your preferred version.
+
+Canonical URLs become useful in sites like Amazon or YouTube, where the same product or video page may be accessed by a number of different URLs.
+
+Consider, for example, the following two Amazon URLs:
+
+- http://www.amazon.com/Acer-AS6530-5143-16-Inch-Dual-Core-Processor/dp/B001GGLW3G
+- http://www.amazon.com/Acer-AS6530-5143-16-Inch-Dual-Core-Processor/dp/B001GGLW3G/ref=sr_1_2?ie=UTF8&s=pc&qid=1239978328&sr=1-2
+
+_Both_ point to the same Acer laptop product page on Amazon. I found the second URL from Amazon's [Acer laptops page](http://www.amazon.com/s/ref=amb_link_7386392_2?ie=UTF8&node=565108&field-keywords=acer&emi=ATVPDKIKX0DER&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=center-5&pf_rd_r=09N5T1RT6JNK66EZKYEP&pf_rd_t=101&pf_rd_p=473729351&pf_rd_i=507846), and you can bet that the URL contains information about where the user found the link, and more.
+
+Thanks to canonical URLs, however, every link Google (as well as Ask, Microsoft Live Search, and Yahoo!) finds around the web that winds up landing on this page will all consolidate under a single URL, which will—as post linked above explains—bolster the page's ranking in search results placement.
+
+Using our example above, all Amazon would need to do to take advantage of this is to add the following special tag in the `<head>` of the product page:
+
+```html
+<link rel="canonical" href="http://www.amazon.com/Acer-AS6530/dp/B001GGLW3G" />
+```
+
+So canonical URLs super simple to implement are clearly useful for SEO.
+
+Another context in which I believe they'd be useful is the URLs of asset files (images, videos, PDFs, etc) and [RESTful web services](http://en.wikipedia.org/wiki/Representational_State_Transfer). Unfortunately, these are all cases in which server's response data will _not_ be HTML, in which case the solution shown above simply cannot be used.
+
+I believe, however, that I have stumbled upon a solution worth borrowing to solve this problem.
+
+Earlier today I was reading Robert Spychala's [proposals for URL auto-discovery](http://wiki.snaplog.com/short_url), which proposes a means to include URL auto-discovery information in HTTP response headers. It struck me immediately as a great idea which can directly translate to a solution for allowing non-HTML data to specify a canonical URL.
+
+Specifically, the canonical URL header data for the Acer laptop example from above would look like this:
+
+```
+Link: <http://www.amazon.com/Acer-AS6530/dp/B001GGLW3G>; rel=canonical
+```
+
+And the canonical URL of its _primary photo_:
+
+```
+Link: <http://www.amazon.com/Acer-AS6530/img/B001GGLW3G/primary/medium.jpg>; rel=canonical
+```
+
+Since Google, Yahoo!, and the rest all index images, videos, and other non-HTML resources, I believe that supporting canonical URL declaration in the HTTP response headers is an idea worth seriously considering for all the same reasons it makes brilliant sense for HTML documents.

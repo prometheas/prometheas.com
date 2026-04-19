@@ -1,10 +1,12 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
   --color-red: #C23B22;
   --color-red-hover: #A83019;
   --color-slate-900: #0f172a;
   --color-slate-700: #334155;
+  --color-slate-600: #475569;
   --color-slate-500: #64748b;
   --color-slate-300: #cbd5e1;
   --color-slate-200: #e2e8f0;
@@ -15,4 +17,76 @@
 
 body {
   -webkit-font-smoothing: antialiased;
+}
+
+/* Blog post content */
+.post-content {
+  /* Paragraph spacing: 1em between paragraphs */
+  & p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  /* Links */
+  & a {
+    color: var(--color-red);
+    text-decoration: none;
+  }
+  & a:hover {
+    opacity: 0.7;
+  }
+
+  /* Blockquotes */
+  & blockquote {
+    border-left-color: var(--color-red);
+    color: var(--color-slate-600);
+  }
+
+  /* Code blocks */
+  & code {
+    font-size: 0.875em;
+  }
+  & pre {
+    background: var(--color-slate-50);
+    border: 1px solid var(--color-slate-200);
+  }
+
+  /* Footnotes section */
+  & .footnotes {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-slate-200);
+  }
+  & .footnotes h2 {
+    /* Override sr-only to make the heading visible */
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 0 1rem 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-slate-900);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  & .footnotes ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+  & .footnotes li {
+    font-size: 0.875rem;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+  }
+  & .footnotes li p {
+    margin: 0.25em 0;
+  }
+  & .data-footnote-backref {
+    font-size: 0.75rem;
+    margin-left: 0.25em;
+  }
 }

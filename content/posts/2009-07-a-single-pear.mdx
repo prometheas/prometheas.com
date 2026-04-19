@@ -1,0 +1,93 @@
+---
+title: A Single Pear
+slug: a-single-pear
+draft: false
+categories:
+  - Tabula Quasi-Rasa
+  - Tutorials
+tags:
+  - MacPorts
+  - Pear
+  - PHP
+  - system administration
+date: '2009-07-24'
+id: 431
+---
+
+I've just invested several hours trying to get my system to use the Pear libraries from [MacPorts](http://macports.org) rather than the Pear libraries I had installed years ago using [the command line installer](http://pear.php.net/go-pear), as described [here](http://clickontyler.com/blog/2008/01/how-to-install-pear-in-mac-os-x-leopard/). This is largely because I'm happy to let the MacPorts package manager take care of upgrading my software, and making sure all inter-dependencies are looked after.
+
+The command line installer adds files to the traditional `/usr/local` directory, while the MacPorts package manager adds the files to `/opt/local`.
+
+And from there, troubles arose. 
+
+The truth is, I'd forgotten about the `/usr/local` pear install, until I'd noticed something peculiar trying to setup a [Symfony](http://symfony-project.org) project I'm working on. Attempting to run one of its command line tasks, I got a fatal error from PHP, reading:
+
+```shell
+    $ ./symfony cc
+
+    Warning: require_once(/opt/local/lib/php/symfony/autoload/sfCoreAutoload.class.php): failed to open stream: No such file or directory in /Users/yanni/Sites/Hosts/breadbreaker.dev/config/ProjectConfiguration.class.php on line 3
+
+    Fatal error: require_once(): Failed opening required '/opt/local/lib/php/symfony/autoload/sfCoreAutoload.class.php' (include_path='.:/opt/local/lib/php') in /Users/yanni/Sites/Hosts/breadbreaker.dev/config/ProjectConfiguration.class.php on line 3
+```
+
+The file paths for the `require` statement in the `ProjectConfiguration.class.php` file were generated on my home computer, which was configured to use the MacPorts pear, which installs Symfony at `/opt/local/lib/php`.
+
+So I thought to check which pear installation I was using:
+
+```shell
+    $ which pear
+    /opt/local/bin/pear
+```
+
+Huh. That's... actually (correctly) the MacPorts one. Next, I thought to check where my Symfony package was installed:
+
+```shell
+    $ which symfony
+    /usr/local/bin/symfony
+```
+
+"Ah!" I thought with relief at the promise of closure, "It's using a version of Symfony I'd installed before I'd installed MacPorts' pear." Then I thought I'd confirm that I still had the old version of pear laying around:
+
+```shell
+    $ find /usr/local -name pear
+    /usr/local/bin/pear
+    /usr/local/share/pear
+    /usr/local/share/pear/pear.old/symfony/plugins/sfPropelPlugin/lib/vendor/propel-generator/pear
+    /usr/local/share/pear/symfony/plugins/sfPropelPlugin/lib/vendor/propel-generator/pear
+```
+
+I'd found it. I only wanted to keep a single version of pear libraries on my system (under MacPorts), so I proceeded to uninstall the Symfony package from `/usr/local` and install it explicitly into MacPorts' own `/opt/local`.
+
+```shell
+    $ sudo /usr/local/bin/pear uninstall symfony/symfony
+    uninstall ok: channel://pear.symfony-project.com/symfony-1.1.3
+
+    $ sudo /opt/local/bin/pear install symfony/symfony
+    downloading symfony-1.2.8.tgz ...
+    Starting to download symfony-1.2.8.tgz (2,695,461 bytes)
+    ..........................done: 2,695,461 bytes
+    install ok: channel://pear.symfony-project.com/symfony-1.2.8
+```
+
+I then proceeded to confirm that Symfony was now installed somewhere within the `/opt/local` directory branch:
+
+```shell
+    $ which symfony
+    /usr/local/bin/symfony
+```
+
+It wasn't. I then tried to rename the pear files in `/usr/local` so that they wouldn't be found, but that didn't work either. I Googled far and wide, and found my lead in the Pear Documentation website's [article about shared hosting](http://pear.php.net/manual/en/installation.shared.php).
+
+I had configured my `.pearrc` file to explicitly look for installed pear libraries in `/usr/local`. This setting was even being honored by the pear in `/opt/local`.
+
+I renamed my `~/.pearrc` file to `~/.pearrc.old` and attempted to install the Symfony package again. Pear complained about an unknown installation source, which meant I had to "discover" Symfony's [pear channel](http://pear.php.net/manual/en/guide.users.commandline.channels.php). Once I'd done this, Symfony installed to the correct location!
+
+Finally, I just dumped the old pear installation under `/usr/local` and the file now named `~/.pearrc.old`, and was fully transitioned to the MacPorts pear.
+
+How do you like _them_ apples?
+
+### Lessons
+
+* Ensure that you're executing the correct pear script (on Unix, use `which` to determine absolute path of the script being used)
+* Verify that your `php.ini` file has got the correct pear installation path in its include path.
+* If you encounter some wonkiness with the inclusion of pear libraries, make sure there isn't some `.pearrc` file with vestigial configuration settings messing with you.

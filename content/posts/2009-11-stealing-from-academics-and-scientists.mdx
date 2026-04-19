@@ -1,0 +1,97 @@
+---
+title: Fortifying Confidence by Stealing From Academics. And Scientists.
+slug: stealing-from-academics-and-scientists
+draft: false
+categories:
+  - Public Brainstorm
+tags:
+  - data
+  - Library of Congress
+  - mashup
+  - open government
+  - web
+  - web service
+date: '2009-11-10'
+id: 478
+---
+
+Driven in large part by open government efforts initiated by the Obama Administration, and particularly Federal CIO Vivek Kundra, tremendous and rich data sets have become available from the federal government, as well as some state and local governments. This data is published digitally, in organized, well-known and documented formats. [^1]
+
+And because these government-amassed data sets have already been paid for by taxpayer dollars, they have been rightfully made accessible to the public domain, free of charge.
+
+[Tim O'Reilly](http://radar.oreilly.com/tim/) — founder and CEO of O'Reilly Media, as well as organizer and host of various technology conferences including the [Government 2.0 Summit](http://www.gov2summit.com/) — describes the thinking behind this policy decision in an [article he wrote at Forbes](http://www.forbes.com/2009/08/10/government-internet-software-technology-breakthroughs-oreilly.html), writing:
+
+> Rather than licensing government data to a few select "value added" providers, who then license the data downstream, the federal government (and many state and local governments) are beginning to provide an open platform that enables anyone with a good idea to build innovative services that connect government to citizens, give citizens visibility into the actions of government and even allow citizens to participate directly in policy-making.
+
+The primary distribution point for the federal government's data is the [data.gov](http://data.gov) website (about which [I'd earlier written](/2009/05/datagov-launches.html)). In another article he'd guest-authored for TechCrunch, Mr. O'Reilly talks about this website, [writing](http://www.techcrunch.com/2009/09/04/gov-20-its-all-about-the-platform/):
+
+> Behind [the] site is the idea that government agencies shouldn’t just provide web sites, they should provide web services. These services, in effect, become the government’s SDK (software development kit). The government may build some applications using these APIs, but there’s an opportunity for private citizens and innovative companies to build new, unexpected applications. This is the phenomenon that Jonathan Zittrain refers to as "[generativity](http://yupnet.org/zittrain/archives/13#9)", the ability of open-ended platforms to create new possibilities not envisioned by their creators.
+
+The range of potential applications for these data is difficult to exaggerate (or, frankly, to even imagine). A thorough exploration of these possibilities is beyond the scope of this post, but [this showcase of apps](http://datasf.org/showcase/) built leveraging data made available by the city of San Francisco gives a small peek at the broad range of uses this government data.
+
+In browsing that app showcase, I would note that _none_ of the apps found there were written by the government. That's _zero_. Rather, each was developed by a third-party.
+
+I would also note that most of those apps combine _multiple different data sets_, many of which are also including _non-governmental data sets_. [^2]
+
+Clearly all this is just the beginning.
+
+### Opportunities and Challenges to Come
+
+The datasets will grow broader, as the federal government continues to expand its data offerings, and more state and local governments begin to follow suit, as [Utah](http://www.utah.gov/data/), [San Francisco](http://www.datasf.org/), and even my home town of [New York City](http://www.nyc.gov/html/datamine/html/home/home.shtml) have since done.
+
+As the data sets become richer throughout this process, mining the information on offer will provide opportunities to develop insights about matters ranging from public health to environmental developments and energy consumption, and from regional commercial performance to educational development.
+
+And once there's some historical depth to these records — through a combination of digitally publishing data sets from earlier years, as well as continuing to release emergent data — we will eventually even start to see the emergence of various types of _projection models_ developed for many of the issues mentioned above, from economic development forecasts to predictions for the spread of disease outbreak.
+
+These data sets stand to revolutionize both entrepreneurial endeavors and academic research projects.
+
+And with the grant allocations for research en route from [provisions](http://en.wikipedia.org/wiki/Recovery_Act#Provisions_of_the_Act) that are part of [American Recovery and Reinvestment Act of 2009](http://www.gpo.gov/fdsys/pkg/PLAW-111publ5/content-detail.html), we're likely to see a staggering amount of new projects rise from both academia and the business world.
+
+But with all these arguments and assertions about corollaries, trends, and predictions that this number crunching activity will generate, it will become increasingly crucial to have a mechanism by which the results claimed to have been derived from the number-crunching can be accounted for.
+
+It's not difficult to imagine, after all, the proliferation of claims that will begin to emerge, anchoring their proposed value on these mountains of data. [^3] Luckily, after decades of subjection to some of the most talented number-spinning tactics that statisticians teamed up with PR specialists have thrown about, many people have developed a thick skin (and perhaps even default suspicion) against allowing "the numbers" to speak to very much.
+
+And rightfully so; "the numbers" can build nearly any narrative a story teller wishes to weave, depending on how they're sliced, diced, and manicured.
+
+Numbers may not be able to lie, but men sure can.
+
+Luckily, we can find some time-tested solutions for mitigating against falsification and/or incompetence by looking to techniques applied in works of scholarship and the practices of scientific peer review: scholars must meticulously cite their sources in bibliographies attached to their work, and scientists must accompany any publication of the results of their work along with a detailed description of their methods.
+
+It must similarly become incumbent upon anybody publishing findings derived from mining such data to share both the sources _and_ processes used to derive their results or conclusions. In cases of claims rooted in the fruits of data mining endeavors, it is specifically important that results indicate:
+
+1\. exactly which data sets it draws from, and
+
+2\. precisely which algorithm(s) processed the data in question.
+
+The trouble, however, is that there is neither a comprehensive repository nor a system for unique canonical identifiers to publicly and universally identify such data sets and algorithms. Their absence makes any attempts to reproduce such results very challenging, at best.
+
+### Fortifying Confidence in the Results
+
+Books, by contrast, have an [ISBN number](http://en.wikipedia.org/wiki/International_Standard_Book_Number). Books also have a governmental repository, called the [Library of Congress](http://en.wikipedia.org/wiki/Library_of_Congress).
+
+So I propose that similar mechanisms must be worked out for data sets and algorithms. Perhaps serving as this repository becomes an evolutionary portion of the Library of Congress' own charter. This repository would be a web service that exposes each individual data set and data mining algorithm source code package under [permalinks](http://en.wikipedia.org/wiki/Permalink) which incorporate their respective canonical identifier.
+
+Potential examples of such permalinks may look something like this:
+
+    http://www.loc.gov/datasets/0123457/us-census-2010
+    http://www.loc.gov/algorithms/76543210/higgs-boson-modeler
+
+Naturally, there are considerations that must be accounted for in some cases that it may wind up being imperative restrict access to any resources stored in this repository.
+
+I've focused so far on publicly-available data sets, I would note that it is inevitable that a number of valuable projects will on occasion leverage data sets whose rights are privately owned, and to which access must be controlled by obtaining permission of some sort from its owner.
+
+The same concern is naturally prone to surface with some regularity for algorithms, as well.
+
+This a consideration that will require some real thought, but I'll leave that to a future exploration. For the time being, I'll simply note that the HTTP protocol does provide [mechanisms for access restriction](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error) (particularly 401, 402, and 403); leaving only the policy around which those mechanisms will be applied to be worked out.
+
+Although there's loads to work out about how such a repository can be actualized, its availability will become crucial in the coming years.
+
+Simply hope that both the practice of sharing data sources and methods — as well as a suitable canonical repository for them — materialize earlier than later, since a only a few silly and reckless abuses of this data can undermine public confidence in efforts to fully harness its potential value.
+
+
+
+[^1]: Importantly, the manner in which all this data is distributed is an ideal packaging for use as input for processing by data-crunching algorithms developed by anyone interested in doing so.
+
+[^2]: This practice of combining data sets from different sources to create a new, value-added data set is referred to as creating a [mashup](http://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29).
+
+[^3]: It will also certainly be leveraged evaluate the government's performance, both by the current administration and — perhaps more compellingly — by its political opponents.

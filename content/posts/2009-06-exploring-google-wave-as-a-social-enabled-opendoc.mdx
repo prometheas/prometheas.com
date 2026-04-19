@@ -1,0 +1,98 @@
+---
+title: Exploring Google Wave as a Social-Enabled OpenDoc
+slug: exploring-google-wave-as-a-social-enabled-opendoc
+draft: false
+categories:
+  - General Thoughts
+tags:
+  - Google Wave
+  - modular software
+  - OpenDoc
+  - software design
+date: '2009-06-03'
+id: 391
+---
+
+In thinking about [Google Wave](http://wave.google.com/) since last week's announcement—and thinking through its [extendable](http://code.google.com/apis/wave/embed/index.html) document model (particularly its [Gadgets](http://code.google.com/apis/wave/extensions/gadgets/guide.html) API)—I began to realize that it reminded me of something I'd seen before; something from the past.
+
+Then I realized what that something is: a modern re-imagination of Apple's abandoned [OpenDoc](http://developer.apple.com/documentation/macos8/Legacy/OpenDoc/opendoc.html) component software technology that has been social-enabled and lives in "[the cloud](http://en.wikipedia.org/wiki/Cloud_computing)."
+
+
+
+For those unfamiliar with the technology, its [Wikipedia article](http://en.wikipedia.org/wiki/OpenDoc) explains:
+
+> The basic idea of OpenDoc was to create small, reusable components, responsible for a specific task, such as text editing, bitmap editing or browsing an FTP server. OpenDoc provided a framework in which these components could run together, and a document format for storing the data created by each component. These documents could then be opened on other machines, where the OpenDoc frameworks would substitute suitable components for each part, even if they were from different vendors.
+>
+> In this way users could "build up" their documents from parts. Since there was no main application and the only visible interface was the document itself, the system was known as document centered.
+
+The first point worth mentioning is that the OpenDoc software system was designed around a _document centric_, rather than _application centric_, model. [^1]
+
+Briefly, the big difference of the _document centric_ software model is that rather than opening an application, such as Adobe Photoshop or Microsoft Word, you would instead open the _New Document_ template file (located, for example, on your desktop).
+
+Doing so would open a new, new document. This new document was blank, like an empty page, ready for you to start adding material, like text, images, etc.
+
+An OpenDoc page felt a lot like a Web page. It was possible, for example, to add audio clips, or a QuickTime movie into it. You could even embed a Web page (not much different than adding an `<iframe>` to  an HTML document). Although the technology didn't survive long enough to see many third-party contributions, it was intended that even spreadsheets and charts could embedded into a document. [^2]
+
+Images, movies, or other data could be dropped into the document window. Once that happens, the OpenDoc framework would load an appropriate software component, called a _part_, in order to display the data. This model is not unlike the way Web browser plugins work. Some parts also provided the ability to _edit_ their data in-place. New parts could, naturally, also be created from scratch.
+
+So an OpenDoc document containing a text part and an image part might look like this:
+
+<Figure src="/images/blog/media/2009/06/an-opendoc-document.gif" alt="An OpenDoc document.gif" caption="An OpenDoc document" />
+
+And once the user would start interacting with the image part, OpenDoc would present an interface like this:
+
+<Figure src="/images/blog/media/2009/06/an-opendoc-document-with-an-active-part-editor.gif" caption="An OpenDoc document with an active part editor" />
+
+For people familiar with iWork or the Microsoft Office suite, adding components into an OpenDoc document was similar to how you can drop a fully-editable spreadsheet right into a word processing file. But only Excel spreadsheets can be embedded into Word documents.
+
+These suites are both designed according to an application-centric software model.
+
+OpenDoc's component-based document-centric software model, by contrast, aimed to deliver the ability to embed _any spreadsheet component_ into a document. Which would have meant that even if Excel is your favorite spreadsheet, you can use the Nisus Writer component for word processing.
+
+In enabling the end-user to mix and match the precise software components that suited their needs (or tastes) into a compound document, it offered a complete democratization of the Mac software market.
+
+But OpenDoc's success would have also likely have had a severely balkanizing effect on the Mac software market. Say you've drafted up some document using the Nisus Writer text component, two Excel spreadsheet components, an Adobe image component (and possibly many more), and you now have to pass this document to your subcontractor (or lawyer, or the UK office) — you'd have to somehow ensure that everyone that might need to work on or view it has access to these documents composed of data created by a multitude of components.
+
+Oh, and they'd all have to be using Macs... did I mention this was the late 90s?
+
+So another strong reason it was discontinued is a more pragmatic one: it would have been exceedingly difficult share these complex documents with anyone. Even forgetting the Mac-only part, it was the very early days of the Internet, so there weren't yet even any reliably graceful mechanisms for fetching required components from the network. [^3]
+
+Like many Apple technologies of yore, OpenDoc was both way ahead of its time, and completely incongruous with market realities.
+
+But today is a different day, with changed market realities.
+
+As I'd mentioned, Google Wave offers a similar software paradigm, but utterly tramples OpenDoc's offerings in the most critical matter:
+
+_Waves are immensely shareable_.
+
+In the Wave lexicon, the software components that allow a Wave document to contain supplemental datatypes are called _gadgets_, rather than _parts_. Examples of gadgets can include a YouTube player, a chess or sudoku game, a photo album fed by mRSS, and even a Google Maps object.
+
+Here are screenshots of a few Waves, showing a variety of embedded gadgets:
+
+<Figure src="/images/blog/media/2009/06/wave-compound-documents-featuring-gadgets.png" caption="Wave compound documents, featuring gadgets." />
+
+Wave is arriving to a much more mature Internet. It's being delivered to a society for whom the Web is so ubiquitous, it has long since become an integral part of its pop culture. People have stopped wondering what the Internet can do for them, and started rather asking why can't the Internet _also_ do _x_, _y_, and _z_ while it's at it?
+
+Basically, Wave has it better because:
+
+* The only software required to use Wave is a modern Web browser — _everyone's_ got one of those!
+* Waves live "in the cloud" (that's just fancy speak for saying that they live on servers—like message boards—rather than kept on any one person's computer).
+* Because a wave always has network access, adding a new gadget from somewhere else online is quite manageable.
+
+Waves also have a large number of features OpenDoc never had, including the ability to invite multiple people to edit the document concurrently, as well as the inherent ability to "rewind" through the document's history. And since iGoogle gadgets can be placed into waves, Wave already has vastly more _gadgets_ available for use than OpenDoc ever had _parts_.
+
+Now, did anyone on the Wave team ever explicitly look to OpenDoc for inspiration during in their design process?
+
+I don't expect so.
+
+Rather I feel like the document-centric componentized software model itself is a relatively advanced stage of a the fundamental design principle of _[modularity](http://en.wikipedia.org/wiki/Modularity)_ in software systems.
+
+It was only a matter of time before this model would get pulled off successfully.
+
+
+
+[^1]: A [post](http://ignorethecode.net/blog/2009/05/31/creating-new-documents/) by Lukas Mathis, published days ago, compares these two models (and others) very insightfully.
+
+[^2]: People familiar with Win32 development might recognize many similarities between Apple's OpenDoc and Microsoft's OLE, against which it was originally designed to compete.
+
+[^3]: I paused to imagine, however, if things might have been able to work out differently, if there were an iTunes OpenDoc Component Store integrated into the framework.

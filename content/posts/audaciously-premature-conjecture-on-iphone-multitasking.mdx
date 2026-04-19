@@ -1,0 +1,92 @@
+---
+title: Audaciously Premature Conjecture on iPhone Multitasking
+slug: audaciously-premature-conjecture-on-iphone-multitasking
+draft: true
+categories:
+  - General Thoughts
+tags: []
+id: 528
+---
+
+Just for the sake of pressing my luck after [pretty decently nailing](http://cartoonsmartblog.wordpress.com/2010/01/27/the-prognosticator-of-prognosticators-on-the-ibook-er-ipad/) a [prediction](/2009/04/audaciously-premature-apple-netbook-conjecture.html) regarding what was earlier this week announced to the world as the [iPad](http://www.apple.com/ipad/), I thought I'd carry on with that momentum and drop a prediction regarding multitasking on iPhone OS (or, what [I've taken to calling "Touch OS X"](http://uncarved.prometheas.com/2009/03/framework-for-discussing-apples.html#heading-os-x-variants)).
+
+Now, to be clear, it's not that the OS itself presently lacks the capability to multi-task. The capability is certainly there as evidenced by the fact that music can continue to play as you surf the web, that push emails and text messages can arrive as you're plotting your road trip in Maps, and it is possible to use any app on the phone _in the middle of a phone call_.
+
+What is _not_ available, however, is the ability for _third party apps_ to run in the background. To be clear, this is a policy decision made by Apple's engineering team which is intended to maximize the battery life of the device.
+
+You can bet that Apple is eager to ship some form of basic multitasking capability to Touch OS X. Think: [Pandora](http://itunes.apple.com/us/app/pandora-radio/id284035177?mt=8), [Last.fm](http://itunes.apple.com/us/app/last-fm/id284916679?mt=8), or [WEFUNK Radio Stream](http://itunes.apple.com/us/app/wefunk-radio-stream/id320236647?mt=8) continuing to stream music while you're writing an email, or [Facebook](http://itunes.apple.com/us/app/facebook/id284882215?mt=8) continuing a video upload while you look up the address of the restaurant at which your friend is having her birthday party tonight.
+
+But there are two puzzle pieces of the multitasking picture that remain unaccounted for:
+
+1\. an official <acronym title="user interface">UI</acronym>/ <acronym title="user experience">UX</acronym> model for allowing user interaction with apps running in the background, and
+2\. an implementation strategy that minimizes the battery life cost of background processes.
+
+### UX Conundra
+
+One of the trickier problems to solve with respect to enabling background apps is constructing a simple user experience model.
+
+The perfect illustration of this user experience can be found in iPhone's _iPod_ app (called _Music_ on iPod Touch devices) which allows the user to pause / play, skip, or rewind the music being played _from within any app_ by [double-clicking the Home button](http://www.apple.com/iphone/how-to/#settings.home).
+
+It looks like this:
+
+![Double-tap the Home button from with any while while music or podcasts are playing to invoke this](/images/blog/media/2010/01/iPhone-Background-App-Interaction-UI.jpg "iPhone Background App Interaction UI")
+
+Seems simple enough on the surface, but there's a complexity once you begin to focus on the brass tacks.
+
+#### Pandora's Box
+
+Even if all you want is to listen to your Pandora stream while you're surfing the web. Say, in your surfing, you encounter an article from the _New York Times_ or _Wall Street Journal_ that requires a bit more focus than listening to Anthrax or Beyoncé really affords; how do you expose a way to allow the user to stop the track playing in Pandora, or to skip it?
+
+1\. How does the user invoke this UI?
+2\. Would Pandora simply have the option of repurposing the iPod app's background controls UI box?
+2\. Since it's Pandora, wouldn't you also want to be able find custom UI elements available to thumbs-up/down the track?– how would the Pandora app's developers get their custom UI elements in there?
+
+Some good questions regarding how to treat background control customizations for Pandora's box, which is at least an application almost identical in nature to the iPod app, but which already calls for a meaningful difference in UI.
+
+#### Headless Apps and Disembodied Sounds
+
+But let's put the consideration of UI customizations aside a moment and return to the basic idea of background tasks being able to carry on playing audio: once Apple opens the door on background apps, it's not difficult to imagine a deluge of IM app upgrades that begin to offer their own audio notifications for incoming messages (or, say, to report when a particular buddy signs on).
+
+So now Pandora's playing in the background and you have occasional sound effects from your mobile chat app.
+
+Now MySpace (shudder!) starts to chime every time someone posts something to your page. Foursquare chirps in to notify you that you happen to be walking in front of a pub with a special for mayors.
+
+Then, some other app that you downloaded simply to try out last summer (and have since come to completely forget about) encounters some event that it's configured by default to notify you with some silly sound... "What on earth was _that_ sound from?" you'll wonder. You'll review the settings on the apps you're _accustomed to_ getting audio notifications from, to make sure there's no misconfigured settings at fault. Then, you'll set upon reviewing the dozen and half other apps you've got, but rarely (if ever) launch. Maybe you'll be lucky, and it'll have a badge. But maybe not. (Have you ever opened a bunch of browser tabs on your desktop (or laptop), one of which had some slow-loading Flash content which suddenly started playing audio?)
+
+#### App Toes
+
+Consider also the more likely scenario in which a user has several apps that are each capable of streaming music in the background. Imagine that the Last.fm app has been playing in the background while the user had been writing a few emails. Now, although the Last.fm app is currently streaming the music that's playing, the user more typically uses Pandora. Force of habit finds the user launching Pandora to play music from his workout channel because it's running time.
+
+Let's consider just a handful of questions this scenario raises:
+
+1\. Does playing the Pandora stream stop the Last.fm stream from playing?
+2\. Do they simply continue to play simultaneously?
+3\. Does a phone call stop both of them playing?
+4\. To what degree should these two apps be aware of each other?
+5\. What about the WEFUNK app, or the chat app that plays sound effects?
+6\. And how does the user know that it's Last.fm that's currently playing music, and not WEFUNK, iPod, or some other app?
+
+What mechanisms, if any, does the OS provide for apps to avoid stepping on each other's toes?
+
+#### User Burden
+
+With only a single third-party app running at any particular time, the user doesn't need to keep track of anything and apps don't need to jump through any hoops to anticipate the would-be behavior of any number of hundreds of thousands potentially different apps, potentially running in the background.
+
+From the user's perspective, If music is playing, it's going to be the iPod app. If you hear your ringtone, you've got an incoming call.
+
+From the app developer's perspective, if the app needs to play some audio, just check with MediaKit to ensure there aren't any songs or podcasts playing (or, if there are, to stop them), and proceed to play the audio. When a phone call comes in, your app will be notified, allowing it to suspend its execution until the call ends. It's hard to argue that the one-app-at-a-time model Apple has applied to third-party iPhone apps doesn't afford both user and developer simplicity.
+
+And so the point I'm driving at is that introducing background processes to the user experience threatens this simplicity. It will invariably introduce a number of complexities which can quickly burden on the user, if careful thought isn't invested towards mitigating them. In may cases, it may boil down to making hard decisions to simply not support certain types of background tasks at all.
+
+That said, I remain confident that some sort of background process handling will eventually find its way into the Touch OS X platform.
+
+Whatever solution Apple's API and UX engineers come up with (and they may well already have a solution that remains unannounced, for all we know), it will be critical that the solution provides not only a way for developers to expose just enough UI to facilitate meaningful interaction with the background task, but also a _scalable way to invoke it_ (double-tapping the Home button is already claimed).
+
+### Implementing the Background Process
+
+Now, I don't presume to know what this UX will look like, but I do have a strong hunch regarding what technologies will likely be at the heart of implementing background processes. I believe the implementation will be founded in two technologies introduced to the OS X codebase with the Snow Leopard release:
+
+1\. Objective-C 2.0 [recently added](http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Objective-C_2.0) "blocks" (also known as [closures](http://en.wikipedia.org/wiki/Closure_%28computer_science%29), and
+2\. [Grand Central Dispatch](http://en.wikipedia.org/wiki/Grand_Central_Dispatch).
+
+Although the latter was initially introduced to allow developers to more effectively and easily exploit multicore processors, its ability to send computational tasks out to other chips in the system seems to fit in with, say, offering a mechanism to facilitate the playback of an MP3 stream.

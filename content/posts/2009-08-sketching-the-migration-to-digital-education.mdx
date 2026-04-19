@@ -1,0 +1,111 @@
+---
+title: Sketching the Migration to Digital Education
+slug: sketching-the-migration-to-digital-education
+draft: false
+categories:
+  - Modernizing Education
+  - Public Brainstorm
+tags:
+  - Android
+  - education
+date: '2009-08-18'
+id: 444
+---
+
+California governor Arnold Schwarzenegger's [recent proposal](http://gov.ca.gov/index.php?/fact-sheet/12455/) to adopt so-called e-textbooks for his state's public school system has triggered a [flurry of press coverage](http://news.google.com/archivesearch?as_q=digital+textbooks&num=100&hl=en&btnG=Search+Archives&as_epq=&as_oq=&as_eq=&ned=us&as_user_ldate=4%2F1%2F2009&as_user_hdate=9%2F1%2F2009&lr=lang_en&as_src=&as_price=p1&as_scoring=a), as well as new products like the Kindle DX and [CourseSmart](http://coursesmart.com)'s [iPhone app](http://gizmodo.com/5334060/coursesmart-dumps-7000%252B-textbooks-into-the-iphone-app-store) in the market.
+
+The idea has critics. There are concerns regarding the economic feasibility of the idea, as well as the intellectual property management, and naturally the functional requirements for such devices.
+
+An overview of these matters includes the following:
+
+- Economic Feasibility
+
+  1\. How will the costs behind distributing the readers (the actual hardware units) to every student be covered?
+
+  2\. What business model(s) will be available for textbook publishers?
+
+- Intellectual Property
+
+  1\. What safeguards do publishers have against unauthorized distribution of their materials (eg, piracy)?
+
+  2\. What safeguards does the educational system have against vendor lock-in?– schools should _never_ become beholden to any one company.
+
+  3\. What about ownership of the software itself? The operating system, the format of the interactive materials, etc.
+
+- Functional Requirements
+
+  1\. What sort of hardware capabilities must these devices offer? Of course, they'll have to display text in layouts with photos and diagrams, but what about video? What about 3D rendering for visualization purposes, or network connectivity?
+
+  2\. What sorts of interactions must these devices allow students to conduct with the educational material? Will it support touch-based hyperlinking, annotations, or some sort of data sharing? What about end-of-chapter quizzing?
+
+Clearly there are several matters that need to be thought through, but here's a "sketch" for a potential solution.
+
+
+
+### The Device
+
+First, let's paint a picture of the device itself. It needs to offer the following:
+
+- Rugged construction, ideally spill-proof and shock-resistant.
+- Size roughly matched to that of a notebook—US Letter (or A4) size—with most of that surface screen.
+- Video playback, both streaming and local playback.
+- A headphone port.
+- Some means of removable storage — ideally have 1 USB port.
+- Offer at least keyboard input (physical or screen-based), but also support pen-based input for free-form drawing.
+- Recording capabilities.
+- Stringent access controls, limiting what software can be added and—particularly for units given to children—what content can be loaded over the network.
+- Wireless network access.
+- Peer connectivity.
+- Location aware.
+- Its battery should have a life of at least 8 hours.
+- Ability to completely disable the unit if stolen or lost.
+
+Such a device would likely land close to the $1,000 mark, give or take. Let's consider a typical high school textbook price to land in the $80 to $100 range. Assuming the minimum of four textbooks for a given year (ie, math, science, social studies, and language arts), along with the odd extra textbook for health, language, and other courses, this hypothetical device still lands at about double the unit cost.
+
+Like textbooks, these devices can get a several-year run, but this raw price point will nonetheless likely prove prohibitively expensive to lower income school districts.
+
+### A Hardware Subsidy
+
+If the up-front cost of these devices could be lowered to the $300 neighborhood, suddenly, the economic picture wouldn't look so bad. Of course there's no way, as I write these words in 2009, to manufacture a device such as the one I've sketched above for a retail price under $600 US.
+
+But the consumer market has already seen a feasible mechanism for lowering this entry price point: hardware subsidy attached to a multi-year mobile service contract. Mobile carriers like Verizon and AT&T have been subsidizing the hardware price of devices on their networks (BlackBerrys, iPhones, etc) for years now.
+
+Now think about it: these devices would be substantially more useful with an unlimited data plan.
+
+School districts would procure high-volume orders of both the hardware and the wireless service for their students. This wireless service would also enable security features such as remote wipe of lost or stolen devices. Other network- or location-based anti-theft mechanisms could also be applied to limit the temptation to sell the units for money.
+
+Naturally, since no one carrier can cover the entire country (or world), the devices themselves must be available for purchase in both GSM and CDMA varieties.
+
+### A Device Platform
+
+Since the device will be put to use by the public school system, no one vendor or service provider should have exclusive rights to manufacture or sell the device. These educational devices must therefore be designed against the specs for an open platform. This platform specification would outline a collection of requirements for the hardware capabilities of such devices, such as screen size, multimedia playback capabilities, and the rest.
+
+Luckily, the market also has precedent for such a device and software specification framework: Google's [Android platform](http://www.android.com/).
+
+This platform would actually be an ideal fit for this purpose, since it is an open standard driven by a technologically reputable and reliable organization. Between its openness and robust software development kit (SDK), an Android-based solution can be forged into exactly the right software solution to satisfy the functional requirements.
+
+### The Business of Publishing
+
+Such a software foundation would, in turn, provide feasible solutions for the publishers' collection of concerns. Under such a model, for example, a publisher like McGraw Hill would publish each textbook as an "app" of sorts.
+
+This allows publishers to monetize their educational materials in one of two ways: per-user sale or school district-based subscription.
+
+Of the two, the subscription-based model paid annually by the schools is particularly compelling, so let me take a moment to describe it. Rather than selling these apps to individual end-users as Apple's App Store does, however, publishers would instead license the use of these apps according to a site-license model (_x_-many machines in district _y_ can run the "app" for _n_-many months), just as Microsoft or Adobe license company-wide installations of their software for large organizations like businesses, schools, and government.
+
+The exciting opportunity for subscription-based textbook content is that this allows school districts to always have the "freshest" edition of the textbook available. Students with American history textbooks would all have some bit of information about the historic election of Barack Obama, while physics textbooks might mention CERN's Large Hadron Collider, for example.
+
+The material they license would be protected by DRM technology, like that used by the Kindle, or Apple's iTunes Store, which restrict the ability of end-users to make unauthorized copies.
+
+Since the model is subscription-based, the DRM scheme would use a decryption "key" that expired after a particular amount of time (eg, the school year). Each year, the school district would have to procure a fresh "key" from the publisher which will then have to be installed on the district's devices, to permit them to continue to access the content. A subscription model also ensures that no school districts ever wind up with "hand me down" textbooks, and solves a number of other problems regarding the quality of educational material available to particular school districts.
+
+### Summary
+
+In a nutshell, my solution boils down to an Android mobile Internet tablet spec, manufactured in slightly different flavors (more rugged for younger children, more media-capable for young adults) from multiple vendors.
+
+These devices would be subsidized by a multi-year mobile data service contract offering unlimited Internet activity, which would additionally serve as a sole means of home Internet access for students from low income families.
+
+Finally, they would provide each school district that uses them with access to the very same set of educational materials.
+
+Of course, such a device doesn't exist just yet. The closest things we have are eBook readers from Amazon, Sony, and the iPhone / iPod Touch. None of them satisfies all the functional requirements I listed. Nor is the eBook a particularly more enriching medium than a printed textbook, as the format doesn't allow rich media such as videos to be embedded.
+
+Considering, however, that the textbook publishers don't even have anything more interactive than eBooks to offer at this time, they are certainly a place to start.

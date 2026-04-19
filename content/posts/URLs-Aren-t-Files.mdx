@@ -1,0 +1,47 @@
+---
+title: URLs Aren't Files
+slug: URLs-Aren-t-Files
+draft: true
+categories:
+  - General Thoughts
+tags:
+  - http
+  - intermediate
+  - lesson
+  - web
+id: 243
+---
+
+Many people—even those rather familiar with Web publishing—have a tendency to mistakenly perceive URLs specifically as the _locations of particular files_ on the Web. This misconception is quite understandable, since URLs provide access to Web pages, images, PDFs, and other files.
+
+In fact, it's a little more complex than that.
+
+I've found myself explaining this concept (or parts of it) repeatedly, so i decided I'd take the opportunity to break it down as best i could.
+
+???????????????????????????????? above ??????????????????
+
+### Not Files
+
+For starters, the data received from some URLs is very often _not_ from any particular file. Take search results pages for example: when you search for "bacon infused vodka" on Google, information that loads in your browser isn't from the contents of some particular existing HTML page sitting around on Google's servers; the HTML document is rather assembled _dynamically_, based on the words we entered into the search field.
+
+Part of what helps reinforce the misconception is that URLs are often described as the "network address" of some file. While this isn't wrong, per se, I would suggest it's more accurate to consider this "address" as something closer in nature to a P.O. box than, say, a home address. It's possible, for example, for the same resource
+
+In the case of our very tasty example, the URL for this search looks like this:
+
+`http://www.google.com/search?q=bacon+infused+vodka`
+
+But attempting to search from the home page results in the following URL:
+
+`http://www.google.com/search?hl=en&q=bacon+infused+vodka&btnG=Google+Search&aq=0&oq=bacon+infused`
+
+Note, however, that despite differences in the URL, the page data is identical in every way.
+
+ It's true, they're not.
+
+The Internet plays an increasing role in everyone's daily life (at least, that is, in the so-called _developed_ nations), and the degree to which we rely on its effective operation increases by the day. And the more we begin to leverage the utility it offers (eg, communications, weather forecasting, travel reservations, recipe searches, and the rest of it), the more we start to demand both reliability and availability of the various resources it provides access to.
+
+When people today speak of the Internet, they're largely speaking about a specific part of the it, called the [World Wide Web](http://en.wikipedia.org/wiki/World_Wide_Web), or _Web_ for short (yes, there actually _is_ more to the Internet than websites).
+
+In simple terms, the heart of the Web is a transport protocol called [HTTP](http://en.wikipedia.org/wiki/Http). The linked Wikipedia article does a fabulous job of getting into the details, so I'll stick to a high-level description which touches only on points that are relevant to URLs.
+
+Due to some sensible early design decision, the Web today a very flexible and capable infrastructure for connecting people to a sea digital resources.

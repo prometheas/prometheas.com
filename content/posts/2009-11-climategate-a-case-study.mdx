@@ -1,0 +1,118 @@
+---
+title: 'Climategate: a Case Study in How Not to Conduct Research'
+slug: climategate-a-case-study
+draft: false
+categories:
+  - General Thoughts
+tags:
+  - climate change
+  - Climategate
+  - data sets
+  - fail
+  - wtf
+date: '2009-11-26'
+id: 487
+---
+
+Sometimes events arrive with a timing that is both serendipitous and uncanny. Only days after my [last post](http://uncarved.prometheas.com/2009/11/stealing-from-academics-and-scientists.html), wherein I state a case for the growing importance of referencing the datasets and algorithms used in the distillation of research conclusions, comes a story about [leaked correspondence records](http://www.eastangliaemails.com/index.php) (email messages) amongst climate researchers working in affiliation with the [East Anglia Climate Research Unit](http://www.cru.uea.ac.uk/), or CRU.
+
+From the [NYT article](http://www.nytimes.com/2009/11/21/science/earth/21climate.html?_r=2):
+
+> The e-mail messages, attributed to prominent American and British climate researchers, include discussions of scientific data and whether it should be released, exchanges about how best to combat the arguments of skeptics.... Drafts of scientific papers ... were also among the hacked data, some of which dates back 13 years.
+
+To say the least, the leak contains some juicy fodder for skeptics of human-driven climate change amongst the leaked materials.
+
+Amongst these leaked emails, for example, are conversations which document various difficulties some of the CRU's climate researchers have encountered over the years in trying to work with the data collected and managed by the organization. The Times article focuses on a discussion thread in which researcher Phil Jones mentions using a "trick" — originally employed by another colleague, Michael Mann — to "hide [a] decline" in temperatures apparently shown in some set of data.
+
+In an interview about the leaked emails, Dr. Mann attempts to defuse the statement as a poor choice of words. Unfortunately, whether he's being sincere or not, his is frankly a response that's to be expected.
+
+The article continues:
+
+> Some skeptics asserted Friday that the correspondence revealed an effort to withhold scientific information. “This is not a smoking gun; this is a mushroom cloud,” said Patrick J. Michaels, a climatologist who has long faulted evidence pointing to human-driven warming and is criticized in the documents.
+
+This is also a statement that you'd expect from a climatologist building a career on a body of work disagreeing with the idea of human-driven warming. These emails are naturally material that skeptics of the human-driven climate change argument will latch onto (and, frankly, they certainly _should_; it's just how scientific work is tested — through dispute).
+
+The next several days sees a flurry of activity throughout the media and the blogosphere.
+
+Before long, the name "Climategate" (kitschy but concise) gets attached to the discussions about the leaked materials. And since there's a bit of both data and program source code in the mix, techies from around the world immediately jump into the fray.
+
+One of the most popular files from the leak discussed most heavily in techie circles is called `HARRY_READ_ME.txt` (copies available in both [original format](http://www.anenglishmanscastle.com/HARRY_READ_ME.txt) and [more structured edition](http://di2.nu/foia/HARRY_READ_ME-0.html)). The story that unfolds in this file reveals the plight of a programmer named Harry who had struggled for _three years_, attempting to reproduce some research results with a collection of data and the source code for an algorithm created to calculate research conclusions.
+
+Sadly, this man's three-year effort to reproduce the published results with the given material never succeeded. Here's an excerpt from the file, for a glimpse at this poor fella's mounting frustrations along the way:
+
+> getting seriously fed up with the state of the Australian data. so many new stations have been introduced, so many false references.. so many changes that aren't documented. Every time a cloud forms I'm presented with a bewildering selection of similar-sounding sites, some with references, some with WMO codes, and some with both. And if I look up the station metadata with one of the local references, chances are the WMO code will be wrong (another station will have it) and the lat/lon will be wrong too. I've been at it for well over an hour, and I've reached the 294th station in the tmin database. Out of over 14,000\. Now even accepting that it will get easier (as clouds can only be formed of what's ahead of you), it is still very daunting. I go on leave for 10 days after tomorrow, and if I leave it running it isn't likely to be there when I return! As to whether my 'action dump' will work (to save repetition).. who knows?
+>
+> Yay! Two-and-a-half hours into the exercise and I'm in Argentina!
+>
+> Pfft.. and back to Australia almost immediately :-( .. and then Chile. Getting there.
+>
+> Unfortunately, after around 160 minutes of uninterrupted decision making, my screen has started to black out for half a second at a time. More video cable problems - but why now?!! The count is up to 1007 though.
+>
+> I am very sorry to report that the rest of the databases seem to be in nearly as poor a state as Australia was. There are hundreds if not thousands of pairs of dummy stations, one with no WMO and one with, usually overlapping and with the same station name and very similar coordinates. I know it could be old and new stations, but why such large overlaps if that's the case? Aarrggghhh!
+There truly is no end in sight.
+
+Assuming the original conclusions he was attempting to reproduce were all based on this data (and, there's frankly no reason not to), it's impossible to invest much confidence in their validity.
+
+Martin points out that the data and algorithms with which Harry was working were "inherited" from a previous researcher (or researchers), and came in a poorly-organized bundle with poor documentation. And what's worse, he didn't have access to anyone who had originally derived the conclusions he was tasked to reproduce. [^1]
+
+The _real_ egg in the face of this anecdote is the fact that CRU has clearly done an atrocious job at properly archiving their data, and documenting the work their researchers produce. Naturally this level of disorganization is a serious problem anywhere it may occur, but it's a particularly glaring issue in the field of scientific research, where _the validity of research results lies squarely upon the ability of independent third parties to reliably reproduce those results_ on their own. Yet here we find that the CRU is demonstrated to have either managed their data so poorly as to prevent _its own scientists_ from being able to reproduce the organization's own published results (in which case "embarrassing" doesn't even begin to describe the situation), or to have manipulated the data and produced false results. And the fact is that either story tells a horrible tale about the CRU.
+
+Charlie Martin, in a post to the Pajamas Media blog, [writes](http://pajamasmedia.com/blog/climategate-computer-codes-are-the-real-story/):
+
+> I think there’s a good reason the CRU didn’t want to give their data to people trying to replicate their work.
+>
+> It’s in such a mess that they can’t replicate their own results.
+>
+> ...
+>
+> This is not, sadly, all that unusual. Simply put, scientists aren’t software engineers. They don’t keep their code in nice packages and they tend to use whatever language they’re comfortable with. Even if they were taught to keep good research notes in the past, it’s not unusual for things to get sloppy later. But put this in the context of what else we know from the CRU data dump:
+>
+> 1\. They didn’t want to release their data or code, and they particularly weren’t interested in releasing any intermediate steps that would help someone else
+>
+> 2\. They clearly have some history of massaging the data... to get it to fit their other results....
+>
+> 3\. They had successfully managed to restrict peer review to ... the small group of true believers they knew could be trusted to say the right things.
+>
+> As a result, it looks like they found themselves trapped. They had the big research organizations, the big grants — and when they found themselves challenged, they discovered they’d built their conclusions on fine beach sand.
+
+I won't belabor the discussion of the implications these leaked documents offer; there is no shortage of people writing about exactly that. In case you're interested in some of the more detailed coverage of the tech community's review of the leaked data and algorithms, I would point you to the following pieces:
+
+* [Climategate: Violating the Social Contract of Science](http://pajamasmedia.com/blog/climategate-violating-the-social-contract-of-science/) [Pajamas Media]
+* [Data-leak lessons learned from the 'Climategate' hack](http://www.computerworld.com/s/article/9141481/Data_leak_lessons_learned_from_the_Climategate_hack?taxonomyId=) [Computerworld]
+* [Climategate: hide the decline — codified](http://wattsupwiththat.com/2009/11/25/climategate-hide-the-decline-codified/) ["Watts Up With That" blog]
+
+There's also some great [ongoing coverage](http://www.devilskitchen.me.uk/search/label/CRU%20emails) at Devil's Kitchen.
+
+Regardless whether or not there's any merit to _any_ of the CRU's climate research, however, this little drama leaves me unable to resist repeating an argument from my [last post](http://uncarved.prometheas.com/2009/11/stealing-from-academics-and-scientists.html):
+
+> But with all these arguments and assertions about corollaries, trends, and predictions that this number crunching activity will generate, it will become increasingly crucial to have a mechanism by which the results claimed to have been derived from the number-crunching can be accounted for.
+>
+> ...
+>
+> It must ... become incumbent upon anybody publishing findings derived from mining such data to share both the sources and processes used to derive their results or conclusions. In cases of claims rooted in the fruits of data mining endeavors, it is specifically important that results indicate:
+>
+> 1\. exactly which data sets it draws from, and
+>
+> 2\. precisely which algorithm(s) processed the data in question.
+
+At this point, the specific implications this debacle has for the CRU's research is irrelevant. For, whether by deceit or incompetence, this leaked data has left their published research about climate change completely unreliable.
+
+Yet developing a confident clarity around the subject of their research remains of critical importance, for climate change is a real challenge that humankind must cope with. Regardless whether or not human industrial activity is a driving factor for climate change, the fact is that the ice at our poles _is_ melting at an accelerating rate. Decades worth of satellite photos and other survey data sufficiently demonstrate this fact. We similarly have data collected over the last several decades by the world's meteorologists that global mean temperatures seem to be rising, as well as increasing levels of extreme weather (from droughts and famines to floods and more) around the world.
+
+The climate debate isn't over whether these events are occurring, but instead whether human industrial activity accounts for a relevant piece of it.
+
+Governments around the planet will be forced to take _some sort of action_ to deal with the prospective repercussions of these changes (e.g., rising sea levels, expansion of the Sahara, and the rest). The consideration at stake, therefore, is how each country will individually and collectively direct their efforts and invest their resources in dealing with it.
+
+If human industrial activity has bearing on the matter, we'll have to make some serious policy changes and invest heavily in developing alternative methods of production, lest we imperil our own (and other) species. But if, on the other hand, our industrial activity is _not_ a determining factor in climate change, our efforts are best spent trying to figure out how we're going to deal with the realities of a changing climate that we cannot mitigate simply by being more responsible with our emissions.
+
+In any case, everyone needs to make informed decisions about where they're investing their money and efforts.
+
+And so a number of the world's governmental and industrial leaders ([including](http://www.whitehouse.gov/the-press-office/president-attend-copenhagen-climate-talks) US President Barack Obama) are scheduled to meet — along with members of the climate research community — at the United Nations Climate Change Conference in Copenhagen this December in an attempt to work out policy directions to deal with climate change. I'm hoping the event will focus on methods to improve and reinforce confidence in the remainder of the climate research work being conducted around the world, and that it won't turn into a political food fight.
+
+Fingers crossed.
+
+I am left hoping that some real good can rise from this mess. And so I call on climate change researchers and institutions around the world to take this opportunity develop the practice of providing full disclosure on the sources of their data sets and the functionality of their algorithms. There will likely be many political, legal, and logistical obstacles to address and overcome in this effort, but failure to do so carries stakes that are simply too high.
+
+
+
+[^1]: I personally have plenty of experience attempting to work with poorly-documented code and data inherited from some previous person's work, and can directly attest to the maddening up-hill battle of that situation.

@@ -1,0 +1,55 @@
+---
+title: 'Bizarro HowTo: Write CSS Like a Total Douche Bag'
+slug: bizarro-howto-write-css-like-a-total-douche-bag
+draft: false
+categories:
+  - Tutorials
+tags:
+  - bizarro
+  - css
+  - howto
+  - humor
+date: '2009-08-04'
+id: 441
+---
+
+We're half way through 2009\. All the major browser vendors are shipping products with really great rendering engines now. Usage of the much-maligned Internet Explorer 6 has [plummeted](http://www.w3schools.com/browsers/browsers_stats.asp) to the 15% neighborhood (stats vary, but they all show < 20%).
+
+The days that Web developers dreamed about — seemingly, at the time, against all odds — for about half a decade are nigh upon us with this progression.
+
+Although much work remains to be done before all browsers can be universally relied upon to render HTML in a consistent and relatively uniform manner, the Web development community can at least now _begin_ breathing a sigh of relief about having finally gotten some of the worst of it behind us.
+
+But has anyone ever stopped to think about the folks that actually get off on making other people's jobs difficult? Clean [style sheets](http://www.w3.org/TR/REC-html40/present/styles.html)? [Progressive Enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement)? [Semantic Web](http://en.wikipedia.org/wiki/Semantic_web)?
+
+How do you suppose _they_ feel right now? Whether it's sadism or nostalgia, they've got feelings, too.
+
+To them, I say with reassurance: _fret not_!
+
+For them, I offer here three fabulous pointers for writing CSS like a total douche bag:
+
+1\. **Use the same IDs for more than one element in an HTML document**. The HTML spec is very explicit about not doing this, so you can absolutely bet that — some time down the line — some other developer tasked to add some jQuery or Prototype enhancements to your page will totally get screwed.
+
+2\. ** Sprinkle your IE 6 "hacks" _directly into_ and all throughout your primary CSS files**. Do _not_ separate these IE 6 optimizations out from your `main.css` file into `main_ie6.css`. Coding your site to standards first will only make it easier to phase out this pollution when IE 6 finally drops off the planet. To ensure you really nail this one, you should be previewing the site in IE 6 _from the very beginning_ of your development efforts. In fact, I could even recommend you develop the site's HTML and CSS in IE 6 exclusively first, _then_ go back and apply hacks to make it work in the rest of the more standards-compliant browsers... in fact Firefox 3.x and Safari 4.x both include really great developer tools to help you figure out which "standards compliancy hacks" you'll need to use to keep the site from looking completely fucked in those browsers.
+
+3\. **Use CSS style and ID names like `next_alignright_blue` or `registration_form_gray`**. The more you mix styling cues directly into these names, the more you'll be able to laugh and laugh and laugh and _laugh_ when those "next" links need to be green when the site's holiday theme feature gets finished after Thanksgiving. Honestly: what's funnier than knowing that `next_alignright_blue` will render green links? And, if you're truly lucky, maybe a usability audit of the site might conclude that the "next" links should _not_ get jammed to the right, but should appear adjacent to their associated "previous" link.
+
+4\. **Avoid [descendant selectors](http://www.w3.org/TR/CSS2/selector.html#descendant-selectors) like the plague**. The only thing that these will ever afford you is the opportunity to minimize the number of IDs and class names. Where will your opportunity for laughs come when elements can be targeted by JavaScript enhancements using a syntax like this:
+
+```javascript
+$('#sidebar .panel .description a.more').click( ... );
+```
+
+  instead of:
+
+```javascript
+$('#sidebar_videos_panel a.more').click( ... );
+$('#sidebar_widgets_panel a.more').click( ... );
+$('#sidebar_uploads_panel a.more').click( ... );
+$('#sidebar_archives_panel a.more').click( ... );
+```
+
+  The first example allows some other developer to continue to leverage the selector code to enhance the "more" link, should another `.panel` element with a qualifying like in its `.body` element, rather than having to explicitly add another line.
+
+And so I hope I've demonstrated that there's simply no reason to mindlessly progress into the hegemony of maintainability, efficiency, and sanity for your colleagues. Not when you can utilize simple little techniques like these.
+
+With your efforts, we can squander much of this hard-earned potential for progress! If you have other douchey ideas you'd like to share, please leave them in comments.

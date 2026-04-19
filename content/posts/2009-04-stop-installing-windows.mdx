@@ -1,0 +1,76 @@
+---
+title: Stop Installing Windows
+slug: stop-installing-windows
+draft: false
+categories:
+  - Tutorials
+tags: []
+date: '2009-04-11'
+id: 149
+---
+
+My brother and I had been suffering from a chronic affliction for roughly the last decade. You see, every year or so, we'd have to reinstall Windows on the PCs in our father's office. The reasons for the re-installation ranged from viruses, to a hosed registry, and even hard drive failures; the poor man's PCs have seen it all.
+
+It was a cycle that looked something like this:
+
+01\. the computer starts behaving strangely (random crashes of applications or the system, mysterious prolonged lock-ups, etc)
+02\. my brother or I get called in to diagnose
+03\. we discover the problem
+04\. we attempt to fix
+05\. sometimes the problem is resolved, but other times it's necessary to reinstall
+06\. we attempt to backup the most recent data (if it's not somehow corrupted), or use the latest weekly backup
+07\. boot the Windows installation disk
+08\. clear the hard drive
+09\. install Windows
+10\. activate our copy of Windows
+11\. install anti-virus software
+12\. install the latest Windows Service Packs, as well as any other security updates
+13\. install the necessary software
+14\. restore the backed up data files
+15\. wait for the cycle to start again
+
+Some folks reading this far might argue that we should have moved him off Windows a long time ago, and saved ourselves the trouble. Why not just give him a Mac or install Linux and put the worries aside?
+
+Unfortunately, it's not that simple.
+
+He _needs_ to run Windows because he runs his business on an accounting software package called PeachTree. The fact that alternatives exist is immaterial; all the business data is already stored in there, Dad and his book keepers know how to use it, and nobody involved feels like learning some other convoluted accounting software.
+
+Windows simply cannot be removed from the equation.
+
+Unfortunately, we were trapped in what seemed like an interminable cycle. It had practically reached the point where my brother and I developed the capability to do the job drawing purely on muscle memory to lead us through.
+
+But muscle-memory or not, _installation demands time_.
+
+Even after the Windows installer itself would do its job, we would then have to download and apply the most recent Service Packs, install his software, and reconfigure his desktop so that everything is "in the right place."
+
+In our case, the reinstallation process would typically consume about a full 8-hour workday, and occasionally more if there are network connectivity issues or other mishaps. Naturally, since both my brother and I have day to day responsibilities of our own, the effort would always wind up consuming one of our weekend or holiday days.
+
+It happened again in February of 2009... specifically, on my brother's birthday weekend. My father took the family out for a birthday brunch, after which my brother and I accompanied him to his office to do the dirty work.
+
+But this time, a new strategy occurred to me: _surrender_.
+
+I decided to accept the eventuality that Windows will, in time, shit the bed on us. This has all happened before, and it will all happen again. It may be some sort of malware, or just a badly-written (but perfectly legitimate) installer that hoses your registry.
+
+Once I'd accepted this, and the denial had melted away, my goals changed from protecting Windows from malware to _working out how to make the restore suck less_.
+
+Since we'd managed to get them in the weekly practice of making weekly backups of their business data, the worst part about restoring their computers was simply investing the time it takes wait out all the damned progress bars of the process. Installer after installer would run, many needing an attentive human present to click "OK" or to accept license agreements.
+
+The faster we could get from empty hard drive to functional Windows system, and the less attentive effort it required of anyone, the better everyone's life would become _ever more_.
+
+The goal was to reduce the restore process to a simple file copy.
+
+And with this thought, I suddenly knew what had to be done: all we needed was a bunch of free software (and a RAM upgrade for one of the computers), and _we could install and configure Windows—and all of his software—for the last time, ever_.
+
+We erased the hard drives of his PCs and installed [Ubuntu Linux](http://ubuntu.com/) on all of them. We then installed Sun's free and open source [virtualization software](http://en.wikipedia.org/wiki/Virtual_machine), called [VirtualBox](http://virtualbox.org/), and carried out our routine installation and configuration of Windows — and all the necessary software — into a virtual machine.
+
+We added free [DropBox](http://getdropbox.com/) account service to the picture, just to bulletproof the backup strategy for his business data.
+
+Once everything was installed and properly configured, we stopped the VirtualBox virtual machine and created a master backup copy of the new virtual machine's hard drive image file. This master copy of the hard drive image now contained a _fully-configured, pristine version of Windows_.
+
+Moving forward, a full Windows restoration process for the accounting PC can be conducted over a lunch, instead of the course of a full workday.
+
+And because Windows is running in a virtual machine, we've even managed to reduce the amount of time that would be required to replace the entire machine: simply wipe its hard drive, install Linux on it, copy over the Windows virtual machine's hard drive image, and we're up and running with all of our user settings and latest business data in place. And because Windows only ever "sees" the virtualized "hardware" presented by VirtualBox, it won't require a reactivation.
+
+I should finally note that the accounting machine is used as a fulltime Windows machine. That is, from the moment of startup, VirtualBox is launched, and the Windows desktop is used in full-screen mode, with nary a though given to the Linux environment, until they're ready to shut the machine down.
+
+So from now on, when Windows _does_ eventually punk out in one of its many—and, at times, even _innovative_—ways, we'll be ready.

@@ -64,14 +64,12 @@ export default function Home() {
 
           <Column title="Uncarved Blog">
             <p>
-              <a
-                href="http://uncarved.prometheas.com/"
+              <Link
+                href="/posts/"
                 className="text-red no-underline hover:opacity-70 transition-opacity"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Uncarved
-              </a>{" "}
+              </Link>{" "}
               is my personal blog, which tends to focus on tech and design, with
               particular interest in exploring how design can contribute to a
               more fruitful human experience.
