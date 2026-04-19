@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "About" };
 export default function AboutPage() {
   return (
     <section className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 py-20 max-md:py-12">
-      <h1 className="text-4xl max-md:text-3xl font-light text-slate-900 mb-12">
+      <h1 className="text-4xl max-md:text-3xl font-light text-[var(--text-primary)] mb-12">
         About
       </h1>
 
@@ -18,14 +18,14 @@ export default function AboutPage() {
           height={320}
           className="rounded"
         />
-        <p className="text-xs text-slate-500 mt-2 italic">
+        <p className="text-xs text-[var(--text-muted)] mt-2 italic">
           What I look like, when taking a selfie in front of a glacier
         </p>
       </div>
 
-      <h2 className="text-2xl font-medium text-slate-900 mb-6">Bio</h2>
+      <h2 className="text-2xl font-medium text-[var(--text-primary)] mb-6">Bio</h2>
 
-      <div className="text-[0.95rem] text-slate-700 leading-[1.85] font-light space-y-5">
+      <div className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light space-y-5">
         <p>
           John is a wordly, devilishly handsome, and cheeky internet software
           architect, with a strong background in designing and implementing
