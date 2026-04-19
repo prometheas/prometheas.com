@@ -31,11 +31,11 @@ Thanks to canonical URLs, however, every link Google (as well as Ask, Microsoft 
 
 Using our example above, all Amazon would need to do to take advantage of this is to add the following special tag in the `<head>` of the product page:
 
-<pre lang="html4strict">
+```html
 <link rel="canonical" href="http://www.amazon.com/Acer-AS6530/dp/B001GGLW3G" />
-</pre>
+```
 
-So canonical URLs super simple to implement are clearly useful for <acronym title="search engine optimization">SEO</acronym >.
+So canonical URLs super simple to implement are clearly useful for SEO.
 
 Another context in which I believe they'd be useful is the URLs of asset files (images, videos, PDFs, etc) and [RESTful web services](http://en.wikipedia.org/wiki/Representational_State_Transfer). Unfortunately, these are all cases in which server's response data will _not_ be HTML, in which case the solution shown above simply cannot be used.
 
@@ -45,14 +45,14 @@ Earlier today I was reading Robert Spychala's [proposals for URL auto-discovery]
 
 Specifically, the canonical URL header data for the Acer laptop example from above would look like this:
 
-<pre lang="xml">
+```
 Link: <http://www.amazon.com/Acer-AS6530/dp/B001GGLW3G>; rel=canonical
-</pre>
+```
 
 And the canonical URL of its _primary photo_:
 
-<pre lang="xml">
+```
 Link: <http://www.amazon.com/Acer-AS6530/img/B001GGLW3G/primary/medium.jpg>; rel=canonical
-</pre>
+```
 
 Since Google, Yahoo!, and the rest all index images, videos, and other non-HTML resources, I believe that supporting canonical URL declaration in the HTTP response headers is an idea worth seriously considering for all the same reasons it makes brilliant sense for HTML documents.
