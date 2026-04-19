@@ -102,13 +102,13 @@ body {
 }
 
 /* Syntax highlighting: switch shiki theme via CSS vars */
-code[data-theme*=" "],
-code[data-theme*=" "] span {
+[data-rehype-pretty-code-figure] code,
+[data-rehype-pretty-code-figure] code span {
   color: var(--shiki-light);
   background-color: var(--shiki-light-bg);
 }
-.dark code[data-theme*=" "],
-.dark code[data-theme*=" "] span {
+.dark [data-rehype-pretty-code-figure] code,
+.dark [data-rehype-pretty-code-figure] code span {
   color: var(--shiki-dark);
   background-color: var(--shiki-dark-bg);
 }
