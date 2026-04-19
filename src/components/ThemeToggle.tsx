@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 
 const icons = {
@@ -36,8 +36,17 @@ const labels: Record<string, string> = {
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+  const prevTheme = useRef(theme);
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (mounted && prevTheme.current !== theme) {
+      setAnnouncement(`Theme set to ${theme}`);
+      prevTheme.current = theme;
+    }
+  }, [theme, mounted]);
 
   if (!mounted) {
     return <span className={`inline-block w-[34px] h-[34px] ${className}`} />;
@@ -54,7 +63,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
         {icons[theme]}
       </button>
       <span className="sr-only" role="status" aria-live="polite">
-        {`Theme set to ${theme}`}
+        {announcement}
       </span>
     </>
   );
