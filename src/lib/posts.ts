@@ -7,6 +7,7 @@ const PER_PAGE = 10;
 
 export interface PostMeta {
   slug: string;
+  filename: string;
   title: string;
   date: string;
   categories: string[];
@@ -62,6 +63,7 @@ function getAllPostMeta(): PostMeta[] {
 
     return {
       slug,
+      filename: filename.replace(/\.mdx$/, ""),
       title: data.title || slug,
       date: data.date ? new Date(data.date).toISOString() : "",
       categories: Array.isArray(data.categories) ? data.categories : [],

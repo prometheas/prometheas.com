@@ -39,7 +39,7 @@ export default async function PostPage({
   const meta = getPostBySlug(slug);
   if (!meta) notFound();
 
-  const { default: Content } = await import(`@/content/posts/${slug}.mdx`);
+  const { default: Content } = await import(`@/content/posts/${meta.filename}.mdx`);
 
   return (
     <article className="max-w-[720px] mx-auto px-[4.5rem] max-md:px-6 py-16 max-md:py-10">
