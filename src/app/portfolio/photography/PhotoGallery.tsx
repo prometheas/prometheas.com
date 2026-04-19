@@ -20,7 +20,7 @@ export function PhotoGallery({ photos }: { photos: Photo[] }) {
           <button
             key={photo.src}
             onClick={() => setLightbox(i)}
-            className="relative overflow-hidden rounded cursor-pointer group bg-slate-100 border-0 p-0"
+            className="relative overflow-hidden rounded cursor-pointer group bg-[var(--bg-muted)] border-0 p-0"
           >
             <Image
               src={photo.src}

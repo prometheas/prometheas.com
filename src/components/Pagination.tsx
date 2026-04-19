@@ -16,31 +16,31 @@ export function Pagination({
   }
 
   return (
-    <nav className="flex items-center justify-center gap-6 pt-8 mt-4 border-t border-slate-100">
+    <nav className="flex items-center justify-center gap-6 pt-8 mt-4 border-t border-[var(--border-subtle)]">
       {currentPage > 1 ? (
         <Link
           href={pageUrl(currentPage - 1)}
-          className="text-sm text-slate-700 no-underline hover:text-red transition-colors"
+          className="text-sm text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
         >
           &larr; Newer
         </Link>
       ) : (
-        <span className="text-sm text-slate-300">&larr; Newer</span>
+        <span className="text-sm text-[var(--text-muted)]">&larr; Newer</span>
       )}
 
-      <span className="text-xs text-slate-400">
+      <span className="text-xs text-[var(--text-muted)]">
         {currentPage} / {totalPages}
       </span>
 
       {currentPage < totalPages ? (
         <Link
           href={pageUrl(currentPage + 1)}
-          className="text-sm text-slate-700 no-underline hover:text-red transition-colors"
+          className="text-sm text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
         >
           Older &rarr;
         </Link>
       ) : (
-        <span className="text-sm text-slate-300">Older &rarr;</span>
+        <span className="text-sm text-[var(--text-muted)]">Older &rarr;</span>
       )}
     </nav>
   );

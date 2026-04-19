@@ -32,7 +32,7 @@ export function SocialLinks({ className = "" }: { className?: string }) {
           aria-label={s.label}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-500 hover:text-red transition-colors"
+          className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
         >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-[19px] h-[19px]">
             {s.icon}

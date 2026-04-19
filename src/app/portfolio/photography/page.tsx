@@ -15,7 +15,7 @@ const photos = [
 export default function PhotographyPage() {
   return (
     <section className="max-w-[1200px] mx-auto px-[4.5rem] max-md:px-6 py-20 max-md:py-12">
-      <h1 className="text-4xl max-md:text-3xl font-light text-slate-900 mb-12">
+      <h1 className="text-4xl max-md:text-3xl font-light text-[var(--text-primary)] mb-12">
         Photography
       </h1>
       <PhotoGallery photos={photos} />

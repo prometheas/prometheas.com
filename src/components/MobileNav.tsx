@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 const socials = [
   {
@@ -40,33 +41,38 @@ export function MobileNav() {
   return (
     <>
       <button
-        className="md:hidden relative z-[1001] w-7 h-5 bg-transparent border-none cursor-pointer"
+        className="md:hidden z-[1001] flex items-center justify-center w-11 h-11 bg-transparent border-none cursor-pointer"
         aria-label="Menu"
+        aria-expanded={open}
+        aria-controls="mobile-nav"
         onClick={() => setOpen(!open)}
       >
-        <span
-          className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            open
-              ? "top-[9px] rotate-45 bg-white"
-              : "top-0 bg-black"
-          }`}
-        />
-        <span
-          className={`block absolute left-0 w-full h-[2px] top-[9px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            open ? "opacity-0 bg-white" : "bg-black"
-          }`}
-        />
-        <span
-          className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            open
-              ? "top-[9px] -rotate-45 bg-white"
-              : "top-[18px] bg-black"
-          }`}
-        />
+        <span className="relative w-7 h-5 block">
+          <span
+            className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              open
+                ? "top-[9px] rotate-45 bg-white"
+                : "top-0 bg-[var(--text-primary)]"
+            }`}
+          />
+          <span
+            className={`block absolute left-0 w-full h-[2px] top-[9px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              open ? "opacity-0 bg-white" : "bg-[var(--text-primary)]"
+            }`}
+          />
+          <span
+            className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              open
+                ? "top-[9px] -rotate-45 bg-white"
+                : "top-[18px] bg-[var(--text-primary)]"
+            }`}
+          />
+        </span>
       </button>
 
       <div
-        className={`fixed inset-x-0 top-0 z-[1000] bg-red flex flex-col items-center justify-center gap-0 px-8 pt-20 pb-12 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        id="mobile-nav"
+        className={`fixed inset-x-0 top-0 z-[1000] bg-red flex flex-col items-center justify-center gap-0 px-8 pt-20 pb-12 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] [&_:focus-visible]:outline-white ${
           open
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -108,7 +114,7 @@ export function MobileNav() {
         </div>
 
         <div
-          className={`flex gap-6 transition-all duration-300 ${
+          className={`flex items-center gap-6 transition-all duration-300 ${
             open
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-2.5"
@@ -129,6 +135,7 @@ export function MobileNav() {
               </svg>
             </a>
           ))}
+          <ThemeToggle className="text-white/70 hover:text-white" />
         </div>
       </div>
     </>

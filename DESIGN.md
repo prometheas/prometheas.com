@@ -6,7 +6,7 @@ Prometheas.com is the personal website of John Lianoglou — a portfolio, blog, 
 
 ## Visual Theme & Atmosphere
 
-The site is serene, precise, and architecturally structured. White canvas dominates. Slate grays establish atmosphere and tonal depth. Red appears only as punctuation — interactive elements and accent marks. Hierarchy is communicated through hairline borders and typographic weight, never shadows or elevation. Every element earns its place; ornamentation is purposeful, never decorative.
+The site is serene, precise, and architecturally structured. White canvas dominates. Zinc grays establish atmosphere and tonal depth. Red appears only as punctuation — interactive elements and accent marks. Hierarchy is communicated through hairline borders and typographic weight, never shadows or elevation. Every element earns its place; ornamentation is purposeful, never decorative.
 
 The design is **not** brutalist, maximalist, corporate SaaS, or "generic tech startup." It belongs to a person, not a product.
 
@@ -16,14 +16,14 @@ The design is **not** brutalist, maximalist, corporate SaaS, or "generic tech st
 |-------|-----|-------------|------|-------|
 | Red | `#C23B22` | `--color-red` | Primary accent | Links, hover states, accent dots. As background: only for interactive overlays (mobile nav) and CTA buttons. Never for content regions. |
 | Red Hover | `#A83019` | `--color-red-hover` | Accent hover | Darkened red for interactive feedback. Pairs only with red base. |
-| Slate 900 | `#0f172a` | `--color-slate-900` | Primary text | Headings, body text on light backgrounds. |
-| Slate 700 | `#334155` | `--color-slate-700` | Secondary text | Nav labels, subheadings, emphasized metadata. |
-| Slate 600 | `#475569` | `--color-slate-600` | Tertiary text | Descriptions, supporting copy, blockquotes. |
-| Slate 500 | `#64748b` | `--color-slate-500` | Muted text | Captions, timestamps, disabled states. AA for large text only. |
-| Slate 300 | `#cbd5e1` | `--color-slate-300` | Borders | Visible hairline rules and dividers. |
-| Slate 200 | `#e2e8f0` | `--color-slate-200` | Subtle borders | Secondary borders, code block outlines. |
-| Slate 100 | `#f1f5f9` | `--color-slate-100` | Surface | Alternate backgrounds, subtle differentiation. Not for code blocks (use slate-50). |
-| Slate 50 | `#f8fafc` | `--color-slate-50` | Canvas tint | Near-white background when pure white is too stark. |
+| Zinc 900 | `#18181b` | `--color-zinc-900` | Primary text | Headings, body text on light backgrounds. |
+| Zinc 700 | `#3f3f46` | `--color-zinc-700` | Secondary text | Nav labels, subheadings, emphasized metadata. |
+| Zinc 600 | `#52525b` | `--color-zinc-600` | Tertiary text | Descriptions, supporting copy, blockquotes. |
+| Zinc 500 | `#71717a` | `--color-zinc-500` | Muted text | Captions, timestamps, disabled states. AA for large text only. |
+| Zinc 300 | `#d4d4d8` | `--color-zinc-300` | Borders | Visible hairline rules and dividers. |
+| Zinc 200 | `#e4e4e7` | `--color-zinc-200` | Subtle borders | Secondary borders, code block outlines. |
+| Zinc 100 | `#f4f4f5` | `--color-zinc-100` | Surface | Alternate backgrounds, subtle differentiation. Not for code blocks (use zinc-50). |
+| Zinc 50 | `#fafafa` | `--color-zinc-50` | Canvas tint | Near-white background when pure white is too stark. |
 
 ## Typography Rules
 
@@ -64,23 +64,23 @@ Horizontal padding: 72px (desktop) / 24px (mobile), switching at `md` (768px).
 
 **Links:** `text-red no-underline`, hover: `opacity-70` (content links) or `text-red transition-colors` (nav links).
 
-**Header:** Flex row, gradient bottom rule (red 60px → slate-100). Logo: "Prometheas" + red bold dot + "com."
+**Header:** Flex row, gradient bottom rule (red 60px → zinc-100). Logo: "Prometheas" + red bold dot + "com."
 
 **Mobile Nav:** Fixed red overlay sliding from top (content-driven height, not full-viewport). Hamburger morphs to X. Nav links stagger in (70ms per item). White text on red background.
 
-**Footer:** Centered, hairline top border (slate-100). Social icons + copyright.
+**Footer:** Centered, hairline top border (zinc-100). Social icons + copyright.
 
-**Post Excerpt:** Article with bottom border (slate-100). Meta row (date + category) above title link. Excerpt below.
+**Post Excerpt:** Article with bottom border (zinc-100). Meta row (date + category) above title link. Excerpt below.
 
-**Blockquotes:** Red left border, slate-600 text.
+**Blockquotes:** Red left border, zinc-600 text.
 
-**Code blocks:** Pre with slate-50 background, 1px slate-200 border. Inline code at 0.875em.
+**Code blocks:** Pre with zinc-50 background, 1px zinc-200 border. Inline code at 0.875em.
 
 ## Depth & Elevation
 
 This site intentionally uses **no shadows**. Visual hierarchy is established through:
-- Hairline borders (1px, slate-100 or slate-200)
-- Gradient rules (red accent fading to slate)
+- Hairline borders (1px, zinc-100 or zinc-200)
+- Gradient rules (red accent fading to zinc)
 - Typographic weight and color contrast
 - Whitespace
 
@@ -99,14 +99,14 @@ Do not introduce box-shadow, ring-shadow, or elevation utilities.
 - **DON'T** use more than two font weights in a single component unless structurally justified (the Header uses three: 450 for nav, 600 for logo text, 700 for the logo dot)
 - **DON'T** apply uppercase to body text, titles, or excerpts
 - **DON'T** add decorative elements without clear functional purpose
-- **DON'T** use warm grays — the palette is exclusively cool slate
+- **DON'T** use warm grays — the palette is exclusively zinc
 
 ## Responsive Behavior
 
 Primary breakpoint: **md (768px)**. Secondary: **sm (640px)** used in the photography gallery grid.
 
 Below md: hamburger menu, 24px horizontal padding, vertical nav at 1.5rem light weight.
-Above md: horizontal nav bar, 72px horizontal padding, social links visible in header.
+Above md: horizontal nav bar, 72px horizontal padding, theme toggle in nav. Social links visible in header above lg (hidden at md–lg for breathing room; always available in footer).
 
 Grid layouts: homepage uses `grid-cols-3 max-md:grid-cols-1`, portfolio index uses `grid-cols-2 max-md:grid-cols-1`, photography gallery uses `grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1`.
 

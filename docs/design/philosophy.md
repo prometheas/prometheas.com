@@ -43,7 +43,7 @@ The Greek tradition contributes structural rigor:
 These principles manifest in concrete design choices:
 
 - **Red dots as visual punctuation.** The Prometheas logo ends with a red dot -- a deliberate period that functions as a brand mark. This motif extends throughout the site as accent dots, hover states, and interactive indicators. Red is never used casually; it always punctuates.
-- **Slate as atmosphere.** The cool gray palette (slate-50 through slate-900) provides tonal depth without warmth. Slate reads as serious, calm, and architectural -- like stone.
+- **Zinc as atmosphere.** The cool gray palette (zinc-50 through zinc-900) provides tonal depth without warmth. Zinc reads as serious, calm, and architectural -- like stone.
 - **White as canvas.** The background is not merely white; it is the canvas on which everything else is composed. White space is the most important "color" in the system.
 - **Borders, not shadows.** Hierarchy is established through hairline rules and subtle border distinctions, not drop shadows or elevation. This keeps the visual plane flat and honest -- nothing pretends to float above anything else.
 
