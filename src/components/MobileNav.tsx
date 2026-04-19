@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 const socials = [
   {
@@ -48,19 +49,19 @@ export function MobileNav() {
           className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             open
               ? "top-[9px] rotate-45 bg-white"
-              : "top-0 bg-black"
+              : "top-0 bg-[var(--text-primary)]"
           }`}
         />
         <span
           className={`block absolute left-0 w-full h-[2px] top-[9px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            open ? "opacity-0 bg-white" : "bg-black"
+            open ? "opacity-0 bg-white" : "bg-[var(--text-primary)]"
           }`}
         />
         <span
           className={`block absolute left-0 w-full h-[2px] transition-all duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             open
               ? "top-[9px] -rotate-45 bg-white"
-              : "top-[18px] bg-black"
+              : "top-[18px] bg-[var(--text-primary)]"
           }`}
         />
       </button>
@@ -108,7 +109,7 @@ export function MobileNav() {
         </div>
 
         <div
-          className={`flex gap-6 transition-all duration-300 ${
+          className={`flex items-center gap-6 transition-all duration-300 ${
             open
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-2.5"
@@ -129,6 +130,7 @@ export function MobileNav() {
               </svg>
             </a>
           ))}
+          <ThemeToggle className="text-white/70 hover:text-white" />
         </div>
       </div>
     </>
