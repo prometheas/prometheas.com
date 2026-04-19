@@ -161,7 +161,7 @@ This runs before first paint, so the page never flashes the wrong theme.
 Configure class-based dark mode in `globals.css`:
 
 ```css
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 This enables `dark:` utilities throughout the codebase.
@@ -255,11 +255,19 @@ rehypePlugins: [[rehypePrettyCode, {
 }]],
 ```
 
-This generates `data-theme="light"` and `data-theme="dark"` attributes on code blocks. CSS hides the inactive theme:
+This generates a single `<code data-theme="github-light github-dark">` element with `--shiki-light`/`--shiki-dark` CSS variables on each `<span>`. CSS switches the active theme:
 
 ```css
-.dark [data-theme="light"] { display: none; }
-:not(.dark) [data-theme="dark"] { display: none; }
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
 ```
 
 ### Tailwind Typography Plugin
