@@ -1,23 +1,28 @@
 import Image from "next/image";
 
-interface FigureProps {
+export function Figure({
+  src,
+  alt,
+  caption,
+}: {
   src: string;
-  alt: string;
+  alt?: string;
   caption?: string;
-  width?: number;
-  height?: number;
-}
-
-export function Figure({ src, alt, caption, width, height }: FigureProps) {
+}) {
   return (
-    <figure>
+    <figure className="my-8">
       <Image
         src={src}
-        alt={alt}
-        width={width ?? 800}
-        height={height ?? 450}
+        alt={alt || caption || ""}
+        width={800}
+        height={500}
+        className="w-full h-auto rounded"
       />
-      {caption && <figcaption>{caption}</figcaption>}
+      {caption && (
+        <figcaption className="text-sm text-slate-500 mt-2 text-center">
+          {caption}
+        </figcaption>
+      )}
     </figure>
   );
 }
