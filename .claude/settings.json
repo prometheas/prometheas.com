@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; case \"$f\" in *.js|*.jsx|*.ts|*.tsx|*.json|*.css) npx @biomejs/biome format --write \"$f\" 2>/dev/null ;; esac; case \"$f\" in *.js|*.jsx|*.ts|*.tsx) npx eslint --fix \"$f\" 2>/dev/null ;; esac; } || true",
+            "timeout": 30,
+            "statusMessage": "Formatting and linting..."
+          }
+        ]
+      }
+    ]
+  }
+}
