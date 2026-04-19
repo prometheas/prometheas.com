@@ -13,28 +13,28 @@ export function Header() {
         Prometheas<span className="text-[var(--accent)] font-bold">.</span>com
       </Link>
 
-      <nav className="hidden md:flex gap-6 lg:gap-9 items-center">
+      <nav className="hidden md:flex gap-2 lg:gap-5 items-center">
         <Link
           href="/posts/"
-          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
+          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors py-2 px-2"
         >
           Blog
         </Link>
         <Link
           href="/portfolio"
-          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
+          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors py-2 px-2"
         >
           Portfolio
         </Link>
         <Link
           href="/about"
-          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
+          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors py-2 px-2"
         >
           About
         </Link>
         <Link
           href="/contact"
-          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
+          className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors py-2 px-2"
         >
           Contact
         </Link>

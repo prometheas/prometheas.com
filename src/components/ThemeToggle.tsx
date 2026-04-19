@@ -40,15 +40,16 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return <span className={`inline-block w-[18px] h-[18px] ${className}`} />;
+    return <span className={`inline-block w-[34px] h-[34px] ${className}`} />;
   }
 
   return (
     <>
       <button
+        type="button"
         onClick={() => setTheme(cycle[theme] as "system" | "light" | "dark")}
         aria-label={labels[theme]}
-        className={`bg-transparent border-0 cursor-pointer p-0 text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors ${className}`}
+        className={`bg-transparent border-0 cursor-pointer p-2 text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors ${className}`}
       >
         {icons[theme]}
       </button>
