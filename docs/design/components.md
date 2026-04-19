@@ -21,7 +21,7 @@ Prometheas<span className="text-red font-bold">.</span>com
 **Column / card heading circle** — a `<span>` rendered inside an `h2` flex row:
 
 ```tsx
-<h2 className="text-[1.15rem] font-medium text-slate-900 mb-4 flex items-center gap-2.5">
+<h2 className="text-[1.15rem] font-medium text-zinc-900 mb-4 flex items-center gap-2.5">
   <span className="w-2 h-2 border-[1.5px] border-red rounded-full shrink-0" />
   {title}
 </h2>
@@ -33,7 +33,7 @@ Used in: `src/app/page.tsx` (Column component), `src/app/portfolio/page.tsx` (ca
 
 ### Gradient Divider
 
-A 1px-tall rule where the leftmost 60px are brand red and the remainder fades to `slate-100`. Implemented as an `::after` pseudo-element on the `<header>`. Reserved for primary landmark boundaries only — overuse dilutes its impact.
+A 1px-tall rule where the leftmost 60px are brand red and the remainder fades to `zinc-100`. Implemented as an `::after` pseudo-element on the `<header>`. Reserved for primary landmark boundaries only — overuse dilutes its impact.
 
 ```tsx
 <header className="... relative
@@ -42,7 +42,7 @@ A 1px-tall rule where the leftmost 60px are brand red and the remainder fades to
   max-md:after:left-6 max-md:after:right-6
   after:h-px after:bg-gradient-to-r
   after:from-red after:from-[60px]
-  after:to-slate-100 after:to-[60px]">
+  after:to-zinc-100 after:to-[60px]">
 ```
 
 Used in: `src/components/Header.tsx`.
@@ -51,14 +51,14 @@ Used in: `src/components/Header.tsx`.
 
 ### Hairline Rules
 
-1px separators in `slate-100` or `slate-200` used throughout the system for rhythm and grouping. Never styled with color or shadow — always neutral.
+1px separators in `zinc-100` or `zinc-200` used throughout the system for rhythm and grouping. Never styled with color or shadow — always neutral.
 
 | Location | Implementation |
 |----------|---------------|
-| Footer top | `before:h-px before:bg-slate-100` pseudo-element |
-| PostExcerpt bottom | `border-b border-slate-100` (removed on last item via `last:border-b-0`) |
-| Pagination top | `border-t border-slate-100` |
-| Footnotes top | `border-top: 1px solid var(--color-slate-200)` in `.post-content` CSS |
+| Footer top | `before:h-px before:bg-zinc-100` pseudo-element |
+| PostExcerpt bottom | `border-b border-zinc-100` (removed on last item via `last:border-b-0`) |
+| Pagination top | `border-t border-zinc-100` |
+| Footnotes top | `border-top: 1px solid var(--color-zinc-200)` in `.post-content` CSS |
 
 Used in: `src/components/Footer.tsx`, `src/components/PostExcerpt.tsx`, `src/components/Pagination.tsx`, `src/app/globals.css`.
 
@@ -68,19 +68,19 @@ Used in: `src/components/Footer.tsx`, `src/components/PostExcerpt.tsx`, `src/com
 
 ### Link Hover: Color Transition
 
-Navigation links, post titles, and social icons transition to brand red on hover. The default text color is `slate-700` or `slate-900`; the transition is `transition-colors`.
+Navigation links, post titles, and social icons transition to brand red on hover. The default text color is `zinc-700` or `zinc-900`; the transition is `transition-colors`.
 
 ```tsx
 // Desktop nav links
 className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase
-  text-slate-700 no-underline hover:text-red transition-colors"
+  text-zinc-700 no-underline hover:text-red transition-colors"
 
 // Post title in excerpt
-className="text-lg font-medium text-slate-900
+className="text-lg font-medium text-zinc-900
   no-underline hover:text-red transition-colors"
 
-// SocialLinks icon (text-slate-500 at rest)
-className="text-slate-500 hover:text-red transition-colors"
+// SocialLinks icon (text-zinc-500 at rest)
+className="text-zinc-500 hover:text-red transition-colors"
 ```
 
 Used in: `src/components/Header.tsx`, `src/components/PostExcerpt.tsx`, `src/components/SocialLinks.tsx`, `src/components/Pagination.tsx`.
@@ -114,7 +114,7 @@ Portfolio cards use a `group` class on the link wrapper so that both the border 
 
 ```tsx
 <Link
-  className="group block p-8 border border-slate-200 rounded
+  className="group block p-8 border border-zinc-200 rounded
     hover:border-red transition-colors no-underline"
 >
   <h2 className="... group-hover:text-red transition-colors">
@@ -152,8 +152,8 @@ Used in: `src/app/contact/page.tsx`.
 Form inputs remove the browser default outline and replace it with a red border and a 1px red ring.
 
 ```tsx
-className="w-full px-4 py-3 border border-slate-200 rounded
-  text-sm text-slate-900 font-light
+className="w-full px-4 py-3 border border-zinc-200 rounded
+  text-sm text-zinc-900 font-light
   focus:outline-none focus:border-red focus:ring-1 focus:ring-red
   transition-colors"
 ```
@@ -226,7 +226,7 @@ A horizontal flex row of uppercase tracking links, hidden below the `md` breakpo
 ```tsx
 <nav className="hidden md:flex gap-9 items-center">
   <Link className="text-[0.78rem] font-[450] tracking-[0.1em]
-    uppercase text-slate-700 no-underline hover:text-red transition-colors">
+    uppercase text-zinc-700 no-underline hover:text-red transition-colors">
     Blog
   </Link>
   {/* … */}
@@ -280,19 +280,19 @@ Used in: `src/components/MobileNav.tsx`.
 Each post in a list is an `<article>` with a meta row, title link, and optional excerpt text.
 
 ```tsx
-<article className="py-6 border-b border-slate-100 last:border-b-0">
+<article className="py-6 border-b border-zinc-100 last:border-b-0">
   {/* Meta row */}
   <div className="flex items-center gap-3 mb-2">
-    <time className="text-xs text-slate-500 tracking-wide">{date}</time>
-    <span className="text-slate-300">&middot;</span>
+    <time className="text-xs text-zinc-500 tracking-wide">{date}</time>
+    <span className="text-zinc-300">&middot;</span>
     <Link className="text-xs text-red tracking-wider uppercase
       no-underline hover:opacity-70 transition-opacity">{category}</Link>
   </div>
   {/* Title */}
-  <Link className="text-lg font-medium text-slate-900
+  <Link className="text-lg font-medium text-zinc-900
     no-underline hover:text-red transition-colors">{title}</Link>
   {/* Excerpt */}
-  <p className="text-sm text-slate-600 leading-relaxed mt-2 font-light">{excerpt}</p>
+  <p className="text-sm text-zinc-600 leading-relaxed mt-2 font-light">{excerpt}</p>
 </article>
 ```
 
@@ -302,17 +302,17 @@ Used in: `src/components/PostExcerpt.tsx`.
 
 ### Post Metadata Block
 
-The metadata block at the top of a full post. Wraps with `flex-wrap` to handle multiple tags gracefully. Categories are red (opacity-dim hover); tags are slate-400 (color-transition hover).
+The metadata block at the top of a full post. Wraps with `flex-wrap` to handle multiple tags gracefully. Categories are red (opacity-dim hover); tags are zinc-400 (color-transition hover).
 
 ```tsx
 <div className="flex flex-wrap items-center gap-x-3 gap-y-1
-  text-xs text-slate-500 mb-8">
+  text-xs text-zinc-500 mb-8">
   <time>{date}</time>
   {/* Categories: red, uppercase */}
   <Link className="text-red no-underline hover:opacity-70
     transition-opacity uppercase tracking-wider">{category}</Link>
-  {/* Tags: slate-400, hash-prefixed */}
-  <Link className="text-slate-400 no-underline hover:text-red
+  {/* Tags: zinc-400, hash-prefixed */}
+  <Link className="text-zinc-400 no-underline hover:text-red
     transition-colors">#{tag}</Link>
 </div>
 ```
@@ -333,7 +333,7 @@ A semantic `<figure>` wrapping a Next.js `<Image>` with an optional centered cap
     className="w-full h-auto rounded"
   />
   {caption && (
-    <figcaption className="text-sm text-slate-500 mt-2 text-center">
+    <figcaption className="text-sm text-zinc-500 mt-2 text-center">
       {caption}
     </figcaption>
   )}
@@ -356,17 +356,17 @@ The `.post-content` class in `globals.css` governs typographic treatment of MDX 
   & a { color: var(--color-red); text-decoration: none; }
   & a:hover { opacity: 0.7; }
 
-  /* Blockquotes: red left border, slate-600 text */
-  & blockquote { border-left-color: var(--color-red); color: var(--color-slate-600); }
+  /* Blockquotes: red left border, zinc-600 text */
+  & blockquote { border-left-color: var(--color-red); color: var(--color-zinc-600); }
 
   /* Inline code: 0.875em */
   & code { font-size: 0.875em; }
 
-  /* Code blocks: slate-50 background, slate-200 border */
-  & pre { background: var(--color-slate-50); border: 1px solid var(--color-slate-200); }
+  /* Code blocks: zinc-50 background, zinc-200 border */
+  & pre { background: var(--color-zinc-50); border: 1px solid var(--color-zinc-200); }
 
-  /* Footnotes: separated by slate-200 hairline */
-  & .footnotes { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-slate-200); }
+  /* Footnotes: separated by zinc-200 hairline */
+  & .footnotes { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-zinc-200); }
 }
 ```
 
