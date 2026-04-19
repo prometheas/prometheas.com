@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "squarespace": {
+      "source": "membranedev/application-skills",
+      "sourceType": "github",
+      "computedHash": "f26b4d3a79f6e35cb8a4eea8ed2361ec648037cd90d7da951d360732bb33dea2"
+    }
+  }
+}
