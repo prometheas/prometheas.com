@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
-import remarkFootnotes from "remark-footnotes";
+import remarkFrontmatter from "remark-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig: NextConfig = {
@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
+      remarkFrontmatter,
       remarkGfm,
-      [remarkFootnotes as any, { inlineNotes: true }],
     ],
     rehypePlugins: [[rehypePrettyCode as any, { theme: "github-light" }]],
   },

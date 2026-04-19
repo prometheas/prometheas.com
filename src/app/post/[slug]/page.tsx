@@ -47,7 +47,7 @@ export default async function PostPage({
         {meta.title}
       </h1>
       <PostMeta date={meta.date} categories={meta.categories} tags={meta.tags} />
-      <div className="prose prose-slate prose-sm max-w-none [&_a]:text-red [&_a]:no-underline hover:[&_a]:opacity-70 [&_blockquote]:border-l-red [&_blockquote]:text-slate-600 [&_code]:text-sm [&_pre]:bg-slate-50 [&_pre]:border [&_pre]:border-slate-200">
+      <div className="post-content prose prose-slate max-w-none">
         <Content />
       </div>
     </article>
