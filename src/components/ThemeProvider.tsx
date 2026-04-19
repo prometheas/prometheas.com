@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
 
 type Theme = "system" | "light" | "dark";
 type ResolvedTheme = "light" | "dark";
@@ -43,6 +43,7 @@ function applyTheme(resolved: ResolvedTheme) {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
+  const themeRef = useRef<Theme>("system");
 
   const resolve = useCallback((t: Theme): ResolvedTheme => {
     return t === "system" ? getSystemTheme() : t;
@@ -50,6 +51,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const setTheme = useCallback(
     (newTheme: Theme) => {
+      themeRef.current = newTheme;
       setThemeState(newTheme);
       try { localStorage.setItem("theme", newTheme); } catch {}
       const resolved = resolve(newTheme);
@@ -62,6 +64,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Initialize from localStorage on mount
   useEffect(() => {
     const stored = getStoredTheme();
+    themeRef.current = stored;
     setThemeState(stored);
     const resolved = resolve(stored);
     setResolvedTheme(resolved);
@@ -72,7 +75,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = () => {
-      if (getStoredTheme() === "system") {
+      if (themeRef.current === "system") {
         const resolved = getSystemTheme();
         setResolvedTheme(resolved);
         applyTheme(resolved);
@@ -89,6 +92,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         const raw = e.newValue;
         const newTheme: Theme =
           raw === "light" || raw === "dark" || raw === "system" ? raw : "system";
+        themeRef.current = newTheme;
         setThemeState(newTheme);
         const resolved = resolve(newTheme);
         setResolvedTheme(resolved);

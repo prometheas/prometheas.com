@@ -106,7 +106,7 @@ Do not introduce box-shadow, ring-shadow, or elevation utilities.
 Primary breakpoint: **md (768px)**. Secondary: **sm (640px)** used in the photography gallery grid.
 
 Below md: hamburger menu, 24px horizontal padding, vertical nav at 1.5rem light weight.
-Above md: horizontal nav bar, 72px horizontal padding, social links visible in header.
+Above md: horizontal nav bar, 72px horizontal padding, theme toggle in nav. Social links visible in header above lg (hidden at md–lg for breathing room; always available in footer).
 
 Grid layouts: homepage uses `grid-cols-3 max-md:grid-cols-1`, portfolio index uses `grid-cols-2 max-md:grid-cols-1`, photography gallery uses `grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1`.
 

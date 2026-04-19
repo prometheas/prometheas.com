@@ -63,7 +63,7 @@ export default function ContactPage() {
 
         <button
           type="submit"
-          className="px-8 py-3 bg-red text-white text-sm font-medium tracking-wide uppercase rounded hover:bg-red-hover transition-colors cursor-pointer"
+          className="px-8 py-3 bg-red text-white text-sm font-medium tracking-wide uppercase rounded hover:bg-red-hover transition-colors cursor-pointer focus-visible:outline-white"
         >
           Send
         </button>

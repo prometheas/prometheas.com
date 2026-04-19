@@ -79,22 +79,21 @@ The full red scale is available for fine-grained accent control. Brand red (600)
 
 ## Dark Mode
 
-Dark mode is implemented via a `data-theme="dark"` attribute on `<html>`. Each semantic CSS variable is remapped in the dark theme scope. The inversion strategy preserves semantic roles -- the darkest text token in light mode maps to the lightest in dark mode -- while maintaining equivalent contrast ratios against dark backgrounds.
+Dark mode is implemented via a `.dark` class on `<html>`, toggled by a ThemeProvider client component with a blocking inline script for FOUC prevention. Each semantic CSS variable is remapped in the `.dark` scope. The inversion strategy preserves semantic roles — the darkest text token in light mode maps to the lightest in dark mode — while maintaining WCAG AA contrast ratios against dark backgrounds. The accent red shifts two steps lighter for contrast on dark surfaces.
 
-**Semantic variable mappings (dark theme):**
+**Semantic variable mappings:**
 
-| Semantic Role | Light value | Dark value |
-|---------------|-------------|------------|
-| Primary text | `zinc-900` (`#18181b`) | `zinc-50` (`#fafafa`) |
-| Secondary text | `zinc-700` (`#3f3f46`) | `zinc-300` (`#d4d4d8`) |
-| Tertiary text | `zinc-600` (`#52525b`) | `zinc-400` (`#a1a1aa`) |
-| Muted text | `zinc-500` (`#71717a`) | `zinc-500` (`#71717a`) |
-| Borders | `zinc-300` (`#d4d4d8`) | `zinc-700` (`#3f3f46`) |
-| Subtle borders | `zinc-200` (`#e4e4e7`) | `zinc-800` (`#27272a`) |
-| Surface | `zinc-100` (`#f4f4f5`) | `zinc-800` (`#27272a`) |
-| Canvas tint / Code bg | `zinc-50` (`#fafafa`) | `zinc-950` (`#09090b`) |
-| Page background | `white` (`#ffffff`) | `zinc-900` (`#18181b`) |
-| Brand red | `#C23B22` | `#C23B22` (unchanged) |
-| Red hover | `#A83019` | `#A83019` (unchanged) |
+| Token | Light | Dark |
+|-------|-------|------|
+| `--bg-base` | zinc-50 (`#fafafa`) | zinc-900 (`#18181b`) |
+| `--bg-surface` | white (`#ffffff`) | zinc-800 (`#27272a`) |
+| `--bg-muted` | zinc-100 (`#f4f4f5`) | zinc-900 (`#18181b`) |
+| `--text-primary` | zinc-900 (`#18181b`) | zinc-100 (`#f4f4f5`) |
+| `--text-secondary` | zinc-600 (`#52525b`) | zinc-300 (`#d4d4d8`) |
+| `--text-muted` | zinc-500 (`#71717a`) | zinc-400 (`#a1a1aa`) |
+| `--border` | zinc-200 (`#e4e4e7`) | zinc-700 (`#3f3f46`) |
+| `--border-subtle` | zinc-100 (`#f4f4f5`) | zinc-700 (`#3f3f46`) |
+| `--accent` | red-600 (`#C23B22`) | red-400 (`#ea7661`) |
+| `--accent-hover` | red-700 (`#A83019`) | red-500 (`#df4e34`) |
 
 **Note:** `zinc-800` (`#27272a`) and `zinc-950` (`#09090b`) are dark mode tokens. They do not appear in light mode design, but are valid design system values for dark surface and background layers.
