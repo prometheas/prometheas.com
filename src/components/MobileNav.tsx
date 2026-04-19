@@ -70,6 +70,14 @@ export function MobileNav() {
         </span>
       </button>
 
+      {/* Backdrop — tapping outside the nav panel dismisses it */}
+      <div
+        className={`fixed inset-0 z-[999] ${
+          open ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        onClick={() => setOpen(false)}
+      />
+
       <div
         id="mobile-nav"
         className={`fixed inset-x-0 top-0 z-[1000] bg-red flex flex-col items-center justify-center gap-0 px-8 pt-20 pb-12 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] [&_:focus-visible]:outline-white ${
@@ -77,6 +85,7 @@ export function MobileNav() {
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "-translate-y-full opacity-0 pointer-events-none"
         }`}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col items-center gap-8 mb-12">
           {navLinks.map((link, i) => {
