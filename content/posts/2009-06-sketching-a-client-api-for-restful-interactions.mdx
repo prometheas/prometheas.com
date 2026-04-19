@@ -1,0 +1,126 @@
+---
+title: Sketching a Client API for RESTful Interactions
+slug: sketching-a-client-api-for-restful-interactions
+draft: false
+categories:
+  - Public Brainstorm
+tags:
+  - API
+  - PHP
+  - plugin
+  - proposal
+  - REST
+  - sfRESTClientPlugin
+  - Symfony
+date: '2009-06-01'
+id: 373
+---
+
+I've lately been exploring the value proposition of RESTful APIs to organizations whose technological infrastructures are built upon a collection of legacy software components, customized to communicate with each other by highly tailored middleware software stacks.
+
+That exploration will not unfold in this post, however. It could easily be an entire book unto itself.
+
+Rather, I would like to focus specifically on ideas I've had about what a high level object oriented API for interacting with RESTful services might look like, and funnel those thoughts into the design and implementation of a plugin I'm developing for the [Symfony framework](http://www.symfony-project.org), called [sfRESTClientPlugin](http://www.symfony-project.org/plugins/sfRESTClientPlugin).
+
+### Audience and Scope
+
+This post assumes at least casual familiarity with Web development. I will explore some general principles of the RESTful interaction paradigm, but only to the extent to which they inform the design direction of the plugin's API.
+
+Although all the code samples will be in PHP, it is my hope that the exercise will yield material valuable to people working with other software stacks.
+
+
+
+### The Fundamentals
+
+Wikipedia offers a great [article](http://en.wikipedia.org/wiki/Representational_State_Transfer) describing REST that is worth reading, if you would like a quick brush-up or introduction to the concept. I would describe REST as an "organic" extension to the model around which the World Wide Web itself was designed, as it wholly embraces a model composed of resources (text, images, videos, etc) that can be accessed using specific URLs.
+
+I'll be using the following assertion from the article as the springboard for my API design considerations (emphasis added to highlight the principal entities):
+
+> An important concept in REST is the existence of resources (sources of specific information), each of which is referenced with a global identifier (e.g., a URI in HTTP). In order to manipulate these resources, components of the network (user agents and origin servers) communicate via a standardized interface (e.g., HTTP) and exchange representations of these resources (the actual documents conveying the information).
+
+The API will therefore designed around the following discreet entities:
+
+* Service
+* Resource
+* Client (or "user agent")
+* Request
+* Response
+
+Another design goal for the plugin is that it offers the integration mechanisms that developers familiar with Symfony (and other high-quality MVC frameworks) will find familiar, such as named routes, YAML project configuration, [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) design, and an environment-aware configuration cascade.
+
+### A Sneak Peak
+
+At a certain point, examples speak more clearly than theories and principles. For the remainder of this post, I will talk about a sample REST service, which represents a "traditional" library — a collection of books.
+
+The primary entities with which your site's business logic will be dealing with are the _services_ themselves, each which offer one or more _resources_. Each service is defined by a collection of properties that declare information such as its host name, the types of resources available from the service, authentication credentials, and perhaps smaller details like a port number, root URI, etc.
+
+A sample configuration might look like this:
+
+```yaml
+    # config/rest_services.yml
+    services:
+      service_1:
+        scheme  : https
+        host    : exampleservice.com
+        root_uri: /api
+
+        resources:
+
+          book:
+            list: /books.xml
+            item: /books/:id.xml
+
+          author:
+            list: /authors.xml
+            item: /authors/:id.xml
+
+The RESTful service in our example is located at `https://exampleservice.com/api` and offers two resource entities: `book` and `author`. These configuration values will be used to populate the properties of a `sfRESTOriginService` instance that represents the service.
+
+Note that this configuration is defined under the key `service_1`. Here's what some code that interacts with this service might look like:
+
+```php
+    $svc = sfRESTOriginService::getInstance( 'service_1' );
+
+    // GET https://exampleservice.com/api/articles/34.xml
+    $response = $svc->get( '@book?id=34' );
+
+    // make sure we have a valid response
+    if ( $response->isError() )
+    {
+      if ( $response->isStatusCode( sfRESTClient::STATUS_UNAUTHORIZED ) )
+      {
+        throw new Exception( 'Access to resource is unauthorized!' );
+      }
+      else
+      {
+        throw new Exception( 'An error occurred attempting to access the resource!' );
+      }
+    }
+
+    // load the XML into a locally defined entity and manipulate it
+    $book = new MyLocalBook();
+    $book->loadFromXML( $response->getResponseXML() );
+    $book->setTitle( 'A New Title' );
+
+    // PUT https://exampleservice.com/api/articles/34.xml
+    $svc->put( '@book?id=34', array(
+      'data' => $book->serializeXml()
+    ));
+
+As the sample suggests, each service will be represented by a single instance.
+
+Each service naturally supports the four [HTTP methods](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) used by REST: `GET`, `POST`, `PUT`, and `DELETE`, so requests of these method types are issued by invoking the corresponding class methods of a `sfRESTOriginService` instance.
+
+The `GET` method requires only a URI, indicating the desired resource.
+
+Each request to the service produces a response object, which offers access to the resource data in question. The response object also provides access to response information such as HTTP headers, the resource URL, the request method used for the query that created it, and the [HTTP status code](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+
+Each method must be performed against a particular URI, which must be specified, and the `PUT` and `POST` methods also require a data payload.
+
+### Parting Thoughts
+
+This post is simply a starting point; a sketch. I will follow up shortly with another post outlining deeper use cases, such as using the `POST` method to create new resources, and dealing with resources of different data types, such as JSON, plain text, or even media files.
+
+In the meantime, I welcome any thoughts or questions regarding this initial direction.
+
+One particular matter I'm not so hot on from the examples above is the way in which resources are defined in the service configuration. I wonder if there isn't some better way to express the resource configuration, and manage to still deliver the "named route"-like approach to specifying resource URIs shown in the sample code above.

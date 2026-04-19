@@ -1,0 +1,133 @@
+---
+title: 'Pimping the Mini''s MIE: Adding Flock'
+slug: pimping-the-minis-mie-adding-flock
+draft: false
+categories:
+  - General Thoughts
+  - Tutorials
+tags:
+  - Flock
+  - hacking
+  - howto
+  - HP Mini
+  - Linux
+  - MIE
+  - tutorial
+date: '2009-05-21'
+id: 339
+---
+
+I broke down and hacked my MIE. But just a teeny bit, though: I simply installed the Flock browser and added it to the application launcher.
+
+I needed to know it could be done.
+
+Having satisfied my need to see the proof-of-concept, I intend to return to using the non-hacked configuration (by disabling what I've done) for a little while longer, while I complete a review period during which I use the computer with only the applications found on the default system.
+
+That said, I _will_ mention that am rather pleased with the initial results of my efforts in hacking this thing.
+
+Once I'm done assessing its performance and capability as configured in its "out-of-the-box" mode, I intend to hack the hell out of MIE. Maybe I'll even manage to fix the damned issue I'm encountering with the `Mail` widget on the home screen that HP's customer support facilities have _utterly failed_ at helping me resolve... but I'll get into the saga of HP's epic failures at customer support in a future post.
+
+
+
+## Installing Flock
+
+Head over to the [Flock website](http://flock.com) and download Flock. Unless you've changed the default settings, Firefox will download the file to your desktop.
+
+Fire up a terminal, `cd` to your Desktop (or whichever directory your Firefox is configured to save its download to) and type:
+
+```shell
+    $ sudo tar -C /opt -xjvf flock-*.linux-i686.tar.bz2
+
+Test if flock works from the command line:
+
+```shell
+    $ /opt/flock/flock-browser
+
+If Flock launched properly, it's installed properly. Next, we want to get the command to launch flock accessible from your `PATH` by adding a symlink to it in `/usr/local/bin`:
+
+```shell
+    $ sudo ln -s /opt/flock/flock-browser /usr/local/bin/flock
+
+Test if the symlink works:
+
+```shell
+    $ flock
+
+If Flock launched, then our command line installation steps are complete.
+
+## Adding Flock to the Launcher
+
+The next several steps will cover how we get the nice Flock icon in the _Internet_ tab of the application launcher, which initially looks like this:
+
+![MIE Launcher default state.png](/images/blog/media/2009/05/mie-launcher-default-state.png)
+
+### Backing Up the Original Settings
+
+First, let's backup our launcher's current setup; the wise hacker always keeps a copy of the original configuration in case something gets hosed.
+
+To create this backup, type the following into your terminal:
+
+```shell
+    $ sudo cp -r /etc/xdg/menus /etc/xdg/menus.original
+
+If we ever want to restore to our defaults, we need simply type:
+
+```shell
+    $ sudo mv /etc/xdg/menus /etc/xdg/menus.hosed
+    $ sudo cp -r /etc/xdg/menus.original /etc/xdg/menus
+
+This reversion will keep whatever changes you made to the config files you accidentally hosed, in case you want to try to copy your hacks back, one by one.
+
+### Creating an Application Entry File for Flock
+
+Create the file `/usr/local/share/applications/flock.desktop` and set its contents as follows:
+
+```ini
+    [Desktop Entry]
+    Name=Flock
+    Comment=Flock Web Browser
+    Exec=flock
+    GenericName=Flock Web Browser
+    Icon=/opt/flock/icons/mozicon128.png
+    Path=
+    StartupNotify=true
+    Terminal=0
+    TerminalOptions=
+    Type=Application
+    Categories=Application;Network;
+
+Note that we're creating our Application Entry file in `/usr/local/share` rather than `/usr/share`. This is because this is the recommended practice for items added manually by the user in Unix-like operating systems.
+
+### Adding the Application to an Existing Tab
+
+Let's add Flock to the launcher's _Internet_ tab.
+
+Open `/etc/xdg/menus/applications.menu` file, and make the following change:
+
+```xml
+    <Menu>
+      <Name>Internet</Name>
+      <!-- ... other nodes ... -->
+      <Layout>
+        <Filename>firefox.desktop</Filename>
+        <Filename>thunderbird.desktop</Filename>
+        <Filename>pidgin.desktop</Filename>
+        <Filename>skype.desktop</Filename>
+
+        <!-- We're adding this line -->
+        <Filename>flock.desktop</Filename>
+
+      </Layout>
+    </Menu>
+
+Save your file, then go to the application launcher. You should now see the following:
+
+![MIE Launcher with Flock installed.png](/images/blog/media/2009/05/mie-launcher-with-flock-installed.png)
+
+I won't cover _replacing_ Firefox as the default browser here, nor will I get into how to add tabs to the launcher — I'm not ready to get into all that just yet. Rest assured, however, that I'll definitely get there once I dive headlong into my hacking activities.
+
+[The material](http://myhpmini.com/forum/viewtopic.php?f=10&t=837&start=0) I based this entire endeavor on is from HP's Mini forum — check it out!
+
+Good hacking, amigos.
+
+<span class="date">24 May</span>: HP has got the Mini's _fora_ back up and running, so I've updated the URL to the material, and removed the Google Cache link.

@@ -1,0 +1,53 @@
+---
+title: The Steps to Windows Liberation
+slug: The-Steps-to-Windows-Liberation
+draft: true
+categories:
+  - General Thoughts
+tags: []
+id: 182
+---
+
+A little while ago, I posted about a solution I devised to minimize the amount of time that restoring a hosed Windows installation would cost me.
+
+This is a little guide to help you get there, too.
+
+We erased the hard drives of his PCs and installed [Ubuntu Linux](http://ubuntu.com/) on all of them. We chose Linux because it has a reputation for stability and security, and particularly the Ubuntu distribution because it's well-supported, actively developed, and has a good amount of polish. It is also completely free of charge.
+
+Next, we created a virtual machine in VirtualBox, into which we installed our copy of Windows, applied all the latest patches, added the driver for our Dad's Epson all-in-one device, and installed and all of his software.
+
+Finally, we shut down Windows (which only terminates the virtual machine; the computer itself is still on, running Linux) and _created a master backup copy of the new virtual machine's hard drive image file_. This master copy of the hard drive image contains a pristine version of Windows that is perfectly-configured with all his software.
+
+From now on, we'll use this master copy of the drive image to restore our Windows system to its original pristine condition.
+
+It is with a single file-copy operation.
+
+Other virtualization alternatives also exist, including [Parallels](http://parallels.com/), [VMWare Fusion](http://vmware.com/), but VirtualBox is also completely free.
+
+You may certainly opt to choose a different host operating system at your discretion.
+
+Windows itself will typically take about 30 - 45 minutes to install from disc (and that's on a fast machine).
+
+Depending on a variety of factors such as the version of Windows on your install discs, the speed of your internet connection, the performance and type of hardware in your computer, the devices you're connecting to it (printers, scanners, etc), and the particular applications you're using, the whole restoration process can take anywhere from several hours, to a whole day (and even longer in more extreme cases).
+
+### The Virtual Solution
+
+Virtualization is your greatest ally here. We will create a virtual machine into which we will install Windows, configure it with the latest security updates, and install all the apps and drivers we'll need _for the last time_.
+
+Let that sink in a moment: _you'll never have to re-install and update all your entire Windows system from scratch ever again_.
+
+Additionally, the restoration procedure will neither require the (re)activation of your copy of Windows with Microsoft, nor will it require connectivity to the Internet for any other reason.
+
+### What You'll Need
+
+To get started, you'll want to round up the following:
+
+1\. Your Windows installation disc(s)
+2\. The installation disc(s) for any driver software you'll need for the printer, scanner, etc. you intend to use
+3\. The latest version of [Ubuntu Linux](http://ubuntu.com/)
+
+Now you're ready to rock and roll.
+
+### Conclusions
+
+There are of course caveats (don't lose the backup!) and maintenance concerns (you'll be updating the pristine versions in the future), but you've reclaimed your future self a whole day of mind-numbingly grueling work.

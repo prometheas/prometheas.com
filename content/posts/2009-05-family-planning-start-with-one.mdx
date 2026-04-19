@@ -1,0 +1,132 @@
+---
+title: 'Family Planning: Start With One'
+slug: family-planning-start-with-one
+draft: false
+categories:
+  - Business Sense
+tags:
+  - Google Android
+  - iPhone
+  - Palm Pre
+  - product planning
+date: '2009-05-09'
+id: 285
+---
+
+John Gruber recently published a characteristically insightful [piece](http://daringfireball.net/2009/05/verizon_iphone_rumors) about the Verizon iPhone rumors in the press earlier this week. Speaking to rumors of what Business Week [has called](http://www.businessweek.com/technology/content/apr2009/tc20090427_328264.htm) the "iPhone Lite," Gruber revisits Apple's introduction of the iPod Mini, which was the event that turned the iPod from a single product into a product family.
+
+He writes:
+
+> The formula behind the iPod Mini was simple: Apple made a smaller, cheaper device with more or less the same technical specs as the original iPod from October 2001.
+> 
+> [...]
+> 
+> So here’s how I see Apple applying its iPod strategy to the iPhone. At some point the iPhone will expand to two form factors:
+> 
+> 1\. A high-end iPhone with the same basic size and price as previous iPhones, but with significant new features...
+> 
+> 2\. A new, lower-priced, smaller, and more adorable iPhone, with more or less the same technical specs as the original iPhone. _Given that those specs include the 320”‰Ã—”‰480 display_, I wouldn’t expect something tiny.... Shrink the iPhone’s forehead and chin and make it thinner ... is what I’m thinking. _Existing iPhone apps would run just fine on the new device_, as it’d have similar, if not identical, CPU performance and RAM to previous full-sized iPhones. [emphasis added]
+
+Reading the piece got me thinking back on the [cref 274 concerns I had] about Palm's fragmentation of both their prospective developer communities, as well as consumers, should the rumors of their introducing "Pre Lite" to the market.
+
+Note the points where emphasis has been added. There are two reasons for Apple to aim for roughly the same specs as the first generation iPhone when it introduces additional models:
+
+1\. a device with such specs will be significantly cheaper to produce more than two years later, and
+2\. it helps ensure maximal compatibility of existing apps with the prospective newer members of the product family.
+
+Apple has been very clear that minimal hardware variance is an explicit concern in their iPhone product design strategy (and, even their platform strategy for all devices running iPhone OS, or what [cref 16 I've been calling Touch OS X]). Naturally, since the devices in the product family must continue to evolve, it's impossible to entirely avoid hardware variance, but the more that the devices in the iPhone product family can have in common, the easier a job developers will have creating and testing the apps they make and sell.
+
+By contrast, the Android platform is beginning to get its first dose of non-trivial woes around hardware variation issues, but more on this later.
+
+There are plainly over [a billion reasons](http://www.apple.com/itunes/billion-app-countdown/) that Apple would want to maximize the extent to which apps remain compatible across their entire product family of iPhones, and screen size and shape is one of the critical details to keep consistent in the mobile world, where developers (at least the competent ones) take great pains to make every last pixel count.
+
+And for platforms like iPhone OS (and even Pre's webOS) that are designed so meticulously around the user's direct physical interaction with the screen, screen size is not a detail to be varied willy nilly.
+
+
+
+### Android(s)
+
+Android is the finest example of a maturing platform that can lend some insight to the situation. The platform is thoroughly modern, and is in a phase of its life comparable to the iPhone's. On the one hand, the Android SDK is older than the iPhone's, but the platform didn't offer any consumer grade phones until last fall, when [T-Mobile's G1](http://www.t-mobileg1.com/) started shipping.
+
+The platform has seen [its release of version 1.5](http://android-developers.blogspot.com/2009/04/android-15-is-here.html), and a number of [new](http://www.talkandroid.com/991-samsung-i7500-pics/) [devices](http://www.boygeniusreport.com/2009/04/29/calgary-to-be-motorolas-first-android-phone-more-news-on-moto/) [running](http://www.unwiredview.com/2009/01/12/upcoming-htc-smartphones-for-2009-leaked-mercilessly/) [Android](http://www.talkandroid.com/997-acer-android-phone-release/) are [poised to enter the market in the coming months](http://www.informationweek.com/news/personal_tech/smartphones/showArticle.jhtml?articleID=212501692).
+
+Andy McFadden published a  [post](http://android-developers.blogspot.com/2009/04/backward-compatibility-for-android.html) on the Android Developers blog, entitled _Backward compatibility for Android applications_. As one can infer from the title, the article offers advice to Android developers about how to handle backward compatibility for their apps, and suggests they consider whether or not they will actually even attempt it.
+
+He concludes:
+
+> You must test your application on every version of the Android framework that is expected to support it. By definition, the behavior of your application will be different on each. Remember the mantra: if you haven't tried it, it doesn't work.
+
+Now, allow me to assure you — with over a decade's worth of experience in web development — that _testing my work across just three browsers_ has been a _colossal_ pain in the ass.
+
+Understand that I had just linked to the first five arbitrary upcoming Android phones that I discovered as I searched around the Web, and that's frankly just the tip of the ice berg. The market is expecting _dozens_ of different Android phones (and even netbooks!) to show up in the market in the coming years.
+
+And so I am loathe to imagine the experiences Android developers will endure in their attempts to publish their apps for use on multiple different models.
+
+Repeating: _if you haven't tried it, it doesn't work_.
+
+I am not trying to knock Android, by the way. There are many things that excite me about the goals of the platform, but I think it's fair to say that — despite Google's launching the [Android Market](http://www.android.com/market/) — these platform's goals will be a greater boon to device manufacturers than to application publishers.
+
+The manufacturers will realize significant benefits from having a modern operating system and API:
+
+- they are afforded the freedom to further innovate upon and customize themselves, or just use the "vanilla" version on a lower-end device;
+- the software platform will continually mature and advance, without them spending a dime on R&D
+- the talent pool of skilled developers from which manufacturers can build their product teams will continue to grow
+
+Android developers seeking to earn a living publishing third-party applications for the platform, on the other hand, will be grappling with some very complex decisions regarding which devices they intend to target, since they'll generally want to ensure their app has the broadest potential customer base (or, at the least, a non-trivial one). This will consequently require them to constantly keep tabs on at least two critical bits of information:
+
+1\. how well each phone is selling, and
+2\. whether owners of the phone model(s) in question are likely to buy apps for their phone, at all.
+
+Apart from the burden of keeping abreast with this information, developers will be stuck making their decisions retrospectively. That is, if app publishers intend to leverage such information to make informed decisions about whether or not to invest in development efforts to target any particular model, they can only do so _after there is information to collect_.
+
+Forecasting becomes tricky.
+
+Consider the attempt to capitalize on the opportunity to make your app one of the first available on a given new device: do you invest development effort and QA resources on the unproven, or do you wait and see how the phone sells, and who's buying it?
+
+It isn't to say, however, that these considerations that are impossible to deal with. Certainly the publishers of third-party applications will develop, over time, a good feel for how to handle such considerations. I can also foresee the rise of products and services that promise to deliver reporting of all relevant stats. Regardless, the mere matter of even having to contend with such complexities certainly does raise a non-trivial barrier of entry for the entrepreneurial indie outfit.
+
+This is especially true for the one-man operations that we have seen thriving in the iPhone application scene.
+
+Intuition tells me that the <acronym title="Open Source Software">OSS</acronym> application scene will fare better on Android than the entrepreneurial independent publishing scene will. This is especially so with respect to achieving broader device compatibility, since OSS efforts will be able to [crowdsource](http://en.wikipedia.org/wiki/Crowdsourcing) their development and testing efforts.
+
+There are — at the time of this writing — 35 for-pay apps available in the Android Market, since Google enabled payment functionality for developers in February.
+
+But, to be fair, Google's primary motives for putting the Android platform out into the world was to loosen the iron grip the mobile telcos have been maneuvering to exercise over internet access available through their data networks; fostering a healthy entrepreneurial landscape for indie developers was a peripheral concern (if ideal outcome). To be certain, the only way for Google's goals to be realized is to get as many different manufacturers (and, by extension, devices) on the Android bandwagon as possible, so hardware plurality was always necessarily a leading concern.
+
+Yes, the matter of hardware variety stands to be a dreadful pain for the indie developers, but it's a key element of the Android strategy.
+
+### Palm and WebOS
+
+The idea behind launching a "lite" version of the Pre is to introduce a lower-grade — and, importantly, _cheaper_ — device running on the same WebOS platform as the Pre. This lower grade device will necessarily a have a differing hardware configuration, including a different screen size, according to reports.
+
+If this is true, and Palm carries on with this strategy, they will be lining up a family of products, straight off the starting line.
+
+But you can't leap into the race in fifth gear.
+
+After reading Gruber's reflections on how Apple grew the iPod from a single product into a family of products, I'd started thinking about how the efforts of putting together such a family calls for both time and, most of all, _planning_.
+
+From a business perspective, releasing such a low-tier WebOS phone would be both naÃ¯vely ambitious for Palm to take on this family development endeavor so early in the platform's lifetime, and that such a move will prove a marketing disaster, likely taking the wind out of the Pre's sails before she even managed to leave port.
+
+From an engineering perspective, Palm seems to be choosing to take on the worst of Android's worst problems, without any of the contextual details that make hardware diversity a good idea for Android.
+
+But the Pre is a particular product.
+
+Although WebOS can one day emerge as a compelling platform, this can only ever happen if the Pre first succeeds on its own merits as a _product_. And so Palm will need to play matters closer to the iPhone's playbook, than to Android's.
+
+Google has the money and time to invest in developing a grand multi-device platform. They also have partners.
+
+Palm, however, is in a far more precarious situation.
+
+A decision to go to market with a "Pre Lite" within months of the Pre's introduction would essentially be Palm hedging their bets, on account of the iPhone clearly kicking ass and taking names in the high end.
+
+I'm sympathetic to the fact that it may seem like a good enough idea on the surface, but by chasing both ends of the market from the start, however, Palm would risk overextending themselves and winding up with a watered-down, lowest-common-denominator technology, in a worse place than Mobile Java.
+
+And that would be an awful place to be.
+
+The "Pre Light" is—at the least—something Palm are thinking seriously about; its introduction would naturally move would be an attempt to capture both ends of the market. 
+
+But if the Pre is to stand a chance at saving Palm from extinction, they need to put all their product design effort and muscle behind crafting and refining _exactly the thing that the Pre is_, rather than trying to make the crazy new whizzbang that aims to be all things to all people.
+
+Palm needs to focus their efforts like a laser on the Pre.
+
+They essentially need to enter the arena boldly, charge straight up to Apple, and deliver a swift, mighty blow where it counts—_then_ they can suss out how they'll manage to land a few more.

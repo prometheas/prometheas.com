@@ -1,0 +1,108 @@
+---
+title: Sticks and Stones - A Framework for Naming Apple's Device Software
+slug: framework-for-discussing-apples
+draft: false
+categories:
+  - Canon
+tags:
+  - Apple
+  - lexicon
+  - OS X
+  - OS X variants
+date: '2009-03-18'
+id: 16
+---
+
+As evidenced by my recent post history, I've been thinking quite a bit about the upcoming iPhone OS 3.0, Apple's rumored "netbook" device, and generally evaluating Apple's products from a product design perspective.
+
+Although Apple's revenues are driven largely by hardware sales, it's the _software_ running on that hardware that actually delivers the value. After all, Apple doesn't have exclusive access to any hardware components that aren't also available, in some form, to their competitors. Sure, there are some chips they create in-house, but these components certainly have direct competitors in the market. A variety of vendors produce comparable touch-screen technology, graphics chip sets, and the rest.
+
+Apple has long touted software quality as their products' key differentiator, and they've been aggressively developing their _operating system_ (I'll delve deeper into this particular term later on) as the centerpiece of their software ecosystem.
+
+This common software code base is presently powering Macs, iPhones, iPod Touch, and even Apple TV.
+
+This is brilliant. 
+
+For one, the approach can be very cost-effective, for both Apple and the third-party developers creating applications and accessory devices for their products.
+
+For Apple — in their role of being responsible to maintain the various products they bring to market — being able to devote their resources to a single code base that is shared across a variety of products allows them to, say, make a single performance enhancement that will ultimately benefit _every_ product that uses the code in question.
+
+For third-party developers, shared APIs mean that time and effort invested learning to create their own products around _one_ Apple product can potentially yield returns in efforts towards entering markets for Apple's _other_ products.
+
+As such, a common code base acts much like a fulcrum.
+
+I'm glossing over a lot of stuff, but I think it's pretty clear how software commonalities between Apple's products can benefit everyone involved.
+
+On the other hand, each product needs variations to its software that make it more suitable to its usage. Imagine, for example, trying to shoehorn the software that runs a Mac onto an iPhone. Apart from severe processor power and memory constraints, imagine trying to use Photoshop on the iPhone's screen... you'd find yourself in a world of utter suck.
+
+So, there's a threshold; there must necessarily be differences in the software that run each product, so that it each can fully live up to the uses they are designed to fulfill.
+
+And so the catch is that's a _really hard_ thing to pull off.
+
+This is why Apple was compelled to devote an entire major release cycle of Mac OS X to optimizing the OS and its APIs, at the expense of adding the types of shiny new user-facing features (like fancy new iChat capabilities) that demo really well. They focused the majority of their engineering efforts on pulling this tremendous feat off.
+
+#### Different, but the Same
+
+All the products I'd mentioned above run variations of a code base that started its (recent) life as Mac OS X. That is, they are all a [BSD Unix](http://en.wikipedia.org/wiki/BSD) powered by a [Mach kernel](http://en.wikipedia.org/wiki/Mach_(kernel)), share a number of system services (like launchd), and offer a number of the same APIs.
+
+The differences enter the picture with respect to what hardware a particular variant of the software needs to run on, the apps it needs to run (iPhone apps won't run directly on your Mac without an emulator, nor any Mac app run on your iPhone), and what the whole experience needs to "feel" like for the user.
+
+Since each difference becomes yet another thing to "keep in mind" or "learn," it's naturally important attempt to minimize them, as they begin to offset the commonalities Apple is working so hard to create.
+
+The design process is about tradeoffs, after all.
+
+Apple must therefore aim to introduce differences only when truly necessary to meet the design requirements of the product in question.
+
+The topics I'm interested in exploring boil down to design, and since that will entail discussing specific decisions about each product. And since the heart of these (and many other) products is the software that runs them, I'll frequently be comparing and contrasting the software running each device.
+
+#### What's in a Name?
+
+In writing out some thoughts about how this software stack relates to these products, however, I quickly began to encounter difficulty in my attempts to coherently contrast and compare the variations in these products (say, in comparing major UI differences between Macs and iPhones).
+
+You see, I tried comparing the software that runs Macs to the software that runs iPhones using the same names Apple uses in its marketing materials (as the lay person is most likely to be familiar with those names).
+
+But I quickly ran into problems.
+
+Apple calls the software that runs on Macs _Mac OS X_, and the one that runs on iPhone and iPod Touch _iPhone OS_.
+
+Firstly, there's nothing taxonomical about these names. That's a nerdy way of saying that the names of these pieces of software do not allude to their having anything at all in common. There's also no "marketing name" that refers to the commonality, although Apple has described them both as being "OS X" to their engineering audience (as opposed to their consumer audience).
+
+Second, iPhone OS runs on iPhones... and iPod Touch devices. The iPod Touch is not an iPhone, yet it runs "iPhone OS." I'm going to classify that as another taxonomical failure (meta, innit?). Sure, these devices are quite similar, especially by outward appearances, but there are also many things that can be done on the iPhone that — due to differences in available hardware — simply _cannot_ be done on iPod Touch devices, including taking photos, proper GPS services, and sending SMS messages. Both devices are "handheld multi-touch devices," though I'll readily concede that "Handheld Multi-touch OS" is a total fucking yawner.
+
+Finally, Apple TV's OS doesn't seem to have an official "marketing" name.
+
+I'd therefore like to propose a naming practice that I hope will help make discussion about these things significantly more coherent.
+
+#### The OS X Software Stack
+
+For lack of any better ideas, I'm simply going to call this shared software the "OS X Software Stack," or simply "OS X" for short.
+
+I will define the "OS X" software stack as consisting of:
+
+1.  Darwin (the Mach-based BSD operating system), as well as its low-level UNIX-like APIs (stdlib, BSD sockets, etc);
+2.  Apple's various "Kit" and "Core" APIs (I/O Kit, Web Kit, Core Image, Core Data, etc); and
+3.  the various higher-level object-oriented Cocoa APIs
+Note that since I'm identifying the operating system as a component of the _OS X software stack_, I will also avoid referring to Mac OS X and iPhone OS as being different "operating systems." Rather, each will be understood to be running _the same_ operating system.
+
+I understand the room for debate there, but for the context in which I intend to compare them, the simplification shouldn't introduce any problems.
+
+But so how to refer to these discrete software entities?
+
+<a name="p16-os-x-variants"></a>
+
+#### OS X Variants
+
+I will describe the differing versions of it that ship on the Apple's different devices "variants" of OS X; _Mac OS X_ and _iPhone OS_ are each therefore "OS X variants" under this model.
+
+The formal list of OS X Variants that can be recognized, as of this writing, are as follows:
+
+1.  Desktop OS X (Macs, iMacs, Macbooks, etc)
+2.  Touch OS X (iPhone, iPod Touch)
+3.  Media OS X (Apple TV)
+Since user experience of _Mac OS X_ is designed to a human-computer interface paradigm called the [desktop metaphor](http://en.wikipedia.org/wiki/Desktop_metaphor) (featuring files, folders, and of course a "Desktop"), I'll be referring to it as _Desktop OS X_.
+
+By contrast, _iPhone OS_ is designed to deliver a [multi-touch](http://en.wikipedia.org/wiki/Multi-touch) human-computer interface, and so I'll settle on calling this variant _Touch OS X_.
+
+Finally, for the sake of being complete, let's just go ahead and classify the Apple TV's software as _Media OS X_.
+
+Please note that I've drawn up these OS X Variants based strictly on information about products that are available _presently_ in the market, at the time of this writing. Which is to say that they may need some refinement if, say, another device ships that's largely like _Touch OS X_, making it necessary to qualify the Variant's naming in a more meaningful way.

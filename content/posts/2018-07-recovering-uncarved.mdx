@@ -1,0 +1,31 @@
+---
+title: Recovering Uncarved
+slug: recovering-uncarved
+draft: false
+categories:
+  - Uncarved
+tags:
+  - announcement
+date: '2018-07-30'
+---
+After many months of being utterly out of commission (and 8 years without any new posts… ehem), I'm pleased to finally have managed to restore my blog, so that visitors are no longer greeted with a directory listing featuring only a `favicon.ico` file. 🙄
+
+First, a bit about why the blog vanished: my billing information had changed some time in 2017 and my hosting provider was unable to successfully bill me, so they deactivated my account.  Of course, they did try to contact me, but those emails got lost in the sea of my Inbox, so my provider wound up deleting the files and databases associated with my account.
+
+And so vanished Uncarved—for an ebarrassingly long time.  Sigh.
+
+The good news, however, is that I had already begun a port of the WordPress site (its content, anyway…) to [Hexo](https://hexo.io).
+
+For anyone unfamiliar, Hexo is basically a Node equivalent to [Jekyll](https://jekyllrb.com).[^1]  Unlike WordPress, which is a PHP app that offers an Admin interface to author content that gets stored in a MySQL database and dynamically renders content to the user with each request[^2], Hexo is a cli tool that generates a _static HTML site_ from a bunch of Markdown and template files.[^3]
+
+Thanks to [Hexo's WordPress migrator](https://hexo.io/docs/migration.html#WordPress)), I had already done the data migration.  The "only" work that remained, preventing me from redering a site from the migrated content, was that which was necessary to make generated pages look at least _something_ like they were part of prometheas.com.
+
+So I managed to find time this weekend to attack the theme customizing business, _et voila_: Uncarved is restored!  There remain some rough edges, like those silly blue links in the sidebar, and a couple of shortcodes (like `[caption]`) for whom a I have yet to implement a renderer, but the content is back.
+
+Welcome back, Uncarved.
+
+[^1]: It's difficult to pick whether Hexo's being JavaScript or its _not_ being Ruby is more attractive to me, but the truth is frankly that it's all pure _Win_ to me.
+
+[^2]: Ignoring stuff like page cache plugins and CDNs to keep things simple.
+
+[^3]: That's obviously a super-reductive comparison of the two site management solutions, and I intend to write a more considered comparison in some future post, but it's enough to say I am beyond pleased never to have to worry about upgrading WordPress to avoid getting my site data hacked.
