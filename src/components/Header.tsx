@@ -13,7 +13,7 @@ export function Header() {
         Prometheas<span className="text-[var(--accent)] font-bold">.</span>com
       </Link>
 
-      <nav className="hidden md:flex gap-9 items-center">
+      <nav className="hidden md:flex gap-6 lg:gap-9 items-center">
         <Link
           href="/posts/"
           className="text-[0.78rem] font-[450] tracking-[0.1em] uppercase text-[var(--text-secondary)] no-underline hover:text-[var(--accent)] transition-colors"
@@ -41,7 +41,7 @@ export function Header() {
         <ThemeToggle />
       </nav>
 
-      <SocialLinks className="hidden md:flex" />
+      <SocialLinks className="hidden lg:flex" />
       <MobileNav />
     </header>
   );
