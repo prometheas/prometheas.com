@@ -17,7 +17,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-[var(--bg-surface)] flex items-center justify-between px-[4.5rem] max-md:px-6 py-7 relative after:content-[''] after:absolute after:bottom-0 after:left-[4.5rem] after:right-[4.5rem] max-md:after:left-6 max-md:after:right-6 after:h-px after:bg-gradient-to-r after:from-[var(--accent)] after:from-[60px] after:to-[var(--border-subtle)] after:to-[60px]">
+    <header className="bg-[var(--bg-surface)] relative flex items-center justify-between px-[4.5rem] max-md:px-6 py-7 after:content-[''] after:absolute after:bottom-0 after:left-[4.5rem] after:right-[4.5rem] max-md:after:left-6 max-md:after:right-6 after:h-px after:bg-gradient-to-r after:from-[var(--accent)] after:from-[60px] after:to-[var(--border-subtle)] after:to-[60px]">
       <Link
         href="/"
         className="group text-[1.1rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-primary)] no-underline hover:text-[var(--accent)] transition-colors"

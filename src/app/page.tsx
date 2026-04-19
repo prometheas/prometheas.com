@@ -1,21 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import { FixedHero } from "@/components/FixedHero";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="flex flex-col items-center text-center">
-        <div className="w-full leading-[0] text-[0]">
-          <Image
-            src="/images/hero-hand.png"
-            alt="Open hand, palm up — the Promethean offering"
-            width={1920}
-            height={1200}
-            priority
-            className="w-full h-auto block dark:opacity-[0.42]"
-          />
-        </div>
+        <FixedHero />
 
         <div className="px-[4.5rem] max-md:px-6 pb-20 max-md:pb-12 pt-12 max-md:pt-8">
           <div className="text-[0.8rem] tracking-[0.25em] uppercase text-[var(--accent)] font-medium mb-8">
