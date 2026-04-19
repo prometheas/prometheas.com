@@ -16,13 +16,13 @@ export function PostMeta({
   });
 
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 mb-8">
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[var(--text-muted)] mb-8">
       <time>{formatted}</time>
       {categories.map((c) => (
         <Link
           key={c}
           href={`/posts/category/${encodeURIComponent(c.toLowerCase())}`}
-          className="text-red no-underline hover:opacity-70 transition-opacity uppercase tracking-wider"
+          className="text-[var(--accent)] no-underline hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)] transition-opacity uppercase tracking-wider"
         >
           {c}
         </Link>
@@ -31,7 +31,7 @@ export function PostMeta({
         <Link
           key={t}
           href={`/posts/tag/${encodeURIComponent(t.toLowerCase())}`}
-          className="text-slate-400 no-underline hover:text-red transition-colors"
+          className="text-[var(--text-muted)] no-underline hover:text-[var(--accent)] transition-colors"
         >
           #{t}
         </Link>

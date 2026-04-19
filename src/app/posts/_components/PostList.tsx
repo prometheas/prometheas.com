@@ -17,9 +17,9 @@ export function PostList({
 }) {
   return (
     <div className="max-w-[720px] mx-auto px-[4.5rem] max-md:px-6 py-16 max-md:py-10">
-      <h1 className="text-2xl font-semibold text-slate-900 mb-8">{title}</h1>
+      <h1 className="text-2xl font-semibold text-[var(--text-primary)] mb-8">{title}</h1>
       {posts.length === 0 ? (
-        <p className="text-slate-500">No posts found.</p>
+        <p className="text-[var(--text-muted)]">No posts found.</p>
       ) : (
         <>
           <div>

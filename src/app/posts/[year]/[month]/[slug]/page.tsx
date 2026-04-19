@@ -49,7 +49,7 @@ export default async function PostPage({
 
   return (
     <article className="max-w-[720px] mx-auto px-[4.5rem] max-md:px-6 py-16 max-md:py-10">
-      <h1 className="text-3xl max-md:text-2xl font-semibold text-slate-900 leading-tight mb-4">
+      <h1 className="text-3xl max-md:text-2xl font-semibold text-[var(--text-primary)] leading-tight mb-4">
         {meta.title}
       </h1>
       <PostMetaComponent
@@ -57,7 +57,7 @@ export default async function PostPage({
         categories={meta.categories}
         tags={meta.tags}
       />
-      <div className="post-content prose prose-slate max-w-none">
+      <div className="post-content prose max-w-none">
         <Content />
       </div>
     </article>
