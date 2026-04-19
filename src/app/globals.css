@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-red: #C23B22;
+  --color-red-hover: #A83019;
+  --color-slate-900: #0f172a;
+  --color-slate-700: #334155;
+  --color-slate-500: #64748b;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+  --color-slate-50: #f8fafc;
+  --font-sans: "Helvetica Neue", var(--font-inter), -apple-system, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
