@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { postsByCategory, allCategories } from "@/lib/posts";
-import { PostList } from "../../_components/PostList";
+import { PostList } from "../../_components/post-list";
 
 export function generateStaticParams() {
   return allCategories().map((c) => ({ category: c.toLowerCase() }));

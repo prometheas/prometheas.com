@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SocialLinks } from "./SocialLinks";
-import { MobileNav } from "./MobileNav";
-import { ThemeToggle } from "./ThemeToggle";
+import { SocialLinks } from "./social-links";
+import { MobileNav } from "./mobile-nav";
+import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
   { href: "/posts/", label: "Blog", match: "/posts" },

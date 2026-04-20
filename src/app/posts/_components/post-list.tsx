@@ -1,5 +1,5 @@
-import { PostExcerpt } from "@/components/PostExcerpt";
-import { Pagination } from "@/components/Pagination";
+import { PostExcerpt } from "@/components/post-excerpt";
+import { Pagination } from "@/components/pagination";
 import type { PostMeta } from "@/lib/posts";
 
 export function PostList({

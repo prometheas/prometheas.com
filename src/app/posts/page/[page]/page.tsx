@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { paginatedIndex, getAllPosts } from "@/lib/posts";
-import { PostList } from "../../_components/PostList";
+import { PostList } from "../../_components/post-list";
 
 export function generateStaticParams() {
   const totalPages = Math.ceil(getAllPosts().length / 10);

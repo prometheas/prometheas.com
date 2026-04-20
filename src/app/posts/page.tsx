@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { paginatedIndex } from "@/lib/posts";
-import { PostList } from "./_components/PostList";
+import { PostList } from "./_components/post-list";
 
 export const metadata: Metadata = { title: "Blog" };
 

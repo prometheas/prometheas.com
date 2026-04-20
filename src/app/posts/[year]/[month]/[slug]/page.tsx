@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPostByYearMonthSlug, getAllPosts } from "@/lib/posts";
-import { PostMeta as PostMetaComponent } from "@/components/PostMeta";
+import { PostMeta as PostMetaComponent } from "@/components/post-meta";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({

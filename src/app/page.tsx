@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FixedHero } from "@/components/FixedHero";
+import { FixedHero } from "@/components/fixed-hero";
 
 export default function Home() {
   return (
