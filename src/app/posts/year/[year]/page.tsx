@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { postsByYear, allYears } from "@/lib/posts";
-import { PostList } from "../../_components/PostList";
+import { PostList } from "../../_components/post-list";
 
 export function generateStaticParams() {
   return allYears().map((y) => ({ year: String(y) }));

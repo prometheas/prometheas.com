@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "./ThemeProvider";
+import { useTheme } from "./theme-provider";
 
 const icons = {
   light: (

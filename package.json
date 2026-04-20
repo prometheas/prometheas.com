@@ -13,6 +13,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
+    "*": [
+      "scripts/check-filename-convention.sh"
+    ],
     "*.{js,jsx,ts,tsx,json,css}": [
       "biome format --write --no-errors-on-unmatched"
     ],

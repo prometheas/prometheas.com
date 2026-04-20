@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PhotoGallery } from "./PhotoGallery";
+import { PhotoGallery } from "./photo-gallery";
 
 export const metadata: Metadata = { title: "Photography" };
 

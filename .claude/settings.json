@@ -1,14 +1,38 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/agent-hooks/pre-write-filename-check.sh",
+            "timeout": 10,
+            "statusMessage": "Checking filename convention..."
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_response.filePath // .tool_input.file_path' | { read -r f; case \"$f\" in *.js|*.jsx|*.ts|*.tsx|*.json|*.css) npx @biomejs/biome format --write \"$f\" 2>/dev/null ;; esac; case \"$f\" in *.js|*.jsx|*.ts|*.tsx) npx eslint --fix \"$f\" 2>/dev/null ;; esac; } || true",
+            "command": "./scripts/agent-hooks/post-edit-format-lint.sh",
             "timeout": 30,
             "statusMessage": "Formatting and linting..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/agent-hooks/post-bash-filename-check.sh",
+            "timeout": 10,
+            "statusMessage": "Checking new file naming conventions..."
           }
         ]
       }
