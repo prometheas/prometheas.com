@@ -6,6 +6,7 @@
 # Scans for untracked files under src/ and content/ after every Bash command.
 # Exit 2 feeds the violation back to Claude so it can fix the filename.
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 HOOK_SOURCE="hook:PostToolUse:Bash:filename-convention"
 
 # Drain stdin (hook JSON — not needed for this check)
@@ -17,7 +18,7 @@ if [ -z "$new_files" ]; then
   exit 0
 fi
 
-echo "$new_files" | xargs ./scripts/check-filename-convention.sh 2>&1 || {
+printf '%s\0' $new_files | xargs -0 "$SCRIPT_DIR/../check-filename-convention.sh" 2>&1 || {
   echo "[$HOOK_SOURCE] new file(s) violate kebab-case convention" >&2
   exit 2
 }

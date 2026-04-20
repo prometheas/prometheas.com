@@ -6,6 +6,7 @@
 # Exit 0 = allow, exit 2 = block.
 
 set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 HOOK_SOURCE="hook:PreToolUse:Write:filename-convention"
 
 FILE_PATH=$(jq -r '.tool_input.file_path' 2>/dev/null) || {
@@ -18,7 +19,7 @@ if [ -z "$FILE_PATH" ] || [ "$FILE_PATH" = "null" ]; then
   exit 2
 fi
 
-./scripts/check-filename-convention.sh "$FILE_PATH" 2>&1 || {
+"$SCRIPT_DIR/../check-filename-convention.sh" "$FILE_PATH" 2>&1 || {
   echo "[$HOOK_SOURCE] blocked — filename violates kebab-case convention" >&2
   exit 2
 }
