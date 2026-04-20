@@ -72,11 +72,26 @@ for filepath in "$@"; do
     continue
   fi
 
-  # Validate the stem (basename before first dot)
-  stem="${basename_full%%.*}"
-  if [[ ! "$stem" =~ ^_?[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
-    echo "FAIL: $filepath — stem '$stem' is not lowercase kebab-case" >&2
-    violations=$((violations + 1))
+  # Validate all dot-separated segments of the filename.
+  # e.g. "my-component.test.tsx" → ["my-component", "test", "tsx"]
+  # First segment allows optional leading underscore (Next.js private folders).
+  # All segments must be lowercase kebab-case.
+  IFS='.' read -ra name_parts <<< "$basename_full"
+  prev_violations=$violations
+  for i in "${!name_parts[@]}"; do
+    part="${name_parts[$i]}"
+    if [[ "$i" -eq 0 ]]; then
+      pattern='^_?[a-z0-9]+(-[a-z0-9]+)*$'
+    else
+      pattern='^[a-z0-9]+(-[a-z0-9]+)*$'
+    fi
+    if [[ ! "$part" =~ $pattern ]]; then
+      echo "FAIL: $filepath — segment '$part' is not lowercase kebab-case" >&2
+      violations=$((violations + 1))
+      break
+    fi
+  done
+  if [[ $violations -gt $prev_violations ]]; then
     continue
   fi
 
