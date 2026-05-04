@@ -187,7 +187,7 @@ export default function EirenePrivacyPage() {
         </div>
       </section>
 
-      <section>
+      <section id="your-data-your-control">
         <h2 className="text-[1rem] font-medium text-[var(--text-primary)] mt-10 mb-3">
           Your data, your control
         </h2>
