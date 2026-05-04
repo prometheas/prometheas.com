@@ -39,6 +39,7 @@ export default function SupportForm() {
   const [state, setState] = useState<SubmitState>("idle");
 
   async function handleSubmit() {
+    if (!email.trim() || !platform || !message.trim()) return;
     setState("submitting");
     try {
       const res = await fetch("https://formspree.io/f/xwvylooz", {
