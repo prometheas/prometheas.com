@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+const DOWNLOAD_SECTION_ID = "get-the-app";
+const APP_STORE_URL = "https://apps.apple.com/us/app/eirene/id6762246199";
+const GOOGLE_PLAY_URL =
+  "https://play.google.com/store/apps/details?id=com.prometheaslabs.eirene.mobile";
+
 export const metadata: Metadata = {
   title: "Eirene — Breathwork, safety-first",
   description:
-    "A breathwork practice tool built safety-first. No ads. No tracking. Coming to the App Store and Google Play.",
+    "A breathwork practice tool built safety-first. No ads. No tracking. Now available on the App Store and Google Play.",
   openGraph: {
     images: [{ url: "/apps/eirene/icon.png", width: 1024, height: 1024 }],
   },
@@ -60,12 +65,16 @@ export default function EirenePage() {
                 No ads, no tracking. Just you and your breath.
               </p>
               <p className="text-[11px] text-white/30">
-                Coming to the App Store and Google Play
+                Now available for iPhone and Android
               </p>
               <div>
-                <span className="inline-block bg-[#C23B22] text-white text-[13px] font-medium px-[22px] py-[10px] rounded-[3px]">
-                  Coming soon
-                </span>
+                <Link
+                  href={`#${DOWNLOAD_SECTION_ID}`}
+                  className="inline-flex items-center gap-2 text-[13px] text-white/55 transition-colors hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#10284A]"
+                >
+                  See download options
+                  <span aria-hidden="true">↓</span>
+                </Link>
               </div>
             </div>
             {/* Right: icon with radial glow */}
@@ -221,24 +230,42 @@ export default function EirenePage() {
       </section>
 
       {/* Get the app */}
-      <section className="border-t border-zinc-200 py-20 max-md:py-12">
+      <section
+        id={DOWNLOAD_SECTION_ID}
+        className="border-t border-zinc-200 py-20 max-md:py-12"
+      >
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
           <p className="text-[11px] tracking-[0.15em] uppercase text-zinc-400">
             Get the app
           </p>
+          <p className="text-[14px] font-light text-zinc-500 leading-relaxed">
+            Available now on both marketplaces.
+          </p>
           <div className="flex gap-3 flex-wrap">
-            <span
-              aria-disabled="true"
-              className="inline-flex items-center border border-zinc-200 text-zinc-400 text-[13px] px-5 py-[10px] rounded-[3px] cursor-not-allowed select-none"
+            <Link
+              href={APP_STORE_URL}
+              className="inline-flex rounded-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C23B22] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              App Store — coming soon
-            </span>
-            <span
-              aria-disabled="true"
-              className="inline-flex items-center border border-zinc-200 text-zinc-400 text-[13px] px-5 py-[10px] rounded-[3px] cursor-not-allowed select-none"
+              <Image
+                src="/apps/eirene/app-store-badge.svg"
+                alt="Download on the App Store"
+                width={168}
+                height={56}
+                className="block"
+              />
+            </Link>
+            <Link
+              href={GOOGLE_PLAY_URL}
+              className="inline-flex rounded-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C23B22] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              Google Play — coming soon
-            </span>
+              <Image
+                src="/apps/eirene/google-play-badge.png"
+                alt="Get it on Google Play"
+                width={188}
+                height={56}
+                className="block"
+              />
+            </Link>
           </div>
           <p className="text-[12px] text-zinc-400">
             Haptic feedback depends on a device with a haptic motor.
