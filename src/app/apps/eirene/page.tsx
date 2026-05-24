@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import Image from "next/image";
 import Link from "next/link";
-
-import { ScreenshotCarousel } from "./eirene-screenshot-carousel";
 
 const DOWNLOAD_SECTION_ID = "get-the-app";
 const APP_STORE_URL = "https://apps.apple.com/us/app/eirene/id6762246199";
@@ -130,7 +129,7 @@ export default function EirenePage() {
             />
             Screenshots
           </h2>
-          <ScreenshotCarousel screenshots={screenshots} />
+          <ScreenshotCarousel images={screenshots} />
         </div>
       </section>
 
