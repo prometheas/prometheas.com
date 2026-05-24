@@ -140,7 +140,7 @@ export function EireneScreenshotCarousel({
               type="button"
               onClick={scrollPrev}
               disabled={!canScrollPrev}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-colors duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
               aria-label="Show previous screenshot"
             >
               <span aria-hidden="true">&larr;</span>
@@ -155,7 +155,7 @@ export function EireneScreenshotCarousel({
                     key={`screenshot-dot-${index}`}
                     type="button"
                     onClick={() => scrollTo(index)}
-                    className="inline-flex h-8 w-8 items-center justify-center"
+                    className="group inline-flex h-8 w-8 items-center justify-center cursor-pointer"
                     aria-label={`Show screenshot ${index + 1}`}
                     aria-pressed={isSelected}
                   >
@@ -163,7 +163,7 @@ export function EireneScreenshotCarousel({
                       className={`block h-[6px] rounded-full transition-[background-color,width] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         isSelected
                           ? "w-5 bg-[var(--accent)]"
-                          : "w-[6px] bg-[var(--border)]"
+                          : "w-[6px] bg-[var(--border)] group-hover:bg-[var(--accent)] group-focus-visible:bg-[var(--accent)]"
                       }`}
                     />
                   </button>
@@ -175,7 +175,7 @@ export function EireneScreenshotCarousel({
               type="button"
               onClick={scrollNext}
               disabled={!canScrollNext}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-colors duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
               aria-label="Show next screenshot"
             >
               <span aria-hidden="true">&rarr;</span>
