@@ -3,24 +3,20 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 
-type Screenshot = {
+export type CarouselImage = {
   alt: string;
   label: string;
   src: string;
 };
 
-type EireneScreenshotCarouselProps = {
-  screenshots: Screenshot[];
+type ScreenshotCarouselProps = {
+  screenshots: CarouselImage[];
 };
 
-const sectionHeadingClass =
-  "mb-4 flex items-center gap-2.5 text-[1.15rem] font-medium text-[var(--text-primary)]";
 const carouselMotionClass =
   "transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]";
 
-export function EireneScreenshotCarousel({
-  screenshots,
-}: EireneScreenshotCarouselProps) {
+export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     containScroll: false,
@@ -76,119 +72,109 @@ export function EireneScreenshotCarousel({
   );
 
   return (
-    <section className="py-20 max-md:py-12">
-      <div className="mx-auto flex max-w-[800px] flex-col items-start gap-10 px-[4.5rem] max-md:px-6">
-        <h2 className={sectionHeadingClass}>
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
-          />
-          Screenshots
-        </h2>
+    <div className="flex w-full flex-col gap-10">
+      <div className="grid w-full grid-cols-3 justify-items-center gap-6 max-md:hidden">
+        {screenshots.map((screenshot) => (
+          <figure
+            key={screenshot.alt}
+            className="flex flex-col items-center gap-3"
+          >
+            <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={screenshot.src}
+                alt={screenshot.alt}
+                className="block w-full"
+              />
+            </div>
+            <figcaption className="text-center text-[12px] font-light text-[var(--text-muted)]">
+              {screenshot.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
 
-        <div className="grid w-full grid-cols-3 justify-items-center gap-6 max-md:hidden">
-          {screenshots.map((screenshot) => (
-            <figure
-              key={screenshot.alt}
-              className="flex flex-col items-center gap-3"
-            >
-              <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={screenshot.src}
-                  alt={screenshot.alt}
-                  className="block w-full"
-                />
-              </div>
-              <figcaption className="text-center text-[12px] font-light text-[var(--text-muted)]">
-                {screenshot.label}
-              </figcaption>
-            </figure>
-          ))}
+      <div className="hidden w-full flex-col gap-5 max-md:flex">
+        <div className="-mx-6 overflow-hidden px-6" ref={emblaRef}>
+          <div className="-ml-3 flex touch-pan-y">
+            {screenshots.map((screenshot, index) => {
+              const isSelected = index === selectedIndex;
+
+              return (
+                <div
+                  key={screenshot.alt}
+                  className="min-w-0 shrink-0 basis-[19rem] pl-3"
+                >
+                  <figure
+                    className={`mx-auto flex w-full max-w-[18rem] translate-y-0 flex-col items-center gap-3 ${carouselMotionClass} ${
+                      isSelected ? "opacity-100" : "translate-y-1 opacity-60"
+                    }`}
+                  >
+                    <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        className="block w-full"
+                      />
+                    </div>
+                    <figcaption className="text-center text-[12px] font-light text-[var(--text-muted)]">
+                      {screenshot.label}
+                    </figcaption>
+                  </figure>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="hidden w-full flex-col gap-5 max-md:flex">
-          <div className="-mx-6 overflow-hidden px-6" ref={emblaRef}>
-            <div className="-ml-3 flex touch-pan-y">
-              {screenshots.map((screenshot, index) => {
-                const isSelected = index === selectedIndex;
+        <div className="flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
+            aria-label="Show previous screenshot"
+          >
+            <span aria-hidden="true">&larr;</span>
+          </button>
 
-                return (
-                  <div
-                    key={screenshot.alt}
-                    className="min-w-0 shrink-0 basis-[19rem] pl-3"
-                  >
-                    <figure
-                      className={`mx-auto flex w-full max-w-[18rem] translate-y-0 flex-col items-center gap-3 ${carouselMotionClass} ${
-                        isSelected ? "opacity-100" : "translate-y-1 opacity-60"
-                      }`}
-                    >
-                      <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={screenshot.src}
-                          alt={screenshot.alt}
-                          className="block w-full"
-                        />
-                      </div>
-                      <figcaption className="text-center text-[12px] font-light text-[var(--text-muted)]">
-                        {screenshot.label}
-                      </figcaption>
-                    </figure>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="flex items-center gap-2">
+            {scrollSnaps.map((_, index) => {
+              const isSelected = index === selectedIndex;
+
+              return (
+                <button
+                  key={`screenshot-dot-${index}`}
+                  type="button"
+                  onClick={() => scrollTo(index)}
+                  className="group inline-flex h-8 w-8 items-center justify-center cursor-pointer"
+                  aria-label={`Show screenshot ${index + 1}`}
+                  aria-pressed={isSelected}
+                >
+                  <span
+                    className={`block h-[6px] rounded-full transition-[background-color,width] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      isSelected
+                        ? "w-5 bg-[var(--accent)]"
+                        : "w-[6px] bg-[var(--border)] group-hover:bg-[var(--accent)] group-focus-visible:bg-[var(--accent)]"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
 
-          <div className="flex items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={scrollPrev}
-              disabled={!canScrollPrev}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
-              aria-label="Show previous screenshot"
-            >
-              <span aria-hidden="true">&larr;</span>
-            </button>
-
-            <div className="flex items-center gap-2">
-              {scrollSnaps.map((_, index) => {
-                const isSelected = index === selectedIndex;
-
-                return (
-                  <button
-                    key={`screenshot-dot-${index}`}
-                    type="button"
-                    onClick={() => scrollTo(index)}
-                    className="group inline-flex h-8 w-8 items-center justify-center cursor-pointer"
-                    aria-label={`Show screenshot ${index + 1}`}
-                    aria-pressed={isSelected}
-                  >
-                    <span
-                      className={`block h-[6px] rounded-full transition-[background-color,width] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                        isSelected
-                          ? "w-5 bg-[var(--accent)]"
-                          : "w-[6px] bg-[var(--border)] group-hover:bg-[var(--accent)] group-focus-visible:bg-[var(--accent)]"
-                      }`}
-                    />
-                  </button>
-                );
-              })}
-            </div>
-
-            <button
-              type="button"
-              onClick={scrollNext}
-              disabled={!canScrollNext}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
-              aria-label="Show next screenshot"
-            >
-              <span aria-hidden="true">&rarr;</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] transition-[color,border-color,opacity] duration-150 ease-[cubic-bezier(0.4,0,0.2,1)] hover:cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:cursor-default disabled:border-[var(--border-subtle)] disabled:text-[var(--text-muted)] disabled:opacity-10"
+            aria-label="Show next screenshot"
+          >
+            <span aria-hidden="true">&rarr;</span>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

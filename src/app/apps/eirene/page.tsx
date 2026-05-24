@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { EireneScreenshotCarousel } from "./eirene-screenshot-carousel";
+import { ScreenshotCarousel } from "./eirene-screenshot-carousel";
 
 const DOWNLOAD_SECTION_ID = "get-the-app";
 const APP_STORE_URL = "https://apps.apple.com/us/app/eirene/id6762246199";
@@ -121,7 +121,18 @@ export default function EirenePage() {
         </div>
       </section>
 
-      <EireneScreenshotCarousel screenshots={screenshots} />
+      <section className="py-20 max-md:py-12">
+        <div className="mx-auto flex max-w-[800px] flex-col items-start gap-10 px-[4.5rem] max-md:px-6">
+          <h2 className={sectionHeadingClass}>
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+            />
+            Screenshots
+          </h2>
+          <ScreenshotCarousel screenshots={screenshots} />
+        </div>
+      </section>
 
       {/* Features */}
       <section className="border-t border-[var(--border)] py-20 max-md:py-12">
@@ -163,15 +174,9 @@ export default function EirenePage() {
             tingling, dizziness — these effects are part of how it works.
             That&apos;s exactly why it deserves care.
           </p>
-          <ul className="flex flex-col gap-4">
+          <ul className="list-disc pl-5 space-y-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
             {safetyBullets.map((b) => (
-              <li
-                key={b}
-                className="flex gap-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]"
-              >
-                <span className="mt-[5px] h-[5px] w-[5px] shrink-0 rounded-full bg-[var(--text-muted)]" />
-                {b}
-              </li>
+              <li key={b}>{b}</li>
             ))}
           </ul>
           <p className="text-[0.82rem] leading-[1.7] text-[var(--text-muted)]">
@@ -195,15 +200,9 @@ export default function EirenePage() {
             The app works offline. No account required. Privacy isn&apos;t a
             setting buried in a menu — it&apos;s just how it works.
           </p>
-          <ul className="flex flex-col gap-4">
+          <ul className="list-disc pl-5 space-y-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
             {privacyBullets.map((b) => (
-              <li
-                key={b}
-                className="flex gap-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]"
-              >
-                <span className="mt-[5px] h-[5px] w-[5px] shrink-0 rounded-full bg-[var(--border)]" />
-                {b}
-              </li>
+              <li key={b}>{b}</li>
             ))}
           </ul>
           <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
