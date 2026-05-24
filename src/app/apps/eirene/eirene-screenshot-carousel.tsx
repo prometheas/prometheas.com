@@ -13,6 +13,8 @@ type EireneScreenshotCarouselProps = {
   screenshots: Screenshot[];
 };
 
+const sectionHeadingClass =
+  "mb-4 flex items-center gap-2.5 text-[1.15rem] font-medium text-[var(--text-primary)]";
 const carouselMotionClass =
   "transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]";
 
@@ -75,8 +77,12 @@ export function EireneScreenshotCarousel({
 
   return (
     <section className="py-20 max-md:py-12">
-      <div className="mx-auto flex max-w-[800px] flex-col items-center gap-10 px-[4.5rem] max-md:px-6">
-        <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
+      <div className="mx-auto flex max-w-[800px] flex-col items-start gap-10 px-[4.5rem] max-md:px-6">
+        <h2 className={sectionHeadingClass}>
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+          />
           The practice
         </h2>
 

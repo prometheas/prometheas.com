@@ -8,8 +8,10 @@ const DOWNLOAD_SECTION_ID = "get-the-app";
 const APP_STORE_URL = "https://apps.apple.com/us/app/eirene/id6762246199";
 const GOOGLE_PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.prometheaslabs.eirene.mobile";
+const sectionHeadingClass =
+  "mb-4 flex items-center gap-2.5 text-[1.15rem] font-medium text-[var(--text-primary)]";
 const accentLinkClass =
-  "text-[var(--accent)] underline underline-offset-2 decoration-[color:var(--accent)] transition-colors hover:text-[var(--accent-hover)] hover:decoration-[color:var(--accent-hover)]";
+  "text-[var(--accent)] no-underline transition-opacity hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)]";
 
 export const metadata: Metadata = {
   title: "Eirene — Breathwork, safety-first",
@@ -83,18 +85,18 @@ export default function EirenePage() {
               <h1 className="text-[22px] font-light text-[#f5fbff] leading-snug">
                 Breathwork for people who take it seriously.
               </h1>
-              <p className="text-[13px] text-white/50">
+              <p className="max-w-[34rem] text-[0.95rem] font-light leading-[1.8] text-white/70">
                 No ads. No account registrations. Works a dream offline, so you
                 can drop into airplane mode and practice without distractions.
               </p>
-              <p className="text-[13px] text-white/50">
+              <p className="max-w-[34rem] text-[0.95rem] font-light leading-[1.8] text-white/70">
                 Just you and your breath, in peace.
               </p>
 
               <div>
                 <Link
                   href={`#${DOWNLOAD_SECTION_ID}`}
-                  className="inline-flex items-center gap-2 text-[13px] text-white/55 transition-colors hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#10284A]"
+                  className="inline-flex items-center gap-2 text-[0.95rem] font-light text-white/70 transition-colors hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#10284A]"
                 >
                   See download options
                   <span aria-hidden="true">↓</span>
@@ -124,16 +126,20 @@ export default function EirenePage() {
       {/* Features */}
       <section className="border-t border-[var(--border)] py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-10">
-          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className={sectionHeadingClass}>
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+            />
             Features
           </h2>
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-8">
             {features.map((f) => (
               <div key={f.title}>
-                <p className="mb-1 text-[14px] font-medium text-[var(--text-primary)]">
+                <p className="mb-1.5 text-[1rem] font-medium leading-[1.55] text-[var(--text-primary)]">
                   {f.title}
                 </p>
-                <p className="text-[13px] font-light leading-relaxed text-[var(--text-secondary)]">
+                <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
                   {f.description}
                 </p>
               </div>
@@ -145,10 +151,14 @@ export default function EirenePage() {
       {/* Safety */}
       <section className="border-y border-[var(--border)] bg-[var(--bg-muted)] py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className={sectionHeadingClass}>
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+            />
             Safety
           </h2>
-          <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
+          <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
             Cyclic breathing is a real physiological practice. Lightheadedness,
             tingling, dizziness — these effects are part of how it works.
             That&apos;s exactly why it deserves care.
@@ -157,14 +167,14 @@ export default function EirenePage() {
             {safetyBullets.map((b) => (
               <li
                 key={b}
-                className="flex gap-3 text-[13px] font-light leading-relaxed text-[var(--text-secondary)]"
+                className="flex gap-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]"
               >
                 <span className="mt-[5px] h-[5px] w-[5px] shrink-0 rounded-full bg-[var(--text-muted)]" />
                 {b}
               </li>
             ))}
           </ul>
-          <p className="text-[12px] leading-relaxed text-[var(--text-muted)]">
+          <p className="text-[0.82rem] leading-[1.7] text-[var(--text-muted)]">
             Eirene is not a medical device. It does not diagnose, treat,
             prevent, or cure any condition.
           </p>
@@ -174,10 +184,14 @@ export default function EirenePage() {
       {/* Privacy at a glance */}
       <section className="py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className={sectionHeadingClass}>
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+            />
             Privacy at a glance
           </h2>
-          <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
+          <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
             The app works offline. No account required. Privacy isn&apos;t a
             setting buried in a menu — it&apos;s just how it works.
           </p>
@@ -185,14 +199,14 @@ export default function EirenePage() {
             {privacyBullets.map((b) => (
               <li
                 key={b}
-                className="flex gap-3 text-[13px] font-light leading-relaxed text-[var(--text-secondary)]"
+                className="flex gap-3 text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]"
               >
                 <span className="mt-[5px] h-[5px] w-[5px] shrink-0 rounded-full bg-[var(--border)]" />
                 {b}
               </li>
             ))}
           </ul>
-          <p className="text-[13px] text-[var(--text-muted)]">
+          <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
             For the binding text, see the{" "}
             <Link href="/apps/eirene/privacy" className={accentLinkClass}>
               privacy policy
@@ -208,11 +222,15 @@ export default function EirenePage() {
         className="border-t border-[var(--border)] py-20 max-md:py-12"
       >
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className={sectionHeadingClass}>
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
+            />
             Get the app
           </h2>
-          <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
-            Available now on both marketplaces.
+          <p className="text-[0.95rem] font-light leading-[1.85] text-[var(--text-secondary)]">
+            Available now for iOS and Android.
           </p>
           <div className="flex gap-3 flex-wrap">
             <Link
@@ -240,14 +258,14 @@ export default function EirenePage() {
               />
             </Link>
           </div>
-          <p className="text-[12px] text-[var(--text-muted)]">
+          <p className="text-[0.82rem] leading-[1.7] text-[var(--text-muted)]">
             Haptic feedback depends on a device with a haptic motor.
           </p>
         </div>
       </section>
 
       {/* Footer links */}
-      <nav className="flex justify-center gap-6 pb-16 max-md:pb-10">
+      <nav className="flex justify-center gap-6 pb-16 max-md:pb-10 text-[0.95rem] font-light leading-[1.85]">
         <Link href="/apps/eirene/privacy" className={accentLinkClass}>
           Privacy Policy
         </Link>
