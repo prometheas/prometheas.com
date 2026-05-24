@@ -84,9 +84,13 @@ export default function EirenePage() {
                 Breathwork for people who take it seriously.
               </h1>
               <p className="text-[13px] text-white/50">
-                No ads. No sign-ups. Works perfectly offline. Just you and your
-                breath.
+                No ads. No account registrations. Works a dream offline, so you
+                can drop into airplane mode and practice without distractions.
               </p>
+              <p className="text-[13px] text-white/50">
+                Just you and your breath, in peace.
+              </p>
+
               <div>
                 <Link
                   href={`#${DOWNLOAD_SECTION_ID}`}
