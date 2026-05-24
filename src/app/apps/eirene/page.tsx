@@ -14,7 +14,7 @@ const accentLinkClass =
 export const metadata: Metadata = {
   title: "Eirene — Breathwork, safety-first",
   description:
-    "A breathwork practice tool built safety-first. No ads. No tracking. Now available on the App Store and Google Play.",
+    "A breathwork practice tool built safety-first. No ads. No sign-ups. Now available on the App Store and Google Play.",
   openGraph: {
     images: [{ url: "/apps/eirene/icon.png", width: 1024, height: 1024 }],
   },
@@ -27,14 +27,14 @@ const features = [
       "A handful of patterns worth practicing: beginner, intermediate, & advanced. Open the app, pick one, go.",
   },
   {
-    title: "Guided full-screen practice.",
+    title: "Guided practice.",
     description:
-      "An on-screen animation and optional haptic cues guide each breath, so you can practice with your eyes open or closed. The app won't fall asleep mid-session.",
+      "An on-screen animation and optional haptic cues guide each breath, so you can practice with your eyes open or closed. Place your phone on the pillow, next to your ear to hear guiding humming sounds, or just hold it in your hand to feel the vibrations.",
   },
   {
     title: "Pre-session safety guide.",
     description:
-      "A safety guide precedes each session. Not skippable — this practice deserves intention.",
+      "A safety guide precedes each session to remind you of best practices and potential risks.",
   },
 ];
 
@@ -84,10 +84,8 @@ export default function EirenePage() {
                 Breathwork for people who take it seriously.
               </h1>
               <p className="text-[13px] text-white/50">
-                No ads, no tracking. Just you and your breath.
-              </p>
-              <p className="text-[11px] text-white/30">
-                Now available for iPhone and Android
+                No ads. No sign-ups. Works perfectly offline. Just you and your
+                breath.
               </p>
               <div>
                 <Link
