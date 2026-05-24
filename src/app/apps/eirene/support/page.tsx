@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     "Get help with Eirene. Contact the developer or browse common questions.",
 };
 
+const accentLinkClass =
+  "text-[var(--accent)] no-underline transition-opacity hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)]";
+
 export default function EireneSupportPage() {
   return (
     <article className="max-w-[720px] mx-auto px-[4.5rem] max-md:px-6 py-20 max-md:py-12">
@@ -53,10 +56,7 @@ export default function EireneSupportPage() {
               Install the app, read through the safety interstitial on first
               launch, and run a session at the default settings before
               customizing. See the{" "}
-              <Link
-                href="/apps/eirene"
-                className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
-              >
+              <Link href="/apps/eirene" className={accentLinkClass}>
                 Eirene overview
               </Link>{" "}
               for more.
@@ -70,10 +70,7 @@ export default function EireneSupportPage() {
             <p className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light">
               Practice data stays on your device&mdash;it is stored locally and
               never transmitted. See the{" "}
-              <Link
-                href="/apps/eirene/privacy"
-                className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
-              >
+              <Link href="/apps/eirene/privacy" className={accentLinkClass}>
                 privacy policy
               </Link>{" "}
               for the full picture.
@@ -89,7 +86,7 @@ export default function EireneSupportPage() {
               exists, so there is nothing to clean up server-side. See the{" "}
               <Link
                 href="/apps/eirene/privacy#your-data-your-control"
-                className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
+                className={accentLinkClass}
               >
                 data section of the privacy policy
               </Link>
