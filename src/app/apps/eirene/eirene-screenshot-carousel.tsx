@@ -76,9 +76,9 @@ export function EireneScreenshotCarousel({
   return (
     <section className="py-20 max-md:py-12">
       <div className="mx-auto flex max-w-[800px] flex-col items-center gap-10 px-[4.5rem] max-md:px-6">
-        <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
+        <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
           The practice
-        </p>
+        </h2>
 
         <div className="grid w-full grid-cols-3 justify-items-center gap-6 max-md:hidden">
           {screenshots.map((screenshot) => (

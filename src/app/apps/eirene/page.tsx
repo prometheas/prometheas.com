@@ -122,9 +122,9 @@ export default function EirenePage() {
       {/* Features */}
       <section className="border-t border-[var(--border)] py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-10">
-          <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
             Features
-          </p>
+          </h2>
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-8">
             {features.map((f) => (
               <div key={f.title}>
@@ -143,9 +143,9 @@ export default function EirenePage() {
       {/* Safety */}
       <section className="border-y border-[var(--border)] bg-[var(--bg-muted)] py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
             Safety
-          </p>
+          </h2>
           <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
             Cyclic breathing is a real physiological practice. Lightheadedness,
             tingling, dizziness — these effects are part of how it works.
@@ -172,9 +172,9 @@ export default function EirenePage() {
       {/* Privacy at a glance */}
       <section className="py-20 max-md:py-12">
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
             Privacy at a glance
-          </p>
+          </h2>
           <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
             The app works offline. No account required. Privacy isn&apos;t a
             setting buried in a menu — it&apos;s just how it works.
@@ -206,9 +206,9 @@ export default function EirenePage() {
         className="border-t border-[var(--border)] py-20 max-md:py-12"
       >
         <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col gap-8">
-          <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
+          <h2 className="text-[11px] font-normal tracking-[0.15em] uppercase text-[var(--text-muted)]">
             Get the app
-          </p>
+          </h2>
           <p className="text-[14px] font-light leading-relaxed text-[var(--text-secondary)]">
             Available now on both marketplaces.
           </p>
