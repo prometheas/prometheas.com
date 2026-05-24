@@ -26,7 +26,7 @@ const features = [
   {
     title: "Built-in breathing sessions.",
     description:
-      "A handful of patterns worth practicing: beginner, intermediate, & advanced. Open the app, pick one, go.",
+      "A handful of patterns worth practicing: beginner, intermediate, & advanced. Nothing extra to download to get started beyond the app itself. Open the app, pick one, go.",
   },
   {
     title: "Guided practice.",
