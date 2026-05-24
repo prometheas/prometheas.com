@@ -83,7 +83,7 @@ export function EireneScreenshotCarousel({
             aria-hidden="true"
             className="h-2 w-2 shrink-0 rounded-full border-[1.5px] border-[var(--accent)]"
           />
-          The practice
+          Screenshots
         </h2>
 
         <div className="grid w-full grid-cols-3 justify-items-center gap-6 max-md:hidden">
