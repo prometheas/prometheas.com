@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { EireneScreenshotCarousel } from "./eirene-screenshot-carousel";
+
 const DOWNLOAD_SECTION_ID = "get-the-app";
 const APP_STORE_URL = "https://apps.apple.com/us/app/eirene/id6762246199";
 const GOOGLE_PLAY_URL =
@@ -46,6 +48,24 @@ const privacyBullets = [
   "No advertising trackers, no third-party data sharing for marketing.",
   "Any optional analytics are opt-in and explained at the moment of consent.",
   "Your session history and preferences live on your device.",
+];
+
+const screenshots = [
+  {
+    alt: "Eirene breathwork session screen",
+    label: "In session",
+    src: "https://github.com/user-attachments/assets/ef14e5a6-20b9-444a-a800-0369f1f9c712",
+  },
+  {
+    alt: "Eirene session controls",
+    label: "Session controls",
+    src: "https://github.com/user-attachments/assets/2d9e282f-531c-4a28-be3a-c8f5591113bc",
+  },
+  {
+    alt: "Eirene pre-session safety guide",
+    label: "Safety guide",
+    src: "https://github.com/user-attachments/assets/dd8ca4d9-c068-45a9-81ee-9aefdbda14f7",
+  },
 ];
 
 export default function EirenePage() {
@@ -97,55 +117,7 @@ export default function EirenePage() {
         </div>
       </section>
 
-      {/* Screenshot section */}
-      <section className="py-20 max-md:py-12">
-        <div className="max-w-[800px] mx-auto px-[4.5rem] max-md:px-6 flex flex-col items-center gap-10">
-          <p className="text-[11px] tracking-[0.15em] uppercase text-[var(--text-muted)]">
-            The practice
-          </p>
-          <div className="grid grid-cols-3 max-md:grid-cols-1 gap-6 w-full justify-items-center">
-            <div className="flex flex-col items-center gap-3">
-              <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://github.com/user-attachments/assets/ef14e5a6-20b9-444a-a800-0369f1f9c712"
-                  alt="Eirene breathwork session screen"
-                  className="block w-full"
-                />
-              </div>
-              <p className="text-center text-[12px] font-light text-[var(--text-muted)]">
-                In session
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://github.com/user-attachments/assets/2d9e282f-531c-4a28-be3a-c8f5591113bc"
-                  alt="Eirene session controls"
-                  className="block w-full"
-                />
-              </div>
-              <p className="text-center text-[12px] font-light text-[var(--text-muted)]">
-                Session controls
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="overflow-hidden rounded-[32px] bg-[var(--bg-muted)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://github.com/user-attachments/assets/dd8ca4d9-c068-45a9-81ee-9aefdbda14f7"
-                  alt="Eirene pre-session safety guide"
-                  className="block w-full"
-                />
-              </div>
-              <p className="text-center text-[12px] font-light text-[var(--text-muted)]">
-                Safety guide
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EireneScreenshotCarousel screenshots={screenshots} />
 
       {/* Features */}
       <section className="border-t border-[var(--border)] py-20 max-md:py-12">
