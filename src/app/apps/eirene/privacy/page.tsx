@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const EFFECTIVE_DATE = "May 5, 2026";
+const accentLinkClass =
+  "text-[var(--accent)] no-underline transition-opacity hover:opacity-70 dark:hover:opacity-100 dark:hover:text-[var(--accent-hover)]";
 
 export const metadata: Metadata = {
   title: "Eirene · Privacy Policy",
@@ -121,7 +123,7 @@ export default function EirenePrivacyPage() {
               href="https://posthog.com/privacy"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
+              className={accentLinkClass}
             >
               Privacy policy
             </a>
@@ -136,7 +138,7 @@ export default function EirenePrivacyPage() {
               href="https://sentry.io/privacy/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
+              className={accentLinkClass}
             >
               Privacy policy
             </a>
@@ -220,10 +222,7 @@ export default function EirenePrivacyPage() {
             contraindications; it is not appropriate for children. If you
             believe a child has provided information through the app, please
             contact us via the{" "}
-            <Link
-              href="/apps/eirene/support"
-              className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
-            >
+            <Link href="/apps/eirene/support" className={accentLinkClass}>
               support page
             </Link>
             .
@@ -238,10 +237,7 @@ export default function EirenePrivacyPage() {
         <div className="text-[0.95rem] text-[var(--text-secondary)] leading-[1.85] font-light">
           <p>
             For privacy questions, use the contact form on our{" "}
-            <Link
-              href="/apps/eirene/support"
-              className="underline underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
-            >
+            <Link href="/apps/eirene/support" className={accentLinkClass}>
               support page
             </Link>
             .
