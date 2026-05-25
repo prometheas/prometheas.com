@@ -18,14 +18,14 @@ fi
 
 case "$FILE_PATH" in
   *.js|*.jsx|*.ts|*.tsx|*.json|*.css)
-    npx @biomejs/biome format --write -- "$FILE_PATH" 2>/dev/null || \
+    npx @biomejs/biome format --write -- "$FILE_PATH" >/dev/null 2>&1 || \
       echo "[$HOOK_SOURCE] biome format failed for $FILE_PATH" >&2
     ;;
 esac
 
 case "$FILE_PATH" in
   *.js|*.jsx|*.ts|*.tsx)
-    npx eslint --fix -- "$FILE_PATH" 2>/dev/null || \
+    npx eslint --fix -- "$FILE_PATH" >/dev/null 2>&1 || \
       echo "[$HOOK_SOURCE] eslint --fix failed for $FILE_PATH" >&2
     ;;
 esac
